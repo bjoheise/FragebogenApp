@@ -9,7 +9,7 @@ public class DatabaseModel {
         Connection conn = null;
         try {
             // db parameters
-            String url = "jdbc:sqlite:DB/FragebogenDB.db";
+            String url = "jdbc:sqlite:src/DB/FragebogenDB.db";
             // create a connection to the database
             conn = DriverManager.getConnection(url);
 
