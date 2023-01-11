@@ -2,6 +2,8 @@ package Fragebogen;
 
 import java.util.Scanner;
 
+import static Fragebogen.Model.DatabaseModel.connect;
+
 public class BerechnungenTest {
 
     static int sel = 0;
@@ -13,7 +15,9 @@ public class BerechnungenTest {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        connect();
         berechnung();
+
     }
 
     public static void berechnung(){
