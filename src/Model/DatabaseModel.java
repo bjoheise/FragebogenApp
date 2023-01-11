@@ -1,4 +1,4 @@
-package Fragebogen.src.Model;
+package Fragebogen.Model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
