@@ -1,9 +1,9 @@
-package Fragebogen.src;
+package Fragebogen;
 
 public class Launcher {
 
     public static void main(String[] args) {
-        Egogram.run(args);
+        Fragebogen.src.Egogram.run(args);
     }
 
 }
