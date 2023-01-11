@@ -1,7 +1,7 @@
-package Fragebogen.src;
+package Fragebogen;
 
 import Fragebogen.Model.Question;
-import Fragebogen.src.Model.DatabaseModel;
+import Fragebogen.Model.DatabaseModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
