@@ -1,12 +1,14 @@
 package Fragebogen.Model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.sql.*;
 
 public class DatabaseModel {
+    static Connection conn = null;
     public static void connect() {
-        Connection conn = null;
+
         try {
             // db parameters
             String url = "jdbc:sqlite:src/DB/FragebogenDB.db";
@@ -26,5 +28,25 @@ public class DatabaseModel {
                 System.out.println(ex.getMessage());
             }
         }
+    }
+
+    public static void readQuestions() throws SQLException {
+
+        ObservableList<Question> questionList= FXCollections.observableArrayList();
+
+            String abfrage = "SELECT * FROM Fragen";
+            Statement statement = conn.createStatement();     //das Statement ist der Inhalt der Verknüpfung zur Datenbank aus "verbindung" und "connection";
+            ResultSet resultSetVar = statement.executeQuery(abfrage);  //Ist das Ergebnis aus dem Statement und dem Inhalt von "abfrage";
+
+            while (resultSetVar.next()) {
+                Integer id = resultSetVar.getInt("ID-Frage");
+                String frage = resultSetVar.getString("Frage");
+                Integer star = resultSetVar.getInt("Sternchen");
+
+                Question question = new Question(id,frage,star);
+                questionList.add(question);
+
+            }
+
     }
 }

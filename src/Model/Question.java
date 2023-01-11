@@ -95,7 +95,7 @@ public class Question {
         System.out.println("kel =" + kel);
 
 
-        System.exit(0);
+        //System.exit(0);
 
     }
 

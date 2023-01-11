@@ -16,6 +16,7 @@ public class Egogram extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         DatabaseModel.connect();
+        DatabaseModel.readQuestions();
         Question.berechnung();
     }
 
