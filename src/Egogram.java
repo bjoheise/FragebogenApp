@@ -1,12 +1,10 @@
 package Fragebogen;
 
-import Fragebogen.Model.Question;
-import Fragebogen.Model.DatabaseModel;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,37 +25,71 @@ public class Egogram extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-//        DatabaseModel.connect();
-//        Question.berechnung();
-
+        // Set the Primary-Stage, the Window of the Application
         this.primaryStage = primaryStage;
+
+        // Singleton
         instance = this;
 
+        // Set the parameters for the Window
         primaryStage.setTitle("Egogram");
         primaryStage.setWidth(1024);
         primaryStage.setHeight(768);
         primaryStage.setResizable(false);
 
+        // @see initRootLayout()
         initRootLayout();
+
+        // Display the Stage
+        primaryStage.show();
 
     }
 
+    /**
+     * Initialize Root-Layout
+     *
+     * @throws IOException
+     */
     private void initRootLayout() throws IOException {
 
+        // Instantiate FXMLLoader
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/Fragebogen/src/View/MainScene.fxml"));
+
+        // Loads the Root-Scene with a <BorderPane> XML-Tag
+        fxmlLoader.setLocation(getClass().getResource("/Fragebogen/View/MainScene.fxml"));
 
         rootLayout = fxmlLoader.load();
+
+        // Instantiate the Root-Scene
         Scene primaryScene = new Scene(rootLayout);
+
+        // Set the Root-Scene to the center of the <BorderPane> XML
         primaryStage.setScene(primaryScene);
 
     }
 
+    /**
+     * Loads a new Scene
+     *
+     * @param sceneToLoad
+     * @throws IOException
+     */
     private void loadScene(String sceneToLoad) throws IOException {
 
+        // Remove the Center-Scene in the <BorderPane> XML
         rootLayout.getChildren().remove(rootLayout.getCenter());
+
+        // Instantiate FXMLLoader
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/Fragebogen/src/View/" + sceneToLoad));
+
+        // Loads the new Scene (FXML)
+        loader.setLocation(getClass().getResource("/Fragebogen/View/" + sceneToLoad));
+
+        // Load the pane, previously initialized in "setLocation"
+        Pane pane = loader.load();
+
+        // Set the new Scene to the center of the <BorderPane> XML
+        rootLayout.setCenter(pane);
 
     }
 
