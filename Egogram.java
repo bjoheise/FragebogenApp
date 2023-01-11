@@ -1,5 +1,6 @@
 package Fragebogen;
 
+import Fragebogen.Model.Question;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -13,7 +14,7 @@ public class Egogram extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+        Question.berechnung();
     }
 
 }
