@@ -1,8 +1,4 @@
-package Fragebogen;
-
-import java.util.Scanner;
-
-import static Fragebogen.Model.DatabaseModel.connect;
+package Fragebogen.src;
 
 public class Launcher {
 

@@ -1,6 +1,7 @@
-package Fragebogen;
+package Fragebogen.src;
 
 import Fragebogen.Model.Question;
+import Fragebogen.src.Model.DatabaseModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -14,6 +15,7 @@ public class Egogram extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        DatabaseModel.connect();
         Question.berechnung();
     }
 
