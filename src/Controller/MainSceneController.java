@@ -43,7 +43,7 @@ public class MainSceneController {
      * @throws IOException
      */
     public void onButtonCoachClick(ActionEvent actionEvent) throws IOException {
-        Egogram.instance.loadScene("IntroSceneCoach.fxml");
+        Egogram.instance.loadScene("Coach/IntroSceneCoach.fxml");
     }
 
     /**
@@ -53,6 +53,6 @@ public class MainSceneController {
      * @throws IOException
      */
     public void onButtonClientClick(ActionEvent actionEvent) throws IOException {
-        Egogram.instance.loadScene("IntroSceneClient.fxml");
+        Egogram.instance.loadScene("Client/IntroSceneClient.fxml");
     }
 }

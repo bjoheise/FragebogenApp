@@ -1,4 +1,4 @@
-package Fragebogen.Controller;
+package Fragebogen.Controller.Client;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.RadioButton;

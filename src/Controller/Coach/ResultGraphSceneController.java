@@ -1,4 +1,4 @@
-package Fragebogen.Controller;
+package Fragebogen.Controller.Coach;
 
 public class ResultGraphSceneController {
 }
