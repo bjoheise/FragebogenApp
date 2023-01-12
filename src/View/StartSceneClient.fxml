@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.StartSceneClientController">
+    <children>
+        <Label layoutX="299.0" layoutY="267.0" text="Ich kann gut zuhören."/>
+        <VBox layoutX="299.0" layoutY="284.0" prefHeight="90.0" prefWidth="293.0">
+            <children>
+                <RadioButton fx:id="yesRadioButton" mnemonicParsing="false" onAction="#radioNoClick" text="Ja">
+                    <padding>
+                        <Insets bottom="10.0" top="20.0"/>
+                    </padding>
+                </RadioButton>
+                <RadioButton fx:id="noRadioButton" mnemonicParsing="false" onAction="#radioYesClick" text="Nein">
+                    <padding>
+                        <Insets bottom="20.0" top="10.0"/>
+                    </padding>
+                </RadioButton>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

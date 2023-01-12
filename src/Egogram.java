@@ -50,7 +50,7 @@ public class Egogram extends Application {
      *
      * @throws IOException
      */
-    private void initRootLayout() throws IOException {
+    public void initRootLayout() throws IOException {
 
         // Instantiate FXMLLoader
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -74,7 +74,7 @@ public class Egogram extends Application {
      * @param sceneToLoad
      * @throws IOException
      */
-    private void loadScene(String sceneToLoad) throws IOException {
+    public void loadScene(String sceneToLoad) throws IOException {
 
         // Remove the Center-Scene in the <BorderPane> XML
         rootLayout.getChildren().remove(rootLayout.getCenter());

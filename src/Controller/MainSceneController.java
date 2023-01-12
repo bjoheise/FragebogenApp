@@ -1,9 +1,12 @@
 package Fragebogen.Controller;
 
+import Fragebogen.Egogram;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+
+import java.io.IOException;
 
 public class MainSceneController {
 
@@ -25,4 +28,11 @@ public class MainSceneController {
 
     }
 
+    public void onButtonCoachClick(ActionEvent actionEvent) throws IOException {
+        Egogram.instance.loadScene("StartSceneCoach.fxml");
+    }
+
+    public void onButtonClientClick(ActionEvent actionEvent) throws IOException {
+        Egogram.instance.loadScene("StartSceneClient.fxml");
+    }
 }
