@@ -53,6 +53,6 @@ public class MainSceneController {
      * @throws IOException
      */
     public void onButtonClientClick(ActionEvent actionEvent) throws IOException {
-        Egogram.instance.loadScene("StartSceneClient.fxml");
+        Egogram.instance.loadScene("QuestionSceneClient.fxml");
     }
 }

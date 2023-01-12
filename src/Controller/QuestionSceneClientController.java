@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
-public class StartSceneClientController {
+public class QuestionSceneClientController {
 
     // Get Radio-Buttons from FXML
     public RadioButton yesRadioButton;
