@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171"
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.QuestionSceneClientController">
     <children>
-        <Label layoutX="299.0" layoutY="267.0" text="Ich kann gut zuhören."/>
-        <VBox layoutX="299.0" layoutY="284.0" prefHeight="90.0" prefWidth="293.0">
+        <Label layoutX="154.0" layoutY="145.0" text="Ich kann gut zuhören."/>
+        <VBox layoutX="154.0" layoutY="162.0" prefHeight="90.0" prefWidth="293.0">
             <children>
                 <RadioButton fx:id="yesRadioButton" mnemonicParsing="false" onAction="#radioYesClick" text="Ja">
                     <padding>

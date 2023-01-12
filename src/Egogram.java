@@ -33,8 +33,8 @@ public class Egogram extends Application {
 
         // Set the parameters for the Window
         primaryStage.setTitle("Egogram");
-        primaryStage.setWidth(1024);
-        primaryStage.setHeight(768);
+        primaryStage.setWidth(600);
+        primaryStage.setHeight(400);
         primaryStage.setResizable(false);
 
         // @see initRootLayout()
