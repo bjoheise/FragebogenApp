@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class StartSceneCoachController {
     public void onButtonShowGraphClick(ActionEvent actionEvent) throws IOException {
-        Egogram.instance.loadScene("ResultGraphScene.fxml");
+        Egogram.instance.loadScene("Coach/ResultGraphScene.fxml");
     }
 
     public void onButtonExportGraphClick(ActionEvent actionEvent) {
