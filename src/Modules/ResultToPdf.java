@@ -7,6 +7,7 @@ import com.itextpdf.layout.element.IBlockElement;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.properties.UnitValue;
+import javafx.scene.chart.BarChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
@@ -36,13 +37,13 @@ public class ResultToPdf {
             table.addCell("hi");
         }
 
-//        doc.add(table);
-//
-//        doc.close();
+        doc.add(table);
 
-        File f = new File(dest);
+        doc.close();
 
-        if (f.exists() && !f.isDirectory()) {
+        File pdfFile = new File(dest);
+
+        if (pdfFile.exists() && !pdfFile.isDirectory()) {
 
             // do something
             Alert alert = new Alert(
@@ -68,7 +69,6 @@ public class ResultToPdf {
             alert.showAndWait();
 
         }
-
 
     }
 
