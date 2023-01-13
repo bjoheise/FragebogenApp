@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="FragebogenDB" uuid="3ea6e4fa-7d04-40c2-8af3-64a7bd284d38">
+    <data-source source="LOCAL" name="FragebogenDB" uuid="5c52584c-9514-4497-ae56-f530047c8160">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\JAVA\it0322\src\OOP\FragebogenApp\FragebogenApp\src\DB\FragebogenDB.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\IT\Desktop\Java\FragebogenApp\src\DB\FragebogenDB.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.39.2/sqlite-jdbc-3.39.2.jar</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.39.2/xerial-sqlite-license.txt</url>
+        </library>
         <library>
           <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.39.2/sqlite-jdbc-3.39.2.jar</url>
         </library>

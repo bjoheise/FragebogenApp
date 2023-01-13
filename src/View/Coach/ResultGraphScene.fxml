@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.Coach.ResultGraphSceneController">
+    <children>
+        <StackedBarChart fx:id="bc" layoutX="19.0" layoutY="51.0" prefHeight="287.0" prefWidth="553.0">
+            <xAxis>
+                <CategoryAxis side="BOTTOM"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT"/>
+            </yAxis>
+        </StackedBarChart>
+        <Label layoutX="37.0" layoutY="26.0" text="Pseudonym:"/>
+        <Text layoutX="112.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ausgewählter Name hier"/>
+    </children>
+</AnchorPane>
