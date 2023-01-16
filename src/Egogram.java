@@ -17,7 +17,7 @@ public class Egogram extends Application {
 
     public static Egogram instance;
 
-    Stage primaryStage;
+    public Stage primaryStage;
 
     BorderPane rootLayout;
 

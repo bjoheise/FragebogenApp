@@ -1,41 +1,63 @@
 package Fragebogen.Modules;
 
+import Fragebogen.Model.Question;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.IBlockElement;
 import com.itextpdf.layout.element.Table;
-import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.properties.UnitValue;
-import javafx.scene.chart.BarChart;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.WritableImage;
+import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
 
 public class ResultToPdf {
 
     public static final String DEST = "./target/sandbox/tables/simple_table.pdf";
 
-    public void generatePdf() throws Exception {
+    public void generatePdf(Scene scene) throws Exception {
 
         File file = new File(DEST);
         file.getParentFile().mkdirs();
 
-        new ResultToPdf().manipulatePdf(DEST);
+        new ResultToPdf().manipulatePdf(DEST, scene);
 
     }
 
-    public void manipulatePdf(String dest) throws Exception {
+    public void manipulatePdf(String dest, Scene scene) throws Exception {
 
         PdfDocument pdfDoc = new PdfDocument(new PdfWriter(dest));
         Document doc = new Document(pdfDoc);
 
-        Table table = new Table(UnitValue.createPercentArray(8)).useAllAvailableWidth();
+        Table table = new Table(UnitValue.createPercentArray(2)).useAllAvailableWidth();
 
-        for (int i = 0; i < 16; i++) {
-            table.addCell("hi");
+        ObservableList<Question> observableListQuestion = FXCollections.observableArrayList();
+
+        observableListQuestion.add(new Question(0, "Was sind wir, warum und ... woher", 1));
+        observableListQuestion.add(new Question(1, "Wohin und weshalb", 0));
+        observableListQuestion.add(new Question(2, "Was sind wir, warum und ... woher", 1));
+
+        for (Question question : observableListQuestion) {
+
+            System.out.println(question.getFrage());
+            System.out.println(question.getId());
+
+            table.addCell(question.getFrage());
+            table.addCell(String.valueOf(question.getId()));
+
         }
+
+//        for (int i = 0; i < 16; i++) {
+//            table.addCell("hi");
+//        }
 
         doc.add(table);
 
@@ -71,5 +93,6 @@ public class ResultToPdf {
         }
 
     }
+
 
 }

@@ -1,9 +1,21 @@
 package Fragebogen.Controller.Coach;
 
+import Fragebogen.Egogram;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.chart.*;
+import javafx.scene.image.WritableImage;
+import javafx.stage.Stage;
+
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 
 public class ResultGraphSceneController {
 
+    // Loads the Root-Scene with a <BorderPane> XML-Tag
     final static String austria = "Kritisch";
     final static String brazil = "Stützend";
     final static String france = "Erwachsen";
@@ -15,7 +27,9 @@ public class ResultGraphSceneController {
 
         final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis = new NumberAxis();
+
         bc.setTitle("Egogramm");
+
         xAxis.setLabel("Anteil");
         yAxis.setLabel("Value");
 
@@ -42,4 +56,5 @@ public class ResultGraphSceneController {
         bc.getData().addAll(series1, series2, series3, series4, series5);
 
     }
+
 }
