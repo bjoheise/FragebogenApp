@@ -1,12 +1,13 @@
 package Fragebogen.Model;
 
-import java.util.Scanner;
-
 public class Question {
+
 
     int id;
     String frage;
     int star;
+
+
 
     public Question(int id, String frage, int star) {
         this.id = id;
@@ -14,7 +15,7 @@ public class Question {
         this.star = star;
     }
 
-    public int getId() {
+    public int getId(int i) {
         return id;
     }
 
@@ -37,4 +38,5 @@ public class Question {
     public void setStar(int star) {
         this.star = star;
     }
+
 }

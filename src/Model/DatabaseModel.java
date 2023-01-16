@@ -1,8 +1,11 @@
 package Fragebogen.Model;
 
+import Fragebogen.Egogram;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.sql.*;
 
 public class DatabaseModel {
@@ -13,6 +16,7 @@ public class DatabaseModel {
     public static int star;
     public static String frage1;
     public static int i = 1;
+    public static Label labelQuestion;
 
     public static void connect() {
 
@@ -29,11 +33,10 @@ public class DatabaseModel {
         }
     }
 
+    public static ObservableList<Question> questionList= FXCollections.observableArrayList();
     public static ObservableList<Question> readQuestions() throws SQLException {
 
         DatabaseModel.connect();
-        ObservableList<Question> questionList= FXCollections.observableArrayList();
-
 
 
             String abfrage = "SELECT * FROM Fragen;";
@@ -48,21 +51,16 @@ public class DatabaseModel {
 
                 Question question = new Question(id,frage,star);
                 questionList.add(question);
-
-
                 if (id==i) {
-                    /*System.out.print(id);
-                    System.out.print(" ");
-                    System.out.print(frage);
-                    System.out.print(" ");
-                    System.out.println(star);*/
                     frage1=frage;
                 }
-                //i++;
-                //id=2;
 
             }
             return questionList;
 
     }
+
+
+
+
 }

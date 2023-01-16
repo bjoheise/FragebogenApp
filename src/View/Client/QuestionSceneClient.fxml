@@ -26,6 +26,6 @@
                 </RadioButton>
             </children>
         </VBox>
-        <Button layoutX="407.0" layoutY="279.0" mnemonicParsing="false" onAction="#nextQuestion" text="Weiter"/>
+        <Button layoutX="407.0" layoutY="279.0" fx:id="nextButton" mnemonicParsing="false" onAction="#nextQuestion" text="Weiter"/>
     </children>
 </AnchorPane>
