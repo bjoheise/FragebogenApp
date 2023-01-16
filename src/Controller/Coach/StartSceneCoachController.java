@@ -29,7 +29,7 @@ public class StartSceneCoachController {
         System.out.println(buttonExport.getScene());
 
 
-        Scene scene = buttonExport.getScene();
+//        Scene scene = buttonExport.getScene();
         // @TODO: Print PDF via ArrayList
         ResultToPdf resultToPdf = new ResultToPdf();
 
@@ -37,6 +37,7 @@ public class StartSceneCoachController {
 
         JavaFXPlotter javaFXPlotter = new JavaFXPlotter();
         javaFXPlotter.generateChart();
+
 
     }
 

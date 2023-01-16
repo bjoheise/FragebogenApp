@@ -1,72 +1,59 @@
 package Fragebogen.Modules;
 
-import Fragebogen.Egogram;
 import com.itextpdf.io.exceptions.IOException;
-import javafx.embed.swing.JFXPanel;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.Scene;
-import javafx.scene.SnapshotParameters;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
+import javafx.scene.control.Button;
 import javafx.scene.image.WritableImage;
-import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
-import javax.sound.sampled.Line;
-import javax.swing.*;
 import java.io.File;
-import java.util.List;
 
 public class JavaFXPlotter {
 
+    Button buttonExport;
+
+    final static String austria = "Kritisch";
+    final static String brazil = "Stützend";
+    final static String france = "Erwachsen";
+    final static String italy = "Natürlich";
+    final static String usa = "Angepasst";
+
     public void generateChart() {
 
-//        Stage stage = Egogram.instance.start();
-
-        //defining the axes
-        final NumberAxis xAxis = new NumberAxis();
+        final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("Number of Month");
-        xAxis.setLabel("Number of Month");
-        //creating the chart
-        LineChart<Number, Number> lineChart =
-                new LineChart<Number, Number>(xAxis, yAxis);
-        lineChart.setTitle("Stock Monitoring, 2010");
-        //defining a series
-        XYChart.Series series = new XYChart.Series();
-        series.setName("My portfolio");
-        //populating the series with data
-        series.getData().add(new XYChart.Data(1, 23));
-        series.getData().add(new XYChart.Data(2, 14));
-        series.getData().add(new XYChart.Data(3, 15));
-        series.getData().add(new XYChart.Data(4, 24));
-        series.getData().add(new XYChart.Data(5, 34));
+        final StackedBarChart<String, Number> bc = new StackedBarChart<>(xAxis, yAxis);
+
+        bc.setTitle("Egogramm");
+
+        xAxis.setLabel("Anteil");
+        yAxis.setLabel("Value");
+
+        XYChart.Series series1 = new XYChart.Series();
+//            series1.setName("2003");
+        series1.getData().add(new XYChart.Data(austria, 50));
+
+        XYChart.Series series2 = new XYChart.Series();
+//            series2.setName("2004");
+        series2.getData().add(new XYChart.Data(brazil, 70));
+
+        XYChart.Series series3 = new XYChart.Series();
+//            series3.setName("2005");
+        series3.getData().add(new XYChart.Data(france, 30));
+
+        XYChart.Series series4 = new XYChart.Series();
+//            series3.setName("2005");
+        series4.getData().add(new XYChart.Data(italy, 15));
+
+        XYChart.Series series5 = new XYChart.Series();
+//            series3.setName("2005");
+        series5.getData().add(new XYChart.Data(usa, 20));
+
+        bc.getData().addAll(series1, series2, series3);
 
 
-        lineChart.setAnimated(false);
-        lineChart.getData().add(series);
-
-        System.out.println(lineChart);
-
-        WritableImage image = lineChart;
-        File file = new File("./target/sandbox/pdf/simple_table.png");
-        ImageIO.write(SwingFXUtils.fromFXImage(image, null), "PNG", file);
-
-
-        //        WritableImage image = scene.snapshot(null);
-//        File file = new File("./target/sandbox/tables/test.png");
-//        ImageIO.write(SwingFXUtils.fromFXImage(image, null), "PNG", file);
-//        System.out.println("Image Saved");
-
-
-        try {
-            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
-        } catch (IOException | java.io.IOException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("After show");
     }
 
     public static void saveAsPng(Scene scene, String path) {
