@@ -19,5 +19,17 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="FragebogenDB [2]" uuid="93022209-c1cd-47c9-b7c7-a586fe5db987">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\IT\Documents\GitHub\FragebogenApp\src\DB\FragebogenDB.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.39.2/sqlite-jdbc-3.39.2.jar</url>
+        </library>
+      </libraries>
+    </data-source>
   </component>
 </project>

@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class Egogram extends Application {
 
@@ -26,7 +27,7 @@ public class Egogram extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) throws IOException, SQLException {
 
         // Set the Primary-Stage, the Window of the Application
         this.primaryStage = primaryStage;
@@ -46,9 +47,9 @@ public class Egogram extends Application {
         // Display the Stage
         primaryStage.show();
       
-        DatabaseModel.connect();
+
         DatabaseModel.readQuestions();
-        Calculation.algorhythm();
+        //Calculation.algorhythm();
 
     }
 
@@ -97,5 +98,5 @@ public class Egogram extends Application {
 
         // Set the new Scene to the center of the <BorderPane> XML
         rootLayout.setCenter(pane);
-
+    }
 }

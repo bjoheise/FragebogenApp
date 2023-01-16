@@ -8,6 +8,12 @@ import java.sql.*;
 public class DatabaseModel {
     static Connection conn;
 
+    public static int id;
+    public static String frage;
+    public static int star;
+    public static String frage1;
+    public static int i = 1;
+
     public static void connect() {
 
         try {
@@ -25,9 +31,10 @@ public class DatabaseModel {
 
     public static ObservableList<Question> readQuestions() throws SQLException {
 
+        DatabaseModel.connect();
         ObservableList<Question> questionList= FXCollections.observableArrayList();
 
-        int i =4;
+
 
             String abfrage = "SELECT * FROM Fragen;";
             Statement statement = conn.createStatement();     //das Statement ist der Inhalt der Verknüpfung zur Datenbank aus "verbindung" und "connection";
@@ -35,22 +42,25 @@ public class DatabaseModel {
 
 
             while (resultSetVar.next()) {
-                int id = resultSetVar.getInt("ID-Frage");
-                String frage = resultSetVar.getString("Frage");
-                int star = resultSetVar.getInt("Sternchen");
+                id = resultSetVar.getInt("ID-Frage");
+                frage = resultSetVar.getString("Frage");
+                star = resultSetVar.getInt("Sternchen");
 
                 Question question = new Question(id,frage,star);
                 questionList.add(question);
 
 
                 if (id==i) {
-                    System.out.print(id);
+                    /*System.out.print(id);
                     System.out.print(" ");
                     System.out.print(frage);
                     System.out.print(" ");
-                    System.out.println(star);
+                    System.out.println(star);*/
+                    frage1=frage;
                 }
                 //i++;
+                //id=2;
+
             }
             return questionList;
 
