@@ -1,11 +1,14 @@
 package Fragebogen.Controller.Client;
 
 import Fragebogen.Egogram;
+import Fragebogen.Model.Calculation;
 import Fragebogen.Model.DatabaseModel;
 import Fragebogen.Model.Question;
+import Fragebogen.Model.Calculation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -18,9 +21,27 @@ import static Fragebogen.Model.DatabaseModel.*;
 public class QuestionSceneClientController {
 
     // Get Radio-Buttons from FXML
-    public RadioButton yesRadioButton;
+    public  RadioButton yesRadioButton;
     public RadioButton noRadioButton;
+
+    public RadioButton getYesRadioButton() {
+        return yesRadioButton;
+    }
+
+    public void setYesRadioButton(RadioButton yesRadioButton) {
+        this.yesRadioButton = yesRadioButton;
+    }
+
+    public RadioButton getNoRadioButton() {
+        return noRadioButton;
+    }
+
+    public void setNoRadioButton(RadioButton noRadioButton) {
+        this.noRadioButton = noRadioButton;
+    }
+
     public Label labelQuestion;
+    public Button nextButton;
 
     private int counter = 0;
 
@@ -36,6 +57,7 @@ public class QuestionSceneClientController {
         // Set the Radio-Button-Group
         yesRadioButton.setToggleGroup(clientAnswer);
         noRadioButton.setToggleGroup(clientAnswer);
+        nextButton.setDisable(true);
         labelQuestion.setText(frage1);
         //labelQuestion.setText(String.valueOf(id));
         questionList = DatabaseModel.readQuestions();
@@ -47,6 +69,7 @@ public class QuestionSceneClientController {
      */
     public void radioYesClick(ActionEvent actionEvent) {
         boolean isSelected = yesRadioButton.isSelected();
+        nextButton.setDisable(false);
         System.out.println("Yes");
     }
 
@@ -56,19 +79,38 @@ public class QuestionSceneClientController {
      */
     public void radioNoClick(ActionEvent actionEvent) {
         boolean isSelected = noRadioButton.isSelected();
+        nextButton.setDisable(false);
         System.out.println("no");
     }
 
     public void nextQuestion(ActionEvent actionEvent) throws IOException, SQLException {
 
-
         counter++;
         if(counter > questionList.size()) {
             return;
         }
-
         String frage =  questionList.get(counter).getFrage();
         labelQuestion.setText(frage);
+        
+
+        if(yesRadioButton.isSelected()){
+            Calculation.bw++;
+
+            if(DatabaseModel.star == 1){
+                Calculation.kel++;
+            }
+        }
+        System.out.println("bw:" + Calculation.bw + " kel:" + Calculation.kel);
+        Calculation.sel = Calculation.bw -Calculation.kel;
+        System.out.println("sel:" + Calculation.sel);
+
+        noRadioButton.setSelected(false);
+        yesRadioButton.setSelected(false);
+        nextButton.setDisable(true);
+        //Calculation.algorhythm();
+
+
+
 
     }
 }

@@ -1,12 +1,13 @@
 package Fragebogen.Model;
 
 import java.util.Scanner;
+import Fragebogen.Controller.Client.QuestionSceneClientController;
 
 public class Calculation {
 
-    static int sel = 0;
-    static int kel = 0;
-    static int bw = 0;
+     public static int sel = 0;
+     public static int kel = 0;
+     public static int bw = 0;
     int er = 0;
     int nki = 0;
     int aki = 0;
@@ -67,7 +68,7 @@ public class Calculation {
     }
 
     // ALGORTHYTHM TEIL 1/3
-    public static void algorhythm() {
+    public void berechnung() {
 
         int antwort1, antwort2, antwort3;
 
@@ -96,6 +97,22 @@ public class Calculation {
         System.out.println("kel =" + kel);
 
     }
+
+/*
+    public void algorhythm(){
+        if(QuestionSceneClientController.getYesRadioButton()){
+            bw++;
+
+            if(DatabaseModel.star == 1){
+            kel++;
+            }
+        }
+        System.out.println("bw:" + bw + " kel:" + kel);
+        sel = bw -kel;
+        System.out.println("sel:" + sel);
+
+    }
+*/
 
 
 
