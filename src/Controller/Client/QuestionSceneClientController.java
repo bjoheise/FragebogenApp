@@ -87,7 +87,7 @@ public class QuestionSceneClientController {
         Calculation.algorhythm(questionList, yesRadioButton, noRadioButton, counter);
 
         counter++;
-        String frage =  questionList.get(counter).getFrage();
+
         labelQuestion.setText(frage);
         noRadioButton.setSelected(false);
         yesRadioButton.setSelected(false);
