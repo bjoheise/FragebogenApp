@@ -19,7 +19,7 @@ import java.util.Arrays;
 
 public class ResultGraphSceneController {
 
-    public BarChart<String, Number> barChart;
+    public StackedBarChart<String, Number> barChart;
     public CategoryAxis xAxis;
     public NumberAxis yAxis;
 
@@ -28,59 +28,56 @@ public class ResultGraphSceneController {
     }
 
     public void buildChart() {
-//        CategoryAxis xAxis = new CategoryAxis();
-//        xAxis.setCategories(FXCollections.<String>observableArrayList(Arrays.asList(
-//                "Speed", "User rating", "Mileage")));
+
+
+//        barChart.setTitle("Egogram");
+//        barChart.setLegendVisible(false);
+//        barChart.setAnimated(false);
+//
+//        barChart.setBarGap(0);
+//        barChart.setCategoryGap(0);
+////        barChart.setHorizontalGridLinesVisible(true);
+//
+//        xAxis.setLabel("Anteile");
+//        xAxis.setCategories(FXCollections
+//                .<String>observableArrayList(Arrays.asList(
+//                "Euro",
+//                "Euro2"
+//                )));
 //        xAxis.setLabel("category");
 //
-////Defining the y axis
-//        NumberAxis yAxis = new NumberAxis(0, 100, 5);
-//        yAxis.setLabel("score");
-////Creating the Bar chart
-//        StackedBarChart<String, Number> barChart = new StackedBarChart<>(xAxis, yAxis);
-//        barChart.setTitle("Comparison between various cars");
 //
-//        //Prepare XYChart.Series objects by setting data
-//        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
-//        series1.getData().add(new XYChart.Data<>("Speed", 15.0));
+//        yAxis.setLabel("%");
+//        yAxis.setAnimated(false);
+        yAxis.setAutoRanging(false);
+        yAxis.setLowerBound(0);
+        yAxis.setUpperBound(100);
+
+//        XYChart.Series series1 = new XYChart.Series();
+//        series1.getData().add(new XYChart.Data("Kritisches", 15));
 //
-//        XYChart.Series<String, Number> series2 = new XYChart.Series<>();
-//        series2.getData().add(new XYChart.Data<>("User rating", 64.0));
+//        XYChart.Series series2 = new XYChart.Series();
+//        series2.getData().add(new XYChart.Data("2", 85));
 //
-//        XYChart.Series<String, Number> series3 = new XYChart.Series<>();
-//
-//        series3.getData().add(new XYChart.Data<>("Mileage", 21.0));
-//
-//        //Setting the data to bar chart
-//        barChart.getData().addAll(series1, series2, series3);
-//        Group root = new Group(barChart);
-//        Scene scene = new Scene(root, 600, 300);
-//        Egogram.instance.primaryStage.setScene(scene);
-//        Egogram.instance.primaryStage.show();
+//        XYChart.Series series3 = new XYChart.Series();
+//        series3.getData().add(new XYChart.Data("3", 55));
 
-        barChart.setTitle("Egogram");
-        barChart.setBarGap(20);
-        barChart.setCategoryGap(50);
+        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
+        series1.getData().add(new XYChart.Data<String, Number>("Kritisch", 42));
 
-        xAxis.setLabel("Anteile");
+        XYChart.Series<String, Number> series2 = new XYChart.Series<>();
+        series2.getData().add(new XYChart.Data<String, Number>("Stützend", 79));
 
-        yAxis.setLabel("%");
-        yAxis.setAnimated(false);
+        XYChart.Series<String, Number> series3 = new XYChart.Series<>();
+        series3.getData().add(new XYChart.Data<String, Number>("Erwachsen", 58));
 
-        XYChart.Series series1 = new XYChart.Series();
-        series1.setName("2003");
-        series1.getData().add(new XYChart.Data("1", 15));
+        XYChart.Series<String, Number> series4 = new XYChart.Series<>();
+        series4.getData().add(new XYChart.Data<String, Number>("Natürlich", 13));
 
-        XYChart.Series series2 = new XYChart.Series();
-        series2.setName("2005");
-        series2.getData().add(new XYChart.Data("2", 85));
+        XYChart.Series<String, Number> series5 = new XYChart.Series<>();
+        series5.getData().add(new XYChart.Data<String, Number>("Angepasst", 25));
 
-        XYChart.Series series3 = new XYChart.Series();
-        series3.setName("2005");
-        series3.getData().add(new XYChart.Data("3", 55));
-
-        barChart.getData().addAll(series1, series2, series3);
-
+        barChart.getData().addAll(series1, series2, series3, series4, series5);
 
     }
 
