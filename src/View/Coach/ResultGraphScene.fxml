@@ -16,7 +16,7 @@
         <Button layoutX="270.0" layoutY="22.0" mnemonicParsing="false" text="Export als PDF"/>
         <StackedBarChart fx:id="barChart" alternativeRowFillVisible="false" animated="false"
                          horizontalZeroLineVisible="false" layoutX="35.0" layoutY="63.0" legendVisible="false"
-                         prefHeight="281.0" prefWidth="530.0" scaleShape="false" title="Egogram">
+                         prefHeight="237.0" prefWidth="530.0" scaleShape="false" title="Egogram">
             <xAxis>
                 <CategoryAxis side="BOTTOM" fx:id="xAxis"/>
             </xAxis>

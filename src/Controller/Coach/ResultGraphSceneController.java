@@ -29,38 +29,9 @@ public class ResultGraphSceneController {
 
     public void buildChart() {
 
-
-//        barChart.setTitle("Egogram");
-//        barChart.setLegendVisible(false);
-//        barChart.setAnimated(false);
-//
-//        barChart.setBarGap(0);
-//        barChart.setCategoryGap(0);
-////        barChart.setHorizontalGridLinesVisible(true);
-//
-//        xAxis.setLabel("Anteile");
-//        xAxis.setCategories(FXCollections
-//                .<String>observableArrayList(Arrays.asList(
-//                "Euro",
-//                "Euro2"
-//                )));
-//        xAxis.setLabel("category");
-//
-//
-//        yAxis.setLabel("%");
-//        yAxis.setAnimated(false);
         yAxis.setAutoRanging(false);
         yAxis.setLowerBound(0);
         yAxis.setUpperBound(100);
-
-//        XYChart.Series series1 = new XYChart.Series();
-//        series1.getData().add(new XYChart.Data("Kritisches", 15));
-//
-//        XYChart.Series series2 = new XYChart.Series();
-//        series2.getData().add(new XYChart.Data("2", 85));
-//
-//        XYChart.Series series3 = new XYChart.Series();
-//        series3.getData().add(new XYChart.Data("3", 55));
 
         XYChart.Series<String, Number> series1 = new XYChart.Series<>();
         series1.getData().add(new XYChart.Data<String, Number>("Kritisch", 42));
