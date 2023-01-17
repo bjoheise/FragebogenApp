@@ -21,6 +21,6 @@
                 <NumberAxis fx:id="yAxis" side="LEFT" />
             </yAxis>
         </StackedBarChart>
-      <Button layoutX="290.0" layoutY="316.0" mnemonicParsing="false" onAction="#onButtonBackClick" text="Zurück" />
+      <Button layoutX="386.0" layoutY="22.0" mnemonicParsing="false" onAction="#onButtonBackClick" text="Zurück" />
     </children>
 </AnchorPane>
