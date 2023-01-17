@@ -33,7 +33,7 @@ public class StartSceneCoachController {
         // @TODO: Print PDF via ArrayList
         ResultToPdf resultToPdf = new ResultToPdf();
 
-//        resultToPdf.generatePdf(scene);
+        resultToPdf.generatePdf();
 
         JavaFXPlotter javaFXPlotter = new JavaFXPlotter();
         javaFXPlotter.generateChart();
