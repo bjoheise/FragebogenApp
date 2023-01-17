@@ -86,24 +86,28 @@ public class QuestionSceneClientController {
     public void nextQuestion(ActionEvent actionEvent) throws IOException, SQLException {
 
         counter++;
+
+
         if(counter > questionList.size()) {
             return;
         }
         String frage =  questionList.get(counter).getFrage();
-        labelQuestion.setText(frage);
+        int star = questionList.get(counter).getStar();
+
         
 
-        if(yesRadioButton.isSelected()){
-            Calculation.bw++;
+            if(yesRadioButton.isSelected()){
+                Calculation.bw++;
 
-            if(DatabaseModel.star == 1){
-                Calculation.kel++;
+                if(star == 1){
+                    Calculation.kel++;
+                }
             }
-        }
-        System.out.println("bw:" + Calculation.bw + " kel:" + Calculation.kel);
-        Calculation.sel = Calculation.bw -Calculation.kel;
-        System.out.println("sel:" + Calculation.sel);
+            System.out.println("bw:" + Calculation.bw + " kel:" + Calculation.kel);
+            Calculation.sel = Calculation.bw -Calculation.kel;
+            System.out.println("sel:" + Calculation.sel);
 
+        labelQuestion.setText(frage);
         noRadioButton.setSelected(false);
         yesRadioButton.setSelected(false);
         nextButton.setDisable(true);

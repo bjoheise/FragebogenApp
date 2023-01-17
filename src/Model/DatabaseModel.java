@@ -15,6 +15,8 @@ public class DatabaseModel {
     public static String frage;
     public static int star;
     public static String frage1;
+    public static int star1;
+
     public static int i = 1;
     public static Label labelQuestion;
 
@@ -53,6 +55,7 @@ public class DatabaseModel {
                 questionList.add(question);
                 if (id==i) {
                     frage1=frage;
+                    //star1 = star;
                 }
 
             }
