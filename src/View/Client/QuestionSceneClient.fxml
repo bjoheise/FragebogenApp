@@ -11,7 +11,7 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="Fragebogen.Controller.Client.QuestionSceneClientController">
     <children>
-        <Label layoutX="154.0" layoutY="145.0" text="Ich kann gut zuhören."/>
+        <Label fx:id="labelQuestion" layoutX="154.0" layoutY="145.0" text="Soll es los gehen?"/>
         <VBox layoutX="154.0" layoutY="162.0" prefHeight="90.0" prefWidth="293.0">
             <children>
                 <RadioButton fx:id="yesRadioButton" mnemonicParsing="false" onAction="#radioYesClick" text="Ja">
@@ -26,6 +26,6 @@
                 </RadioButton>
             </children>
         </VBox>
-        <Button layoutX="407.0" layoutY="279.0" mnemonicParsing="false" text="Weiter"/>
+        <Button layoutX="407.0" layoutY="279.0" fx:id="nextButton" mnemonicParsing="false" onAction="#nextQuestion" text="Weiter"/>
     </children>
 </AnchorPane>
