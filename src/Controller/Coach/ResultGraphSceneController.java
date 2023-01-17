@@ -1,6 +1,7 @@
 package Fragebogen.Controller.Coach;
 
 import Fragebogen.Egogram;
+import Fragebogen.Modules.ResultToPdf;
 import javafx.collections.FXCollections;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -9,6 +10,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.*;
+import javafx.scene.control.Button;
 import javafx.scene.image.WritableImage;
 import javafx.stage.Stage;
 
@@ -23,6 +25,8 @@ public class ResultGraphSceneController {
     public StackedBarChart<String, Number> barChart;
     public CategoryAxis xAxis;
     public NumberAxis yAxis;
+    public Button buttonExport;
+    public Group chartGroup;
 
     public void initialize() {
         this.buildChart();
@@ -30,6 +34,15 @@ public class ResultGraphSceneController {
 
     public void onButtonBackClick(ActionEvent actionEvent) throws IOException {
         Egogram.instance.loadScene("Coach/IntroSceneCoach.fxml");
+    }
+
+    public void onButtonExportClick(ActionEvent actionEvent) {
+
+        Scene scene = buttonExport.getScene();
+//        // @TODO: Print PDF via ArrayList
+//        ResultToPdf resultToPdf = new ResultToPdf();
+//        resultToPdf.generatePdf(chartGroup);
+
     }
 
     public void buildChart() {
@@ -56,5 +69,6 @@ public class ResultGraphSceneController {
         barChart.getData().addAll(series1, series2, series3, series4, series5);
 
     }
+
 
 }

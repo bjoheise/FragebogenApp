@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Group?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.StackedBarChart?>
@@ -8,19 +9,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.Coach.ResultGraphSceneController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.Coach.ResultGraphSceneController">
     <children>
-        <Label layoutX="37.0" layoutY="26.0" text="Pseudonym:" />
-        <Text layoutX="112.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ausgewählter Name hier" />
-        <Button layoutX="270.0" layoutY="22.0" mnemonicParsing="false" text="Export als PDF" />
-        <StackedBarChart fx:id="barChart" alternativeRowFillVisible="false" animated="false" horizontalZeroLineVisible="false" layoutX="35.0" layoutY="63.0" legendVisible="false" prefHeight="237.0" prefWidth="530.0" scaleShape="false" title="Egogram">
+        <Label layoutX="37.0" layoutY="26.0" text="Pseudonym:"/>
+        <Text layoutX="112.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ausgewählter Name hier"/>
+
+        <Button layoutX="336.0" layoutY="22.0" mnemonicParsing="false" onAction="#onButtonExportClick" text="Export"/>
+        <Button layoutX="386.0" layoutY="22.0" mnemonicParsing="false" onAction="#onButtonBackClick" text="Zurück"/>
+
+        <StackedBarChart fx:id="barChart" alternativeRowFillVisible="false" animated="false"
+                         horizontalZeroLineVisible="false" layoutX="36.0" layoutY="62.0" legendVisible="false"
+                         prefHeight="237.0" prefWidth="530.0" scaleShape="false" title="Egogram">
             <xAxis>
-                <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+                <CategoryAxis side="BOTTOM" fx:id="xAxis"/>
             </xAxis>
             <yAxis>
-                <NumberAxis fx:id="yAxis" side="LEFT" />
+                <NumberAxis fx:id="yAxis" side="LEFT"/>
             </yAxis>
         </StackedBarChart>
-      <Button layoutX="386.0" layoutY="22.0" mnemonicParsing="false" onAction="#onButtonBackClick" text="Zurück" />
     </children>
 </AnchorPane>

@@ -24,23 +24,6 @@ public class StartSceneCoachController {
         Egogram.instance.loadScene("Coach/ResultGraphScene.fxml");
     }
 
-    public void onButtonExportGraphClick(ActionEvent actionEvent) throws Exception {
-
-        System.out.println(buttonExport.getScene());
-
-
-//        Scene scene = buttonExport.getScene();
-        // @TODO: Print PDF via ArrayList
-        ResultToPdf resultToPdf = new ResultToPdf();
-
-        resultToPdf.generatePdf();
-
-        JavaFXPlotter javaFXPlotter = new JavaFXPlotter();
-        javaFXPlotter.generateChart();
-
-
-    }
-
     public void onButtonExitClick(ActionEvent actionEvent) {
 
         // Instantiate Alert Object
