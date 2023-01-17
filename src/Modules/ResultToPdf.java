@@ -1,12 +1,13 @@
 package Fragebogen.Modules;
 
+import Fragebogen.Model.Question;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.IBlockElement;
 import com.itextpdf.layout.element.Table;
-import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.properties.UnitValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
@@ -30,19 +31,35 @@ public class ResultToPdf {
         PdfDocument pdfDoc = new PdfDocument(new PdfWriter(dest));
         Document doc = new Document(pdfDoc);
 
-        Table table = new Table(UnitValue.createPercentArray(8)).useAllAvailableWidth();
+        Table table = new Table(UnitValue.createPercentArray(2)).useAllAvailableWidth();
+
+        ObservableList<Question> observableListQuestion = FXCollections.observableArrayList();
+
+        observableListQuestion.add(new Question(0, "Was sind wir, warum und ... woher", 1));
+        observableListQuestion.add(new Question(1, "Wohin und weshalb", 0));
+        observableListQuestion.add(new Question(2, "Was sind wir, warum und ... woher", 1));
+
+        for (Question question : observableListQuestion) {
+
+            System.out.println(question.getFrage());
+            System.out.println(question.getId());
+
+            table.addCell(question.getFrage());
+            table.addCell(String.valueOf(question.getId()));
+
+        }
 
         for (int i = 0; i < 16; i++) {
             table.addCell("hi");
         }
 
-//        doc.add(table);
-//
-//        doc.close();
+        doc.add(table);
 
-        File f = new File(dest);
+        doc.close();
 
-        if (f.exists() && !f.isDirectory()) {
+        File pdfFile = new File(dest);
+
+        if (pdfFile.exists() && !pdfFile.isDirectory()) {
 
             // do something
             Alert alert = new Alert(
@@ -69,7 +86,7 @@ public class ResultToPdf {
 
         }
 
-
     }
+
 
 }

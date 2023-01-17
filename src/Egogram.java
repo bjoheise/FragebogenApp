@@ -17,7 +17,7 @@ public class Egogram extends Application {
 
     public static Egogram instance;
 
-    Stage primaryStage;
+    public Stage primaryStage;
 
     BorderPane rootLayout;
 
@@ -46,11 +46,9 @@ public class Egogram extends Application {
 
         // Display the Stage
         primaryStage.show();
-      
 
         DatabaseModel.readQuestions();
         //Calculation.algorhythm();
-
     }
 
     /**
