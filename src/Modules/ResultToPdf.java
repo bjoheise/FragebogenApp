@@ -8,31 +8,25 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.UnitValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.image.WritableImage;
-import javafx.stage.Stage;
 
-import javax.imageio.ImageIO;
 import java.io.File;
-import java.util.Arrays;
-import java.util.List;
 
 public class ResultToPdf {
 
     public static final String DEST = "./target/sandbox/tables/simple_table.pdf";
 
-    public void generatePdf(Scene scene) throws Exception {
+    public void generatePdf() throws Exception {
 
         File file = new File(DEST);
         file.getParentFile().mkdirs();
 
-        new ResultToPdf().manipulatePdf(DEST, scene);
+        new ResultToPdf().manipulatePdf(DEST);
 
     }
 
-    public void manipulatePdf(String dest, Scene scene) throws Exception {
+    public void manipulatePdf(String dest) throws Exception {
 
         PdfDocument pdfDoc = new PdfDocument(new PdfWriter(dest));
         Document doc = new Document(pdfDoc);
@@ -55,9 +49,9 @@ public class ResultToPdf {
 
         }
 
-//        for (int i = 0; i < 16; i++) {
-//            table.addCell("hi");
-//        }
+        for (int i = 0; i < 16; i++) {
+            table.addCell("hi");
+        }
 
         doc.add(table);
 

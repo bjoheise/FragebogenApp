@@ -3,6 +3,7 @@ package Fragebogen.Controller.Coach;
 import Fragebogen.Egogram;
 import javafx.collections.FXCollections;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -25,6 +26,10 @@ public class ResultGraphSceneController {
 
     public void initialize() {
         this.buildChart();
+    }
+
+    public void onButtonBackClick(ActionEvent actionEvent) throws IOException {
+        Egogram.instance.loadScene("Coach/IntroSceneCoach.fxml");
     }
 
     public void buildChart() {
