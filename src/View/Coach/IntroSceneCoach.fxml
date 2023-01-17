@@ -12,7 +12,8 @@
       <Label layoutX="226.0" layoutY="109.0" text="Client-ID eingeben:"/>
       <Button layoutX="226.0" layoutY="163.0" mnemonicParsing="false" onAction="#onButtonShowGraphClick"
               prefHeight="25.0" prefWidth="149.0" text="Anzeigen"/>
-      <Button layoutX="226.0" layoutY="206.0" mnemonicParsing="false" onAction="#onButtonExportGraphClick"
+      <Button fx:id="buttonExport" layoutX="226.0" layoutY="206.0" mnemonicParsing="false"
+              onAction="#onButtonExportGraphClick"
               prefHeight="25.0" prefWidth="149.0" text="Exportieren"/>
       <Button layoutX="226.0" layoutY="249.0" mnemonicParsing="false" onAction="#onButtonExitClick" prefHeight="25.0"
               prefWidth="149.0" text="Programm Beenden"/>
