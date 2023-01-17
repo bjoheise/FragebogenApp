@@ -11,6 +11,7 @@ public class IntroSceneClientController {
     public void onStartButtonClick(ActionEvent actionEvent) throws IOException, SQLException {
         Egogram.instance.loadScene("Client/QuestionSceneClient.fxml");
 
+
     }
 
 }

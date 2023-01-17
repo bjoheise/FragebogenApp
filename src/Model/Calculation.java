@@ -2,6 +2,9 @@ package Fragebogen.Model;
 
 import java.util.Scanner;
 import Fragebogen.Controller.Client.QuestionSceneClientController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.RadioButton;
 
 public class Calculation {
 
@@ -98,21 +101,28 @@ public class Calculation {
 
     }
 
-/*
-    public void algorhythm(){
-        if(QuestionSceneClientController.getYesRadioButton()){
-            bw++;
 
-            if(DatabaseModel.star == 1){
-            kel++;
-            }
+    public static void algorhythm(ObservableList<Question> questionList, RadioButton yesRadioButton, RadioButton noRadioButton, int counter){
+
+
+        if(counter > questionList.size()) {
+            return;
         }
-        System.out.println("bw:" + bw + " kel:" + kel);
-        sel = bw -kel;
-        System.out.println("sel:" + sel);
+        int star = questionList.get(counter).getStar();
+
+        if(yesRadioButton.isSelected()){
+            Calculation.bw++;
+
+            if(star == 1){
+                Calculation.kel++;
+            }
+            System.out.println("bw:" + Calculation.bw + " kel:" + Calculation.kel);
+            Calculation.sel = Calculation.bw -Calculation.kel;
+            System.out.println("sel:" + Calculation.sel);
+        }
 
     }
-*/
+
 
 
 

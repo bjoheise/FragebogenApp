@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="FragebogenDB" uuid="5c52584c-9514-4497-ae56-f530047c8160">
-      <driver-ref>sqlite.xerial</driver-ref>
+      <driver-ref>24e632da-fd02-472b-afe5-8b09fc5eb541</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\IT\Desktop\Java\FragebogenApp\src\DB\FragebogenDB.db</jdbc-url>
@@ -24,6 +24,18 @@
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\IT\Documents\GitHub\FragebogenApp\src\DB\FragebogenDB.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.39.2/sqlite-jdbc-3.39.2.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="FragebogenDB [3]" uuid="c24dac5b-a112-47a0-bf40-2c94d32544ff">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\JAVA\it0322\src\OOP\FragebogenApp\FragebogenApp\src\DB\FragebogenDB.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
