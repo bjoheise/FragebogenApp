@@ -12,7 +12,7 @@
     <children>
         <Label layoutX="37.0" layoutY="26.0" text="Pseudonym:" />
         <Text layoutX="112.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ausgewählter Name hier" />
-        <Button layoutX="270.0" layoutY="22.0" mnemonicParsing="false" text="Export als PDF" />
+<!--        <Button layoutX="270.0" layoutY="22.0" mnemonicParsing="false" text="Export als PDF" />-->
         <StackedBarChart fx:id="barChart" alternativeRowFillVisible="false" animated="false" horizontalZeroLineVisible="false" layoutX="35.0" layoutY="63.0" legendVisible="false" prefHeight="237.0" prefWidth="530.0" scaleShape="false" title="Egogram">
             <xAxis>
                 <CategoryAxis side="BOTTOM" fx:id="xAxis" />
