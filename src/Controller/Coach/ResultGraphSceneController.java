@@ -6,19 +6,25 @@ import javafx.collections.FXCollections;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.chart.*;
 import javafx.scene.control.Button;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.xml.sax.ErrorHandler;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+
+import static javafx.embed.swing.SwingFXUtils.fromFXImage;
 
 public class ResultGraphSceneController {
 
@@ -36,12 +42,16 @@ public class ResultGraphSceneController {
         Egogram.instance.loadScene("Coach/IntroSceneCoach.fxml");
     }
 
-    public void onButtonExportClick(ActionEvent actionEvent) {
+    public void onButtonExportClick(ActionEvent actionEvent) throws Exception {
 
-        Scene scene = buttonExport.getScene();
-//        // @TODO: Print PDF via ArrayList
-//        ResultToPdf resultToPdf = new ResultToPdf();
-//        resultToPdf.generatePdf(chartGroup);
+        // Get the node (StackedBarChart) via ID on Button Click
+        Node node = buttonExport.getParent().lookup("#barChart");
+
+
+        // Instantiate PDF-Generator
+        ResultToPdf resultToPdf = new ResultToPdf();
+        // Call Method to generate PDF
+        resultToPdf.generatePdf(node);
 
     }
 

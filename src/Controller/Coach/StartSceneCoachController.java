@@ -1,16 +1,12 @@
 package Fragebogen.Controller.Coach;
 
 import Fragebogen.Egogram;
-import Fragebogen.Modules.JavaFXPlotter;
-import Fragebogen.Modules.ResultToPdf;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
