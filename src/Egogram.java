@@ -6,11 +6,16 @@ import Fragebogen.Model.DatabaseModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.awt.*;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
 
 public class Egogram extends Application {
@@ -20,6 +25,7 @@ public class Egogram extends Application {
     public Stage primaryStage;
 
     BorderPane rootLayout;
+
 
     public static void run(String[] args) {
         launch(args);
@@ -36,7 +42,12 @@ public class Egogram extends Application {
         instance = this;
 
         // Set the parameters for the Window
-        primaryStage.setTitle("Egogram");
+        InputStream iconStream = getClass().getResourceAsStream("Res/logo.png");
+
+        Image image = new Image(iconStream);
+
+        primaryStage.getIcons().add(image);
+        primaryStage.setTitle("Fragebogen App");
         primaryStage.setWidth(600);
         primaryStage.setHeight(400);
         primaryStage.setResizable(false);
@@ -100,5 +111,6 @@ public class Egogram extends Application {
         rootLayout.setCenter(pane);
 
     }
+
 
 }
