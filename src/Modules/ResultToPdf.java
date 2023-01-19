@@ -42,10 +42,10 @@ public class ResultToPdf {
         for (Question question : observableListQuestion) {
 
             System.out.println(question.getFrage());
-            System.out.println(question.getId());
+           // System.out.println(question.getId());
 
             table.addCell(question.getFrage());
-            table.addCell(String.valueOf(question.getId()));
+            //table.addCell(String.valueOf(question.getId()));
 
         }
 

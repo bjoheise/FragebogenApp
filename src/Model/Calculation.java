@@ -8,12 +8,13 @@ import javafx.scene.control.RadioButton;
 
 public class Calculation {
 
-     public static int sel = 0;
-     public static int kel = 0;
-     public static int bw = 0;
-    int er = 0;
-    int nki = 0;
-    int aki = 0;
+    public static int sel = 0;
+    public static int kel = 0;
+    public static int bw = 0;
+    public static int er = 0;
+    public static int nki = 0;
+    public static int aki = 0;
+    public static int jw = 0;
     static Scanner scanner = new Scanner(System.in);
 
     public Calculation(int er, int nki, int aki) {
@@ -102,31 +103,49 @@ public class Calculation {
     }
 
 
-    public static void algorhythm(ObservableList<Question> questionList, RadioButton yesRadioButton, RadioButton noRadioButton, int counter){
+    public static void algorhythm(ObservableList<Question> questionList, RadioButton yesRadioButton, RadioButton noRadioButton, int counter) {
 
 
-        if(counter > questionList.size()) {
+        if (counter > questionList.size()) {
             return;
         }
         int star = questionList.get(counter).getStar();
 
-        if(yesRadioButton.isSelected()){
-            Calculation.bw++;
+        if (counter < 60) {
 
-            if(star == 1){
-                Calculation.kel++;
+            if (yesRadioButton.isSelected()) {
+                Calculation.bw++;
+
+                if (star == 1) {
+                    Calculation.kel++;
+                }
+                System.out.println("bw:" + Calculation.bw + " kel:" + Calculation.kel);
+                Calculation.sel = Calculation.bw - Calculation.kel;
+                System.out.println("sel:" + Calculation.sel);
             }
-            System.out.println("bw:" + Calculation.bw + " kel:" + Calculation.kel);
-            Calculation.sel = Calculation.bw -Calculation.kel;
-            System.out.println("sel:" + Calculation.sel);
+        } else if (counter < 104) {
+            if (yesRadioButton.isSelected()) {
+                Calculation.er++;
+                System.out.println("er:" + Calculation.er);
+            }
+        } else {
+            if (yesRadioButton.isSelected()) {
+                Calculation.jw++;
+
+                if (star == 1) {
+                    Calculation.nki++;
+                }
+                System.out.println("jw:" + Calculation.jw + " nki:" + Calculation.nki);
+                Calculation.aki = Calculation.jw - Calculation.nki;
+                System.out.println("aki:" + Calculation.aki);
+            }
         }
-
     }
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
