@@ -41,6 +41,7 @@ public class Egogram extends Application {
         InputStream iconStream = getClass().getResourceAsStream("Res/logo.png");
 
         Image image = new Image(iconStream);
+
         primaryStage.getIcons().add(image);
         primaryStage.setTitle("Egogram");
         primaryStage.setWidth(600);
