@@ -41,7 +41,7 @@ public class QuestionSceneClientController {
     public  Label labelQuestion;
     public Button nextButton;
 
-    public int counter = 139;
+    public int counter = 0;
 
     //String frage1 = frage;
     public ObservableList<Question> questionList= FXCollections.observableArrayList();
