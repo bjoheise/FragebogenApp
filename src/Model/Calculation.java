@@ -15,6 +15,11 @@ public class Calculation {
     public static int nki = 0;
     public static int aki = 0;
     public static int jw = 0;
+    public static int scalekel = 0;
+    public static int scalesel = 0;
+    public static int scaleer = 0;
+    public static int scalenki = 0;
+    public static int scaleaki = 0;
     static Scanner scanner = new Scanner(System.in);
 
     public Calculation(int er, int nki, int aki) {
@@ -71,37 +76,7 @@ public class Calculation {
         this.aki = aki;
     }
 
-    // ALGORTHYTHM TEIL 1/3
-    public void berechnung() {
-
-        int antwort1, antwort2, antwort3;
-
-        System.out.println("Ich kann gut zuhören. (j=1/n=0)");
-        antwort1 = scanner.nextInt();
-        System.out.println("Ich neige dazu, in Gruppen tonangebend sein zu wollen. (j=1/n=0)");
-        antwort2 = scanner.nextInt();
-        System.out.println("Es scheint, dass ich anderen bald einmal widerspreche. (j=1/n=0)");
-        antwort3 = scanner.nextInt();
-
-        if (antwort1 == 1) {
-            bw++;
-        }
-        if (antwort2 == 1) {
-            bw++;
-            kel++;
-        }
-        if (antwort3 == 1) {
-            bw++;
-            kel++;
-        }
-
-        sel = bw - kel;
-
-        System.out.println("sel =" + sel);
-        System.out.println("kel =" + kel);
-
-    }
-
+    // ALGORTHYTHM TEIL 1+2+3
 
     public static void algorhythm(ObservableList<Question> questionList, RadioButton yesRadioButton, RadioButton noRadioButton, int counter) {
 
@@ -140,9 +115,357 @@ public class Calculation {
                 System.out.println("aki:" + Calculation.aki);
             }
         }
+        
+    }
+
+    public static void skala() {
+
+
+        switch (kel) {
+            case 1:
+                scalekel = 0;
+                break;
+            case 2:
+                scalekel = 0;
+                break;
+            case 3:
+                scalekel = 5;
+                break;
+            case 4:
+                scalekel = 8;
+                break;
+            case 5:
+                scalekel = 10;
+                break;
+            case 6:
+                scalekel = 15;
+                break;
+            case 7:
+                scalekel = 20;
+                break;
+            case 8:
+                scalekel = 25;
+                break;
+            case 9:
+                scalekel = 30;
+                break;
+            case 10:
+                scalekel = 35;
+                break;
+            case 11:
+                scalekel = 40;
+                break;
+            case 12:
+                scalekel = 50;
+                break;
+            case 13:
+                scalekel = 55;
+                break;
+            case 14:
+                scalekel = 60;
+                break;
+            case 15:
+                scalekel = 65;
+                break;
+            case 16:
+                scalekel = 70;
+                break;
+            case 17:
+                scalekel = 75;
+                break;
+            case 18:
+                scalekel = 80;
+                break;
+            case 19:
+                scalekel = 85;
+                break;
+            case 20:
+                scalekel = 90;
+                break;
+            case 21:
+                scalekel = 95;
+                break;
+
+        }
+        switch (sel) {
+            case 1:
+                scalesel = 0;
+                break;
+            case 2:
+                scalesel = 0;
+                break;
+            case 3:
+                scalesel = 2;
+                break;
+            case 4:
+                scalesel = 3;
+                break;
+            case 5:
+                scalesel = 5;
+                break;
+            case 6:
+                scalesel = 8;
+                break;
+            case 7:
+                scalesel = 10;
+                break;
+            case 8:
+                scalesel = 13;
+                break;
+            case 9:
+                scalesel = 17;
+                break;
+            case 10:
+                scalesel = 20;
+                break;
+            case 11:
+                scalesel = 25;
+                break;
+            case 12:
+                scalesel = 30;
+                break;
+            case 13:
+                scalesel = 35;
+                break;
+            case 14:
+                scalesel = 40;
+                break;
+            case 15:
+                scalesel = 45;
+                break;
+            case 16:
+                scalesel = 50;
+                break;
+            case 17:
+                scalesel = 55;
+                break;
+            case 18:
+                scalesel = 60;
+                break;
+            case 19:
+                scalesel = 65;
+                break;
+            case 20:
+                scalesel = 70;
+                break;
+            case 21:
+                scalesel = 75;
+                break;
+            case 22:
+                scalesel = 80;
+                break;
+            case 23:
+                scalesel = 83;
+                break;
+            case 24:
+                scalesel = 87;
+                break;
+            case 25:
+                scalesel = 90;
+                break;
+            case 26:
+                scalesel = 92;
+                break;
+            case 27:
+                scalesel = 93;
+                break;
+            case 28:
+                scalesel = 95;
+                break;
+
+        }
+        switch (er) {
+            case 1-13:
+                scaleer = 0;
+                break;
+            case 14:
+                scaleer = 5;
+                break;
+            case 15:
+                scaleer = 8;
+                break;
+            case 16:
+                scaleer = 10;
+                break;
+            case 17:
+                scaleer = 15;
+                break;
+            case 18:
+                scaleer = 20;
+                break;
+            case 19:
+                scaleer = 23;
+                break;
+            case 20:
+                scaleer = 27;
+                break;
+            case 21:
+                scaleer = 30;
+                break;
+            case 22:
+                scaleer = 35;
+                break;
+            case 23:
+                scaleer = 40;
+                break;
+            case 24:
+                scaleer = 43;
+                break;
+            case 25:
+                scaleer = 47;
+                break;
+            case 26:
+                scaleer = 50;
+                break;
+            case 27:
+                scaleer = 53;
+                break;
+            case 28:
+                scaleer = 57;
+                break;
+            case 29:
+                scaleer = 60;
+                break;
+            case 30:
+                scaleer = 65;
+                break;
+            case 31:
+                scaleer = 70;
+                break;
+            case 32:
+                scaleer = 75;
+                break;
+            case 33:
+                scaleer = 80;
+                break;
+            case 34:
+                scaleer = 83;
+                break;
+            case 35:
+                scaleer = 87;
+                break;
+            case 36:
+                scaleer = 90;
+                break;
+            case 37:
+                scaleer = 93;
+                break;
+            case 38:
+                scaleer = 95;
+                break;
+        }
+        switch (scalenki) {
+            case 1:
+                scalenki = 0;
+                break;
+            case 2:
+                scalenki = 5;
+                break;
+            case 3:
+                scalenki = 10;
+                break;
+            case 4:
+                scalenki = 15;
+                break;
+            case 5:
+                scalenki = 20;
+                break;
+            case 6:
+                scalenki = 25;
+                break;
+            case 7:
+                scalenki = 30;
+                break;
+            case 8:
+                scalenki = 40;
+                break;
+            case 9:
+                scalenki = 50;
+                break;
+            case 10:
+                scalenki = 60;
+                break;
+            case 11:
+                scalenki = 65;
+                break;
+            case 12:
+                scalenki = 70;
+                break;
+            case 13:
+                scalenki = 80;
+                break;
+            case 14:
+                scalenki = 85;
+                break;
+            case 15:
+                scalenki = 90;
+                break;
+            case 16:
+                scalenki = 93;
+                break;
+            case 17:
+                scalenki = 95;
+                break;
+
+        }
+        switch (scaleaki) {
+            case 1:
+                scaleaki = 0;
+                break;
+            case 2:
+                scaleaki = 5;
+                break;
+            case 3:
+                scaleaki = 10;
+                break;
+            case 4:
+                scaleaki = 15;
+                break;
+            case 5:
+                scaleaki = 20;
+                break;
+            case 6:
+                scaleaki = 25;
+                break;
+            case 7:
+                scaleaki = 30;
+                break;
+            case 8:
+                scaleaki = 40;
+                break;
+            case 9:
+                scaleaki = 50;
+                break;
+            case 10:
+                scaleaki = 60;
+                break;
+            case 11:
+                scaleaki = 65;
+                break;
+            case 12:
+                scaleaki = 70;
+                break;
+            case 13:
+                scaleaki = 80;
+                break;
+            case 14:
+                scaleaki = 85;
+                break;
+            case 15:
+                scaleaki = 90;
+                break;
+            case 16:
+                scaleaki = 93;
+                break;
+            case 17:
+                scaleaki = 95;
+                break;
+
+        }
+
+
     }
 }
-
 
 
 
