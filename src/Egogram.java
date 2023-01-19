@@ -79,6 +79,8 @@ public class Egogram extends Application {
         // Set the Root-Scene to the center of the <BorderPane> XML
         primaryStage.setScene(primaryScene);
 
+        this.loadScene("StartScene.fxml");
+
     }
 
     /**
@@ -103,5 +105,6 @@ public class Egogram extends Application {
 
         // Set the new Scene to the center of the <BorderPane> XML
         rootLayout.setCenter(pane);
+
     }
 }

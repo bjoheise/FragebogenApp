@@ -13,9 +13,6 @@ import java.io.IOException;
 
 public class StartSceneCoachController {
 
-    @FXML
-    Button buttonExport;
-
     public void onButtonShowGraphClick(ActionEvent actionEvent) throws IOException {
         Egogram.instance.loadScene("Coach/ResultGraphScene.fxml");
     }
@@ -39,5 +36,9 @@ public class StartSceneCoachController {
             System.exit(0);
         }
 
+    }
+
+    public void onButtonBackClick(ActionEvent actionEvent) throws IOException {
+        Egogram.instance.loadScene("StartScene.fxml");
     }
 }
