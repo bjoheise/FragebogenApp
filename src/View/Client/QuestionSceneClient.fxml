@@ -25,6 +25,6 @@
             </children>
         </VBox>
         <Button fx:id="nextButton" layoutX="407.0" layoutY="279.0" mnemonicParsing="false" onAction="#nextQuestion" text="Weiter" />
-      <Text fx:id="labelQuestion" layoutX="154.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="317.13671875" />
+      <Text fx:id="labelQuestion" layoutX="154.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="317.13671875" />
     </children>
 </AnchorPane>

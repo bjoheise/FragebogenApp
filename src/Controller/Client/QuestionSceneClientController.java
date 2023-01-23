@@ -43,14 +43,21 @@ public class QuestionSceneClientController {
 //    public  Label labelQuestion;
     public Text labelQuestion;
     public Button nextButton;
+    public int fragenid;
 
     public int counter = 0;
-
+    public int fragencounter = 1;
     //String frage1 = frage;
     public ObservableList<Question> questionList= FXCollections.observableArrayList();
 
     // On Scene-Load
     public void initialize() throws SQLException {
+
+        questionList = DatabaseModel.readQuestions();
+        //Calculation.algorhythm(questionList, yesRadioButton, noRadioButton, counter);
+        //counter++;
+        String firstQuestionText = questionList.get(0).getFrage();
+        fragencounter = 1;
 
         // Instantiate new Toddle-Group
         ToggleGroup clientAnswer = new ToggleGroup();
@@ -59,10 +66,11 @@ public class QuestionSceneClientController {
         yesRadioButton.setToggleGroup(clientAnswer);
         noRadioButton.setToggleGroup(clientAnswer);
         nextButton.setDisable(true);
+        //questionList.get(counter).getStar();
 
-        labelQuestion.setText(frage1);
-        //labelQuestion.setText(String.valueOf(id));
-        questionList = DatabaseModel.readQuestions();
+        labelQuestion.setText(fragencounter + ".) " + firstQuestionText);
+
+
     }
 
     /**
@@ -87,19 +95,25 @@ public class QuestionSceneClientController {
 
     public void nextQuestion(ActionEvent actionEvent) throws IOException, SQLException {
 
-        Calculation.algorhythm(questionList, yesRadioButton, noRadioButton, counter);
 
+        fragencounter++;
+
+        Calculation.algorhythm(questionList, yesRadioButton, noRadioButton, counter);
         counter++;
         String frage = questionList.get(counter).getFrage();
 
-        labelQuestion.setText(frage);
+        labelQuestion.setText(fragencounter + ".) " + frage);
+
         noRadioButton.setSelected(false);
         yesRadioButton.setSelected(false);
         nextButton.setDisable(true);
 
-        if (counter==143){
+        if (fragencounter == 143){
             Egogram.instance.loadScene("Client/EndSceneClient.fxml");
         }
+
+
+
     }
 
 }
