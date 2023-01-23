@@ -15,6 +15,9 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="150.0" layoutY="260.0" mnemonicParsing="false" onAction="#onStartButtonClick" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: #FF640A;" text="Start" />
+      <Button layoutX="150.0" layoutY="260.0" mnemonicParsing="false" onAction="#onStartButtonClick" prefHeight="30.0" prefWidth="300.0" stylesheets="@../../Res/hover.css" text="Start" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>
