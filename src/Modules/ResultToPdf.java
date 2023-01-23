@@ -2,7 +2,6 @@ package Fragebogen.Modules;
 
 import Fragebogen.Model.Calculation;
 import Fragebogen.Model.Question;
-import com.itextpdf.io.exceptions.IOException;
 import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -19,6 +18,7 @@ import com.itextpdf.layout.properties.ListNumberingType;
 import com.itextpdf.layout.properties.UnitValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Bounds;
 import javafx.scene.*;
 import javafx.scene.control.Alert;
@@ -27,6 +27,7 @@ import javafx.scene.image.WritableImage;
 
 import javax.imageio.ImageIO;
 import java.io.File;
+import java.io.IOException;
 
 import static javafx.embed.swing.SwingFXUtils.fromFXImage;
 
@@ -83,12 +84,12 @@ public class ResultToPdf {
         // Generate a PNG of the Egogram to put it into the pdf
         this.saveAsPng(node);
         // Create an ImageData object
-        ImageData data = ImageDataFactory.create(TEMP_IMG_DEST);
-        Image img = new Image(data);
+//        ImageData data = ImageDataFactory.create(TEMP_IMG_DEST);
+//        Image img = new Image(data);
 
         // Add the elements
         doc.add(p);
-        doc.add(img);
+//        doc.add(img);
         doc.add(list);
 
         // Close the PDF
@@ -133,27 +134,27 @@ public class ResultToPdf {
      *
      * @param node
      */
-    public void saveAsPng(Node node) {
+    public void saveAsPng(Node node) throws IOException {
 
         // Create file
-        File file = new File(TEMP_IMG_DEST);
-        // Get the height and width of the selected ID
-        Bounds bounds = node.getBoundsInParent();
-
-        // Create Image from the selected ID
-        WritableImage writableImage = new WritableImage((int) bounds.getWidth(), (int) bounds.getHeight());
-
-        // Set Snapshot Parameters
-        SnapshotParameters params = new SnapshotParameters();
-        // Snapshot the Scene
-        node.snapshot(params, writableImage);
-
-        // Save the Image
-        try {
-            ImageIO.write(fromFXImage(writableImage, null), "png", file);
-        } catch (IOException | java.io.IOException e) {
-            e.printStackTrace();
-        }
+//        File file = new File(TEMP_IMG_DEST);
+//        // Get the height and width of the selected ID
+//        Bounds bounds = node.getBoundsInParent();
+//
+//        // Create Image from the selected ID
+//        WritableImage writableImage = new WritableImage((int) bounds.getWidth(), (int) bounds.getHeight());
+//
+//        // Set Snapshot Parameters
+//        SnapshotParameters params = new SnapshotParameters();
+//        // Snapshot the Scene
+//        node.snapshot(params, writableImage);
+//
+//        // Save the Image
+//        try {
+//            ImageIO.write(fromFXImage(writableImage, null), "png", file);
+//        } catch (IOException | java.io.IOException e) {
+//            e.printStackTrace();
+//        }
 
         // Refinement: Try without saving the image:
 //        WritableImage image = node.snapshot(new SnapshotParameters(), null);
@@ -171,6 +172,14 @@ public class ResultToPdf {
 //        String base64_image = base64_enc.encodeToString(pgnBytes);
 //        byte[] data = Base64.decodeBase64(base64_image);
 //        Image image2 = new Image(ImageDataFactory.create(data));
+
+//        ((Group))
+
+
+        WritableImage image = node.snapshot(new SnapshotParameters(), null);
+        File file = new File(TEMP_IMG_DEST);
+        ImageIO.write(SwingFXUtils.fromFXImage(image, null), "PNG", file);
+        System.out.println("Image Saved");
 
 
     }
