@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -39,10 +40,11 @@ public class QuestionSceneClientController {
         this.noRadioButton = noRadioButton;
     }
 
-    public  Label labelQuestion;
+//    public  Label labelQuestion;
+    public Text labelQuestion;
     public Button nextButton;
 
-    public int counter = 137;
+    public int counter = 0;
 
     //String frage1 = frage;
     public ObservableList<Question> questionList= FXCollections.observableArrayList();
