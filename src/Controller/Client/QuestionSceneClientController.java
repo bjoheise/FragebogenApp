@@ -1,5 +1,6 @@
 package Fragebogen.Controller.Client;
 
+import Fragebogen.Egogram;
 import Fragebogen.Model.Calculation;
 import Fragebogen.Model.DatabaseModel;
 import Fragebogen.Model.Question;
@@ -41,7 +42,7 @@ public class QuestionSceneClientController {
     public  Label labelQuestion;
     public Button nextButton;
 
-    public int counter = 0;
+    public int counter = 137;
 
     //String frage1 = frage;
     public ObservableList<Question> questionList= FXCollections.observableArrayList();
@@ -93,6 +94,10 @@ public class QuestionSceneClientController {
         noRadioButton.setSelected(false);
         yesRadioButton.setSelected(false);
         nextButton.setDisable(true);
+
+        if (counter==143){
+            Egogram.instance.loadScene("Client/EndSceneClient.fxml");
+        }
     }
 
 }
