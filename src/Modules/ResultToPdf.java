@@ -3,24 +3,19 @@ package Fragebogen.Modules;
 import Fragebogen.Model.Calculation;
 import Fragebogen.Model.Question;
 import com.itextpdf.io.font.constants.StandardFonts;
-import com.itextpdf.io.image.ImageData;
-import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.ListNumberingType;
-import com.itextpdf.layout.properties.UnitValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.geometry.Bounds;
 import javafx.scene.*;
+import javafx.scene.chart.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.WritableImage;
@@ -28,8 +23,8 @@ import javafx.scene.image.WritableImage;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
-
-import static javafx.embed.swing.SwingFXUtils.fromFXImage;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ResultToPdf {
 
@@ -46,22 +41,16 @@ public class ResultToPdf {
         File file = new File(PDF_DEST);
         file.getParentFile().mkdirs();
 
-        this.manipulatePdf(PDF_DEST, node, questionObservableList);
+        // this.manipulatePdf(PDF_DEST, questionObservableList);
 
     }
 
-    /**
-     * @param dest                   File-Destination
-     * @param node                   Node of which the screenshot is taken from
-     * @param questionObservableList
-     * @throws Exception
-     */
-    public void manipulatePdf(String dest, Node node, ObservableList<Question> questionObservableList) throws Exception {
+    public void manipulatePdf(ArrayList<Integer> scaleValues) throws Exception {
 
         String pseudonym = "Karl";
 
         // Create File
-        PdfDocument pdfDoc = new PdfDocument(new PdfWriter(dest));
+        PdfDocument pdfDoc = new PdfDocument(new PdfWriter(PDF_DEST));
         // Create Document
         Document doc = new Document(pdfDoc);
 
@@ -73,16 +62,16 @@ public class ResultToPdf {
 
         List list = new List(ListNumberingType.DECIMAL);
 
-        for (Question question : questionObservableList) {
-
-            String content = question.getFrage() + ": " + question.getStar();
-
-            list.add(content);
-
-        }
+        // for (Question question : scaleValues) {
+        //
+        //     String content = question.getFrage() + ": " + question.getStar();
+        //
+        //     list.add(content);
+        //
+        // }
 
         // Generate a PNG of the Egogram to put it into the pdf
-        this.saveAsPng(node);
+        this.saveAsPng(scaleValues);
         // Create an ImageData object
 //        ImageData data = ImageDataFactory.create(TEMP_IMG_DEST);
 //        Image img = new Image(data);
@@ -96,13 +85,14 @@ public class ResultToPdf {
         doc.close();
 
         // Delete the Temp Image File
-        File tempImage = new File(TEMP_IMG_DEST);
-        if (tempImage.delete()) {
-            System.out.println(tempImage.getName() + " deleted.");
-        }
+        // File tempImage = new File(TEMP_IMG_DEST);
+        // if (tempImage.delete()) {
+        //     System.out.println(tempImage.getName() + " deleted.");
+        // }
 
         // Check if the file exists
-        File pdfFile = new File(dest);
+        File pdfFile = new File(PDF_DEST);
+
         if (pdfFile.exists() && !pdfFile.isDirectory()) {
 
             Alert alert = new Alert(
@@ -131,60 +121,76 @@ public class ResultToPdf {
 
     /**
      * Takes a Screenshot of a node and saves it as png
-     *
-     * @param node
      */
-    public void saveAsPng(Node node) throws IOException {
+    public void saveAsPng(ArrayList<Integer> scaleValues) throws IOException {
 
-        // Create file
-//        File file = new File(TEMP_IMG_DEST);
-//        // Get the height and width of the selected ID
-//        Bounds bounds = node.getBoundsInParent();
-//
-//        // Create Image from the selected ID
-//        WritableImage writableImage = new WritableImage((int) bounds.getWidth(), (int) bounds.getHeight());
-//
-//        // Set Snapshot Parameters
-//        SnapshotParameters params = new SnapshotParameters();
-//        // Snapshot the Scene
-//        node.snapshot(params, writableImage);
-//
-//        // Save the Image
-//        try {
-//            ImageIO.write(fromFXImage(writableImage, null), "png", file);
-//        } catch (IOException | java.io.IOException e) {
-//            e.printStackTrace();
-//        }
+        File file = new File("./target/egogram.png");
 
-        // Refinement: Try without saving the image:
-//        WritableImage image = node.snapshot(new SnapshotParameters(), null);
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        try {
-//            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", baos);
-//        }
-//        catch (IOException e) {
-//            //bla
-//        } catch (java.io.IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        byte pgnBytes [] = baos.toByteArray();
-//        Base64.Encoder base64_enc = Base64.getEncoder();
-//        String base64_image = base64_enc.encodeToString(pgnBytes);
-//        byte[] data = Base64.decodeBase64(base64_image);
-//        Image image2 = new Image(ImageDataFactory.create(data));
+        Scene scene = new Scene(new Group(), 600, 400);
 
-//        ((Group))
+        ((Group) scene.getRoot()).getChildren().add(this.buildChart());
 
-
-        WritableImage image = node.snapshot(new SnapshotParameters(), null);
-        File file = new File(TEMP_IMG_DEST);
+        // Saving the scene as image
+        WritableImage image = scene.snapshot(null);
         ImageIO.write(SwingFXUtils.fromFXImage(image, null), "PNG", file);
-        System.out.println("Image Saved");
 
+        System.out.println("Image Saved");
 
     }
 
-    public void getPdfBw() {
+    /**
+     * @return barChart
+     */
+    public StackedBarChart<String, Number> buildChart() {
+
+        // @TODO: Get Values on buttonFinishClick
+        // Values
+        ArrayList<Integer> test = Calculation.skala();
+
+        int test2[] = {12, 30, 25, 3, 65};
+
+        System.out.println(test);
+
+        // Defining the x-axis
+        CategoryAxis xAxis = new CategoryAxis();
+        xAxis.setLabel("Kategorie");
+
+        // Defining the y-axis
+        NumberAxis yAxis = new NumberAxis();
+        yAxis.setLabel("Score");
+        yAxis.setAutoRanging(false);
+        yAxis.setLowerBound(0);
+        yAxis.setUpperBound(100);
+        yAxis.setTickUnit(10);
+        yAxis.setTickLength(20);
+        yAxis.setMinorTickCount(5);
+
+        // Creating the Bar chart
+        StackedBarChart<String, Number> barChart = new StackedBarChart<>(xAxis, yAxis);
+
+        barChart.setTitle("Egogramm");
+        barChart.setAnimated(false);
+        barChart.setLegendVisible(false);
+
+        xAxis.setCategories(FXCollections.<String>observableArrayList(Arrays.asList
+                ("1", "2")));
+
+        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
+        XYChart.Series<String, Number> series2 = new XYChart.Series<>();
+        XYChart.Series<String, Number> series3 = new XYChart.Series<>();
+        XYChart.Series<String, Number> series4 = new XYChart.Series<>();
+        XYChart.Series<String, Number> series5 = new XYChart.Series<>();
+
+        series1.getData().add(new XYChart.Data<String, Number>("1", 12));
+        series2.getData().add(new XYChart.Data<String, Number>("1", 72));
+        series2.getData().add(new XYChart.Data<String, Number>("3", 45));
+        series3.getData().add(new XYChart.Data<String, Number>("4", 12));
+        series4.getData().add(new XYChart.Data<String, Number>("5", 34));
+        series5.getData().add(new XYChart.Data<String, Number>("1", 78));
+
+        barChart.getData().addAll(series1, series2, series3, series4, series5);
+
+        return barChart;
 
     }
 

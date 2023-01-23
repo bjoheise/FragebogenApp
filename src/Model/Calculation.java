@@ -1,8 +1,8 @@
 package Fragebogen.Model;
 
+import java.util.ArrayList;
 import java.util.Scanner;
-import Fragebogen.Controller.Client.QuestionSceneClientController;
-import javafx.collections.FXCollections;
+
 import javafx.collections.ObservableList;
 import javafx.scene.control.RadioButton;
 
@@ -115,10 +115,17 @@ public class Calculation {
                 System.out.println("aki:" + Calculation.aki);
             }
         }
-        
+
     }
-    /** Umwandlung der Rohwerte in Skalenwerte**/
-    public static void skala() {
+
+    /**
+     * Umwandlung der Rohwerte in Skalenwerte
+     *
+     * @return
+     **/
+    public static ArrayList<Integer> skala() {
+
+        ArrayList<Integer> scaleValues = new ArrayList<>();
 
         switch (kel) {
             case 1:
@@ -462,11 +469,13 @@ public class Calculation {
 
         }
 
+        scaleValues.add(kel);
+        scaleValues.add(sel);
+        scaleValues.add(er);
+        scaleValues.add(nki);
+        scaleValues.add(aki);
+
+        return scaleValues;
+
     }
 }
-
-
-
-
-
-
