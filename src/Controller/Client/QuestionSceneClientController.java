@@ -1,5 +1,6 @@
 package Fragebogen.Controller.Client;
 
+import Fragebogen.Egogram;
 import Fragebogen.Model.Calculation;
 import Fragebogen.Model.DatabaseModel;
 import Fragebogen.Model.Question;
@@ -10,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -38,7 +40,8 @@ public class QuestionSceneClientController {
         this.noRadioButton = noRadioButton;
     }
 
-    public  Label labelQuestion;
+//    public  Label labelQuestion;
+    public Text labelQuestion;
     public Button nextButton;
 
     public int counter = 0;
@@ -93,6 +96,10 @@ public class QuestionSceneClientController {
         noRadioButton.setSelected(false);
         yesRadioButton.setSelected(false);
         nextButton.setDisable(true);
+
+        if (counter==143){
+            Egogram.instance.loadScene("Client/EndSceneClient.fxml");
+        }
     }
 
 }

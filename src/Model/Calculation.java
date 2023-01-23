@@ -76,7 +76,7 @@ public class Calculation {
         this.aki = aki;
     }
 
-    // ALGORTHYTHM TEIL 1+2+3
+    /** ALGORTHYTHM TEIL 1+2+3 **/
 
     public static void algorhythm(ObservableList<Question> questionList, RadioButton yesRadioButton, RadioButton noRadioButton, int counter) {
 
@@ -117,9 +117,8 @@ public class Calculation {
         }
         
     }
-
+    /** Umwandlung der Rohwerte in Skalenwerte**/
     public static void skala() {
-
 
         switch (kel) {
             case 1:
@@ -354,7 +353,7 @@ public class Calculation {
                 scaleer = 95;
                 break;
         }
-        switch (scalenki) {
+        switch (nki) {
             case 1:
                 scalenki = 0;
                 break;
@@ -408,7 +407,7 @@ public class Calculation {
                 break;
 
         }
-        switch (scaleaki) {
+        switch (aki) {
             case 1:
                 scaleaki = 0;
                 break;
@@ -462,7 +461,6 @@ public class Calculation {
                 break;
 
         }
-
 
     }
 }

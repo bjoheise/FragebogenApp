@@ -19,6 +19,10 @@ public class DatabaseModel {
 
     public static int i = 1;
     public static Label labelQuestion;
+    public static String answ;
+
+    public static ObservableList<Question> questionList= FXCollections.observableArrayList();
+    public static ObservableList<Answer> answerList= FXCollections.observableArrayList();
 
     public static void connect() {
 
@@ -35,7 +39,6 @@ public class DatabaseModel {
         }
     }
 
-    public static ObservableList<Question> questionList= FXCollections.observableArrayList();
     public static ObservableList<Question> readQuestions() throws SQLException {
 
         DatabaseModel.connect();
@@ -57,13 +60,20 @@ public class DatabaseModel {
                     frage1=frage;
                     //star1 = star;
                 }
-
             }
             return questionList;
-
     }
 
+    /*public static ObservableList<Answer> writeAnswers(){
+        if () {
+            answerList.add("ja");
+        }
+    }
 
+    public static ObservableList<Answer> readAnswers(){
+        Answer answer = new Answer(answ);
+
+    }*/
 
 
 }
