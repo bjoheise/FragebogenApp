@@ -8,14 +8,14 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.Coach.StartSceneCoachController">
     <children>
-        <TextField layoutX="226.0" layoutY="126.0" />
+        <TextField layoutX="226.0" layoutY="126.0" stylesheets="@../../Res/hover.css" />
         <Label layoutX="226.0" layoutY="109.0" text="Client-ID eingeben:" />
         <Button layoutX="226.0" layoutY="163.0" mnemonicParsing="false" onAction="#onButtonShowGraphClick" prefHeight="25.0" prefWidth="149.0" stylesheets="@../../Res/hover.css" text="Anzeigen" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Avant Garde Book BT" size="14.0" />
             </font>
         </Button>
-        <Button layoutX="226.0" layoutY="237.0" mnemonicParsing="false" onAction="#onButtonExitClick" prefHeight="25.0" prefWidth="149.0" stylesheets="@../../Res/hover.css" text="Programm Beenden" textFill="WHITE">
+        <Button layoutX="226.0" layoutY="237.0" mnemonicParsing="false" onAction="#onButtonExitClick" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #FA640A;" stylesheets="@../../Res/hover.css" text="Programm Beenden" textFill="WHITE">
             <font>
                 <Font name="Avant Garde Book BT" size="14.0" />
             </font>
