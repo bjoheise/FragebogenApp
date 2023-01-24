@@ -1,7 +1,6 @@
 package Fragebogen.Modules;
 
 import Fragebogen.Model.Calculation;
-import Fragebogen.Model.Question;
 import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -15,14 +14,10 @@ import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.properties.ListNumberingType;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.*;
 import javafx.scene.chart.*;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.image.WritableImage;
-import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 
 import javax.imageio.ImageIO;
@@ -126,8 +121,8 @@ public class ResultToPdf {
         Scene scene = new Scene(new Group(), 600, 400);
 
         ((Group) scene.getRoot()).getChildren().add(this.buildChart());
-        ((Group) scene.getRoot()).getChildren().add(line30);
-        ((Group) scene.getRoot()).getChildren().add(line70);
+        // ((Group) scene.getRoot()).getChildren().add(line30);
+        // ((Group) scene.getRoot()).getChildren().add(line70);
 
         // Saving the scene as image
         WritableImage image = scene.snapshot(null);
@@ -146,7 +141,7 @@ public class ResultToPdf {
         // Values
         ArrayList<Integer> test = Calculation.skala();
 
-        int test2[] = {12, 30, 25, 3, 65};
+        int test2[] = {74, 25, 83, 37, 15};
 
         // Defining the x-axis
         CategoryAxis xAxis = new CategoryAxis();
@@ -179,43 +174,48 @@ public class ResultToPdf {
         XYChart.Series<String, Number> series4 = new XYChart.Series<>();
         XYChart.Series<String, Number> series5 = new XYChart.Series<>();
 
+        // for (int i : test2) {
+        //     System.out.println(i);
+        //     series1.getData().add(new XYChart.Data<String, Number>("1", i));
+        // }
 
-        series1.getData().add(new XYChart.Data<String, Number>("1", 30));
-        series1.getData().add(new XYChart.Data<String, Number>("1", 40));
-        series1.getData().add(new XYChart.Data<String, Number>("1", 25));
+        if (test2[0] < 30) {
+            series1.getData().add(new XYChart.Data<String, Number>("1", test2[0]));
+        } else if (test2[0] > 30 && test2[0] < 70) {
+            series1.getData().add(new XYChart.Data<String, Number>("1", 30));
+            series1.getData().add(new XYChart.Data<String, Number>("1", test2[0] - 30));
+        } else {
+            series1.getData().add(new XYChart.Data<String, Number>("1", 30));
+            series1.getData().add(new XYChart.Data<String, Number>("1", 40));
+            series1.getData().add(new XYChart.Data<String, Number>("1", test2[0] - 70));
+        }
 
-        series2.getData().add(new XYChart.Data<String, Number>("2", 32));
+
+        series2.getData().add(new XYChart.Data<String, Number>("2", 12));
+
         series2.getData().add(new XYChart.Data<String, Number>("2", 78));
-
         series3.getData().add(new XYChart.Data<String, Number>("3", 45));
         series4.getData().add(new XYChart.Data<String, Number>("4", 12));
         series5.getData().add(new XYChart.Data<String, Number>("5", 34));
 
-
         barChart.getData().addAll(series1, series2, series3, series4, series5);
 
+        // Node n1 = barChart.lookup(".data0.chart-bar");
+        // n1.setStyle("-fx-bar-fill: red");
+        // Node n2 = barChart.lookup(".data1.chart-bar");
+        // n2.setStyle("-fx-bar-fill: blue");
+        // Node n3 = barChart.lookup(".data2.chart-bar");
+        // n3.setStyle("-fx-bar-fill: yellow");
 
-        //
-        Node n1 = barChart.lookup(".data0.chart-bar");
-        n1.setStyle("-fx-bar-fill: red");
-        Node n2 = barChart.lookup(".data1.chart-bar");
-        n2.setStyle("-fx-bar-fill: blue");
-        Node n3 = barChart.lookup(".data2.chart-bar");
-        n3.setStyle("-fx-bar-fill: yellow");
-
-
-//        if (series1.getYValue().intValue() > 8) {
-//            node.setStyle("-fx-bar-fill: -fx-exceeded;");
-//        } else if (data.getYValue().intValue() > 5) {
-//            node.setStyle("-fx-bar-fill: -fx-achieved;");
-//        } else {
-//            node.setStyle("-fx-bar-fill: -fx-not-achieved;");
-//        }
-
+        // if (series1.getYValue().intValue() > 8) {
+        //     node.setStyle("-fx-bar-fill: -fx-exceeded;");
+        // } else if (data.getYValue().intValue() > 5) {
+        //     node.setStyle("-fx-bar-fill: -fx-achieved;");
+        // } else {
+        //     node.setStyle("-fx-bar-fill: -fx-not-achieved;");
+        // }
 
         barChart.setPrefSize(580, 400);
-        //
-
 
         return barChart;
 
