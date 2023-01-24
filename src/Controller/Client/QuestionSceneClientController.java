@@ -40,24 +40,18 @@ public class QuestionSceneClientController {
         this.noRadioButton = noRadioButton;
     }
 
-//    public  Label labelQuestion;
     public Text labelQuestion;
     public Button nextButton;
-    public int fragenid;
 
     public int counter = 0;
-    public int fragencounter = 1;
-    //String frage1 = frage;
+
     public ObservableList<Question> questionList= FXCollections.observableArrayList();
 
     // On Scene-Load
     public void initialize() throws SQLException {
 
         questionList = DatabaseModel.readQuestions();
-        //Calculation.algorhythm(questionList, yesRadioButton, noRadioButton, counter);
-        //counter++;
-        String firstQuestionText = questionList.get(0).getFrage();
-        fragencounter = 1;
+        counter = 0;
 
         // Instantiate new Toddle-Group
         ToggleGroup clientAnswer = new ToggleGroup();
@@ -66,53 +60,50 @@ public class QuestionSceneClientController {
         yesRadioButton.setToggleGroup(clientAnswer);
         noRadioButton.setToggleGroup(clientAnswer);
         nextButton.setDisable(true);
-        //questionList.get(counter).getStar();
 
-        labelQuestion.setText(fragencounter + ".) " + firstQuestionText);
-
+        String frage = questionList.get(0).getFrage();
+        FrageNummerAnzeigen(frage, questionList.get(counter).getId());
+        noRadioButton.setSelected(false);
+        yesRadioButton.setSelected(false);
+        nextButton.setDisable(true);
 
     }
 
-    /**
-     * @param actionEvent
-     * @TODO Loop over Questions
-     */
+    public void FrageNummerAnzeigen(String frage, int wert){
+        labelQuestion.setText( wert + ".) " + frage);
+    }
+
     public void radioYesClick(ActionEvent actionEvent) {
         boolean isSelected = yesRadioButton.isSelected();
         nextButton.setDisable(false);
 //        System.out.println("Yes");
     }
 
-    /**
-     * @param actionEvent
-     * @TODO Loop over Questions
-     */
     public void radioNoClick(ActionEvent actionEvent) {
         boolean isSelected = noRadioButton.isSelected();
         nextButton.setDisable(false);
-//        System.out.println("no");
     }
 
     public void nextQuestion(ActionEvent actionEvent) throws IOException, SQLException {
 
-
-        fragencounter++;
-
+        //System.out.println("DEBUG: Counter" + counter);
         Calculation.algorhythm(questionList, yesRadioButton, noRadioButton, counter);
         counter++;
-        String frage = questionList.get(counter).getFrage();
 
-        labelQuestion.setText(fragencounter + ".) " + frage);
+        // Hochzählen solange wir nicht das ende des arrays erreicht haben, ansonsten end szena anzeigen
+        if(counter < questionList.size()){
 
-        noRadioButton.setSelected(false);
-        yesRadioButton.setSelected(false);
-        nextButton.setDisable(true);
+            String frage = questionList.get(counter).getFrage();
 
-        if (fragencounter == 143){
+            FrageNummerAnzeigen(frage, questionList.get(counter).getId());
+
+            noRadioButton.setSelected(false);
+            yesRadioButton.setSelected(false);
+            nextButton.setDisable(true);
+        }
+        else{
             Egogram.instance.loadScene("Client/EndSceneClient.fxml");
         }
-
-
 
     }
 

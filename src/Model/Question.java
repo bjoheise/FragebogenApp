@@ -15,7 +15,7 @@ public class Question {
         this.star = star;
     }
 
-    public int getId(int i) {
+    public int getId() {
         return id;
     }
 
