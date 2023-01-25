@@ -4,6 +4,7 @@ import Fragebogen.Egogram;
 import Fragebogen.Model.Calculation;
 import Fragebogen.Model.DatabaseModel;
 import Fragebogen.Model.Question;
+import Fragebogen.Modules.ResultToPdf;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,10 +14,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 
-import java.io.IOException;
 import java.sql.SQLException;
-
-import static Fragebogen.Model.DatabaseModel.*;
+import java.util.ArrayList;
 
 public class QuestionSceneClientController {
 
@@ -55,7 +54,7 @@ public class QuestionSceneClientController {
         questionList = DatabaseModel.readQuestions();
         counter = 0;
 
-        // Instantiate new Toddle-Group
+        // Instantiate new Toggle-Group
         ToggleGroup clientAnswer = new ToggleGroup();
 
         // Set the Radio-Button-Group
@@ -70,6 +69,7 @@ public class QuestionSceneClientController {
         nextButton.setDisable(true);
 
         questionCounter.setText("Frage: " + questionList.get(counter).getId() + "/143");
+
     }
 
     public void FrageNummerAnzeigen(String frage, int wert){
@@ -79,7 +79,6 @@ public class QuestionSceneClientController {
     public void radioYesClick(ActionEvent actionEvent) {
         boolean isSelected = yesRadioButton.isSelected();
         nextButton.setDisable(false);
-//        System.out.println("Yes");
     }
 
     public void radioNoClick(ActionEvent actionEvent) {
@@ -87,29 +86,42 @@ public class QuestionSceneClientController {
         nextButton.setDisable(false);
     }
 
-    public void nextQuestion(ActionEvent actionEvent) throws IOException, SQLException {
+    public void nextQuestion(ActionEvent actionEvent) throws Exception {
 
-        //System.out.println("DEBUG: Counter" + counter);
         Calculation.algorhythm(questionList, yesRadioButton, noRadioButton, counter);
         Calculation.writeAnswers(questionList, yesRadioButton, noRadioButton, counter);
+
         counter++;
 
         // Hochzählen solange wir nicht das ende des arrays erreicht haben, ansonsten end szena anzeigen
-        if(counter < questionList.size()){
+        if (counter < questionList.size()) {
 
             questionCounter.setText("Frage: " + questionList.get(counter).getId() + "/143");
             String frage = questionList.get(counter).getFrage();
 
             FrageNummerAnzeigen(frage, questionList.get(counter).getId());
 
-
             noRadioButton.setSelected(false);
             yesRadioButton.setSelected(false);
             nextButton.setDisable(true);
+
         }
-        else{
+        else {
+
+            // Get Chart Values
+            ArrayList<Integer> scaleValues = Calculation.skala();
+            // Get Answers
+            ObservableList<String> answerValues = Calculation.answerList;
+
+            // Generate PDF
+            ResultToPdf resultToPdf = new ResultToPdf();
+            resultToPdf.manipulatePdf(scaleValues, answerValues);
+
+            // Load End-Scene
             Egogram.instance.loadScene("Client/EndSceneClient.fxml");
+
         }
+
     }
 
 }
