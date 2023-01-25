@@ -17,7 +17,7 @@ public class DatabaseModel {
     public static String frage1;
     public static int star1;
 
-    public static int i = 1;
+    public static int i = 0;
     public static Label labelQuestion;
     public static String answ;
 
@@ -54,12 +54,15 @@ public class DatabaseModel {
                 frage = resultSetVar.getString("Frage");
                 star = resultSetVar.getInt("Sternchen");
 
+//                System.out.println(resultSetVar.next());
+
+
                 Question question = new Question(id,frage,star);
                 questionList.add(question);
-                if (id==i) {
-                    frage1=frage;
-                    //star1 = star;
-                }
+//                if (id==i) {
+//                    frage1=frage;
+//                    //star1 = star;
+//                }
             }
             return questionList;
     }
