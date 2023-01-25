@@ -293,7 +293,7 @@ public class Calculation {
                 break;
         }
         switch (er) {
-            case 1-13:
+            case 1:
                 scaleer = 0;
                 break;
             case 14:
@@ -483,7 +483,7 @@ public class Calculation {
             case 17:
                 scaleaki = 95;
                 break;
-            case 18-100:
+            default:
                 scaleaki = 100;
                 break;
         }
