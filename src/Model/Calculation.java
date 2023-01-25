@@ -199,7 +199,9 @@ public class Calculation {
             case 21:
                 scalekel = 95;
                 break;
-
+            case 22-100:
+                scalekel = 100;
+                break;
         }
         switch (sel) {
             case 1:
@@ -286,7 +288,9 @@ public class Calculation {
             case 28:
                 scalesel = 95;
                 break;
-
+            case 29-100:
+                scalesel = 100;
+                break;
         }
         switch (er) {
             case 1-13:
@@ -367,6 +371,9 @@ public class Calculation {
             case 38:
                 scaleer = 95;
                 break;
+            case 39-100:
+                scaleer = 100;
+                break;
         }
         switch (nki) {
             case 1:
@@ -420,7 +427,9 @@ public class Calculation {
             case 17:
                 scalenki = 95;
                 break;
-
+            case 18-100:
+                scalenki = 100;
+                break;
         }
         switch (aki) {
             case 1:
@@ -474,14 +483,16 @@ public class Calculation {
             case 17:
                 scaleaki = 95;
                 break;
-
+            case 18-100:
+                scaleaki = 100;
+                break;
         }
 
-        scaleValues.add(kel);
-        scaleValues.add(sel);
-        scaleValues.add(er);
-        scaleValues.add(nki);
-        scaleValues.add(aki);
+        scaleValues.add(scalekel);
+        scaleValues.add(scalesel);
+        scaleValues.add(scaleer);
+        scaleValues.add(scalenki);
+        scaleValues.add(scaleaki);
 
         return scaleValues;
 

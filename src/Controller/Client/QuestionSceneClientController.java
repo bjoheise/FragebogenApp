@@ -52,7 +52,7 @@ public class QuestionSceneClientController {
 
         DatabaseModel.connect();
         questionList = DatabaseModel.readQuestions();
-        counter = 0;
+        counter = 130;
 
         // Instantiate new Toggle-Group
         ToggleGroup clientAnswer = new ToggleGroup();
