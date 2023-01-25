@@ -199,7 +199,7 @@ public class Calculation {
             case 21:
                 scalekel = 95;
                 break;
-            case 22-100:
+            default:
                 scalekel = 100;
                 break;
         }
@@ -288,12 +288,24 @@ public class Calculation {
             case 28:
                 scalesel = 95;
                 break;
-            case 29-100:
+            default:
                 scalesel = 100;
                 break;
         }
         switch (er) {
             case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
                 scaleer = 0;
                 break;
             case 14:
@@ -371,7 +383,7 @@ public class Calculation {
             case 38:
                 scaleer = 95;
                 break;
-            case 39-100:
+            default:
                 scaleer = 100;
                 break;
         }
@@ -427,7 +439,7 @@ public class Calculation {
             case 17:
                 scalenki = 95;
                 break;
-            case 18-100:
+            default:
                 scalenki = 100;
                 break;
         }
