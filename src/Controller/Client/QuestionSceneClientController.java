@@ -23,6 +23,7 @@ public class QuestionSceneClientController {
     // Get Radio-Buttons from FXML
     public  RadioButton yesRadioButton;
     public RadioButton noRadioButton;
+    public Label questionCounter;
 
     public RadioButton getYesRadioButton() {
         return yesRadioButton;
@@ -68,6 +69,7 @@ public class QuestionSceneClientController {
         yesRadioButton.setSelected(false);
         nextButton.setDisable(true);
 
+        questionCounter.setText("Frage: " + questionList.get(counter).getId() + "/143");
     }
 
     public void FrageNummerAnzeigen(String frage, int wert){
@@ -89,15 +91,17 @@ public class QuestionSceneClientController {
 
         //System.out.println("DEBUG: Counter" + counter);
         Calculation.algorhythm(questionList, yesRadioButton, noRadioButton, counter);
+        Calculation.writeAnswers(questionList, yesRadioButton, noRadioButton, counter);
         counter++;
 
         // Hochzählen solange wir nicht das ende des arrays erreicht haben, ansonsten end szena anzeigen
         if(counter < questionList.size()){
 
+            questionCounter.setText("Frage: " + questionList.get(counter).getId() + "/143");
             String frage = questionList.get(counter).getFrage();
 
-            Calculation.writeAnswers(questionList, yesRadioButton, noRadioButton, counter);
             FrageNummerAnzeigen(frage, questionList.get(counter).getId());
+
 
             noRadioButton.setSelected(false);
             yesRadioButton.setSelected(false);
@@ -106,7 +110,6 @@ public class QuestionSceneClientController {
         else{
             Egogram.instance.loadScene("Client/EndSceneClient.fxml");
         }
-
     }
 
 }

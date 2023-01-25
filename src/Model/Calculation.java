@@ -490,19 +490,21 @@ public class Calculation {
     public static ObservableList<String> writeAnswers(ObservableList<Question> questionList, RadioButton yesRadioButton, RadioButton noRadioButton, int counter) throws SQLException {
 
         // Get questions (readDatabase()
-        DatabaseModel.readQuestions();
+        //DatabaseModel.readQuestions();
 
-        //String answer = new String();
         // if yes = getQuestion + " " + Anwer=ja
         if (yesRadioButton.isSelected()) {
-            String answer = (questionList.get(id).getFrage() + " - ja");
+            String answer = (questionList.get(counter).getFrage() + " - ja");
+            System.out.println(answer);
             answerList.add(answer);
+
             // else getQuestion + " " + Anwer=nein
         } else {
-            String answer = (questionList.get(id).getFrage() + " - nein");
+            String answer = (questionList.get(counter).getFrage() + " - nein");
+            System.out.println(answer);
             answerList.add(answer);
+
         }
-        System.out.println(answerList);
         return answerList;
     }
 
