@@ -54,7 +54,7 @@ public class Egogram extends Application {
         // Display the Stage
         primaryStage.show();
 
-        DatabaseModel.readQuestions();
+        //DatabaseModel.readQuestions();
         //Calculation.algorhythm();
     }
 

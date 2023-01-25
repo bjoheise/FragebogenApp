@@ -6,6 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.RadioButton;
 
+import static Fragebogen.Model.DatabaseModel.id;
+
 public class Calculation {
 
     public static int sel = 0;
@@ -84,6 +86,7 @@ public class Calculation {
         if (counter > questionList.size()) {
             return;
         }
+
         int star = questionList.get(counter).getStar();
 
         if (counter < 60) {
@@ -115,7 +118,7 @@ public class Calculation {
                 System.out.println("aki:" + Calculation.aki);
             }
         }
-        
+
     }
     /** Umwandlung der Rohwerte in Skalenwerte**/
     public static void skala() {
