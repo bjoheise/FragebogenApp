@@ -12,5 +12,6 @@
     <orderEntry type="library" name="itextpdf.forms" level="project" />
     <orderEntry type="library" name="slf4j.nop" level="project" />
     <orderEntry type="library" name="itextpdf.layout" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

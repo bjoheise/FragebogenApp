@@ -6,7 +6,7 @@
 
 .button:hover
 {
-    -fx-background-color : #BA4E0D;
+    -fx-background-color : #ffffff;
     -fx-background-radius : 30 0 0 30;
 }
 .text-field
@@ -14,3 +14,4 @@
     -fx-focus-color: -fx-control-inner-background ;
     -fx-faint-focus-color: -fx-control-inner-background ;
 }
+
