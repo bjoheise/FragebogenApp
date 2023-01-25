@@ -1,8 +1,11 @@
 package Fragebogen.Model;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Fragebogen.Controller.Client.QuestionSceneClientController;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.RadioButton;
 
@@ -23,6 +26,8 @@ public class Calculation {
     public static int scalenki = 0;
     public static int scaleaki = 0;
     static Scanner scanner = new Scanner(System.in);
+
+    public static ObservableList<String> answerList= FXCollections.observableArrayList();
 
     public Calculation(int er, int nki, int aki) {
         this.er = er;
@@ -481,4 +486,24 @@ public class Calculation {
         return scaleValues;
 
     }
+
+    public static ObservableList<String> writeAnswers(ObservableList<Question> questionList, RadioButton yesRadioButton, RadioButton noRadioButton, int counter) throws SQLException {
+
+        // Get questions (readDatabase()
+        DatabaseModel.readQuestions();
+
+        //String answer = new String();
+        // if yes = getQuestion + " " + Anwer=ja
+        if (yesRadioButton.isSelected()) {
+            String answer = (questionList.get(id).getFrage() + " - ja");
+            answerList.add(answer);
+            // else getQuestion + " " + Anwer=nein
+        } else {
+            String answer = (questionList.get(id).getFrage() + " - nein");
+            answerList.add(answer);
+        }
+        System.out.println(answerList);
+        return answerList;
+    }
+
 }

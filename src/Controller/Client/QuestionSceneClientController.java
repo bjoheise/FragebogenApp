@@ -50,6 +50,7 @@ public class QuestionSceneClientController {
     // On Scene-Load
     public void initialize() throws SQLException {
 
+        DatabaseModel.connect();
         questionList = DatabaseModel.readQuestions();
         counter = 0;
 
@@ -95,6 +96,7 @@ public class QuestionSceneClientController {
 
             String frage = questionList.get(counter).getFrage();
 
+            Calculation.writeAnswers(questionList, yesRadioButton, noRadioButton, counter);
             FrageNummerAnzeigen(frage, questionList.get(counter).getId());
 
             noRadioButton.setSelected(false);
