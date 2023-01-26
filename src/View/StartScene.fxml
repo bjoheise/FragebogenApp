@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400" prefWidth="600" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.StartSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="585.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.StartSceneController">
     <children>
-        <Button layoutX="150.0" layoutY="133.0" mnemonicParsing="false" onAction="#onButtonCoachClick" prefHeight="30.0" prefWidth="300.0" stylesheets="@../Res/hover.css" text="Coach" textFill="WHITE">
+        <Button layoutX="143.0" layoutY="113.0" mnemonicParsing="false" onAction="#onButtonCoachClick" prefHeight="30.0" prefWidth="300.0" stylesheets="@../Res/hover.css" text="Coach" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font size="14.0" />
          </font></Button>
-        <Button layoutX="150.0" layoutY="213.0" mnemonicParsing="false" onAction="#onButtonClientClick" prefHeight="30.0" prefWidth="300.0" stylesheets="@../Res/hover.css" text="Client" textFill="WHITE">
+        <Button layoutX="143.0" layoutY="168.0" mnemonicParsing="false" onAction="#onButtonClientClick" prefHeight="30.0" prefWidth="300.0" stylesheets="@../Res/hover.css" text="Client" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

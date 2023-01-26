@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.Client.QuestionSceneClientController">
+<AnchorPane prefHeight="335.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.Client.QuestionSceneClientController">
     <children>
 <!--        <Label fx:id="labelQuestion" layoutX="154.0" layoutY="145.0" text="Soll es los gehen?" />-->
-        <VBox layoutX="154.0" layoutY="162.0" prefHeight="90.0" prefWidth="293.0">
+        <VBox layoutX="135.0" layoutY="124.0" prefHeight="99.0" prefWidth="315.0">
             <children>
                 <RadioButton fx:id="yesRadioButton" mnemonicParsing="false" onAction="#radioYesClick" text="Ja">
                     <padding>
@@ -25,8 +25,8 @@
                 </RadioButton>
             </children>
         </VBox>
-        <Button fx:id="nextButton" layoutX="407.0" layoutY="279.0" mnemonicParsing="false" onAction="#nextQuestion" text="Weiter" />
-      <Text fx:id="labelQuestion" layoutX="154.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="317.13671875" />
-      <Label fx:id="questionCounter" layoutX="154.0" layoutY="283.0" prefHeight="17.0" prefWidth="107.0" text="Label" />
+        <Button fx:id="nextButton" layoutX="399.0" layoutY="236.0" mnemonicParsing="false" onAction="#nextQuestion" text="Weiter" />
+      <Text fx:id="labelQuestion" layoutX="135.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hier steht der Text der Frage" textOrigin="BOTTOM" wrappingWidth="315.13671875" />
+      <Label fx:id="questionCounter" layoutX="135.0" layoutY="240.0" prefHeight="17.0" prefWidth="107.0" text="Label" />
     </children>
 </AnchorPane>
