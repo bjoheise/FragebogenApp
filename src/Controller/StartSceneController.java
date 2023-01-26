@@ -2,20 +2,15 @@ package Fragebogen.Controller;
 
 import Fragebogen.Egogram;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
 public class StartSceneController {
 
-    /**
-     * Load Scene for Coach
-     *
-     * @param actionEvent
-     * @throws IOException
-     */
-    public void onButtonCoachClick(ActionEvent actionEvent) throws IOException {
-        Egogram.instance.loadScene("Coach/IntroSceneCoach.fxml");
-    }
+    public TextField pseudonymInput;
 
     /**
      * Load Scene for Client

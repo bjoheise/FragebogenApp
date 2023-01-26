@@ -1,5 +1,6 @@
 package Fragebogen.Controller.Client;
 
+import Fragebogen.Controller.StartSceneController;
 import Fragebogen.Egogram;
 import Fragebogen.Model.Calculation;
 import Fragebogen.Model.DatabaseModel;
@@ -8,10 +9,7 @@ import Fragebogen.Modules.ResultToPdf;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 import java.sql.SQLException;
@@ -45,14 +43,16 @@ public class QuestionSceneClientController {
 
     public int counter = 0;
 
-    public ObservableList<Question> questionList= FXCollections.observableArrayList();
+    public ObservableList<Question> questionList = FXCollections.observableArrayList();
+
+    public String pseudonym;
 
     // On Scene-Load
     public void initialize() throws SQLException {
 
         DatabaseModel.connect();
         questionList = DatabaseModel.readQuestions();
-        counter = 104;
+        counter = 140;
 
         // Instantiate new Toggle-Group
         ToggleGroup clientAnswer = new ToggleGroup();
@@ -112,6 +112,8 @@ public class QuestionSceneClientController {
             ArrayList<Integer> scaleValues = Calculation.skala();
             // Get Answers
             ObservableList<String> answerValues = Calculation.answerList;
+
+            System.out.println(pseudonym);
 
             // Generate PDF
             ResultToPdf resultToPdf = new ResultToPdf();

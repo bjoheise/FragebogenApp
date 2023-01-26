@@ -8,6 +8,7 @@ import Fragebogen.Controller.Client.QuestionSceneClientController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 
 import static Fragebogen.Model.DatabaseModel.id;
 
