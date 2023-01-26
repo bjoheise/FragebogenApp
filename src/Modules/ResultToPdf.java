@@ -38,13 +38,10 @@ public class ResultToPdf {
      * @param answerValues Answers
      * @throws Exception Throws Exeption on Error
      */
-    public void manipulatePdf(ArrayList<Integer> scaleValues, ObservableList<String> answerValues) throws Exception {
+    public void manipulatePdf(ArrayList<Integer> scaleValues, ObservableList<String> answerValues, String pseudonym) throws Exception {
 
         File file = new File(PDF_DEST);
         file.getParentFile().mkdirs();
-
-        // @TODO: Set Name via UI
-        String pseudonym = "Karl";
 
         // Create File
         PdfDocument pdfDoc = new PdfDocument(new PdfWriter(PDF_DEST));
@@ -63,7 +60,7 @@ public class ResultToPdf {
         for (String answerValue : answerValues) {
             list.add(answerValue);
         }
-        list.setFontSize(14);
+        list.setFontSize(13);
 
         // Generate a PNG of the Egogram to put it into the pdf
         this.saveAsPng(scaleValues);

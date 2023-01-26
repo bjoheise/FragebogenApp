@@ -113,11 +113,11 @@ public class QuestionSceneClientController {
             // Get Answers
             ObservableList<String> answerValues = Calculation.answerList;
 
-            System.out.println(pseudonym);
+            System.out.println(StartSceneController.pseudonym);
 
             // Generate PDF
             ResultToPdf resultToPdf = new ResultToPdf();
-            resultToPdf.manipulatePdf(scaleValues, answerValues);
+            resultToPdf.manipulatePdf(scaleValues, answerValues, StartSceneController.pseudonym);
 
             // Load End-Scene
             Egogram.instance.loadScene("Client/EndSceneClient.fxml");

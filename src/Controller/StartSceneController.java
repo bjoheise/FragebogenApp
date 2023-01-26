@@ -12,6 +12,8 @@ public class StartSceneController {
 
     public TextField pseudonymInput;
 
+    public static String pseudonym;
+
     /**
      * Load Scene for Client
      *
@@ -19,6 +21,8 @@ public class StartSceneController {
      * @throws IOException
      */
     public void onButtonClientClick(ActionEvent actionEvent) throws IOException {
+        // First, store the variable to static
+        pseudonym = pseudonymInput.getText();
         Egogram.instance.loadScene("Client/IntroSceneClient.fxml");
     }
 
