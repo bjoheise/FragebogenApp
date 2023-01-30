@@ -1,10 +1,14 @@
 package Fragebogen.Model;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Fragebogen.Controller.Client.QuestionSceneClientController;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 
 import static Fragebogen.Model.DatabaseModel.id;
 
@@ -23,6 +27,8 @@ public class Calculation {
     public static int scalenki = 0;
     public static int scaleaki = 0;
     static Scanner scanner = new Scanner(System.in);
+
+    public static ObservableList<String> answerList = FXCollections.observableArrayList();
 
     public Calculation(int er, int nki, int aki) {
         this.er = er;
@@ -78,7 +84,9 @@ public class Calculation {
         this.aki = aki;
     }
 
-    /** ALGORTHYTHM TEIL 1+2+3 **/
+    /**
+     * ALGORTHYTHM TEIL 1+2+3
+     **/
 
     public static void algorhythm(ObservableList<Question> questionList, RadioButton yesRadioButton, RadioButton noRadioButton, int counter) {
 
@@ -194,7 +202,9 @@ public class Calculation {
             case 21:
                 scalekel = 95;
                 break;
-
+            default:
+                scalekel = 100;
+                break;
         }
         switch (sel) {
             case 1:
@@ -281,10 +291,24 @@ public class Calculation {
             case 28:
                 scalesel = 95;
                 break;
-
+            default:
+                scalesel = 100;
+                break;
         }
         switch (er) {
-            case 1-13:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
                 scaleer = 0;
                 break;
             case 14:
@@ -362,6 +386,9 @@ public class Calculation {
             case 38:
                 scaleer = 95;
                 break;
+            default:
+                scaleer = 100;
+                break;
         }
         switch (nki) {
             case 1:
@@ -415,7 +442,9 @@ public class Calculation {
             case 17:
                 scalenki = 95;
                 break;
-
+            default:
+                scalenki = 100;
+                break;
         }
         switch (aki) {
             case 1:
@@ -469,16 +498,39 @@ public class Calculation {
             case 17:
                 scaleaki = 95;
                 break;
-
+            default:
+                scaleaki = 100;
+                break;
         }
 
-        scaleValues.add(kel);
-        scaleValues.add(sel);
-        scaleValues.add(er);
-        scaleValues.add(nki);
-        scaleValues.add(aki);
+        scaleValues.add(scalekel);
+        scaleValues.add(scalesel);
+        scaleValues.add(scaleer);
+        scaleValues.add(scalenki);
+        scaleValues.add(scaleaki);
 
         return scaleValues;
 
     }
+
+    public static ObservableList<String> writeAnswers(ObservableList<Question> questionList, RadioButton yesRadioButton, RadioButton noRadioButton, int counter) throws SQLException {
+
+        // if yes = getQuestion + " " + Anwer=ja
+        if (yesRadioButton.isSelected()) {
+            String answer = (questionList.get(counter).getFrage() + " - ja");
+            System.out.println(answer);
+            answerList.add(answer);
+
+            // else getQuestion + " " + Anwer=nein
+        } else {
+            String answer = (questionList.get(counter).getFrage() + " - nein");
+            System.out.println(answer);
+            answerList.add(answer);
+
+        }
+
+        return answerList;
+
+    }
+
 }

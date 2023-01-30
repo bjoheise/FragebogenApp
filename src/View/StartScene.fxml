@@ -8,7 +8,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400" prefWidth="600" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.StartSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400"
+            prefWidth="600" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.StartSceneController">
     <children>
         <Button layoutX="188.0" layoutY="119.0" mnemonicParsing="false" onAction="#onButtonCoachClick" prefHeight="49.0" prefWidth="219.0" stylesheets="@../Res/hover.css" text="     Coach" textFill="WHITE">
          <cursor>
