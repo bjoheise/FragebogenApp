@@ -22,7 +22,7 @@ public class DatabaseModel {
     public static String answ;
 
     public static ObservableList<Question> questionList= FXCollections.observableArrayList();
-    public static ObservableList<Answer> answerList= FXCollections.observableArrayList();
+
 
     public static void connect() {
 
@@ -41,7 +41,7 @@ public class DatabaseModel {
 
     public static ObservableList<Question> readQuestions() throws SQLException {
 
-        DatabaseModel.connect();
+        //DatabaseModel.connect();
 
 
             String abfrage = "SELECT * FROM Fragen;";
