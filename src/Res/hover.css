@@ -7,11 +7,14 @@
 {
 
 
+
     -fx-background-color : #BA4E0D;
     -fx-background-radius : 10 10 10 10;
+
 }
 .text-field
 {
     -fx-focus-color: -fx-control-inner-background ;
     -fx-faint-focus-color: -fx-control-inner-background ;
 }
+
