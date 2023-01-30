@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class QuestionSceneClientController {
 
     // Get Radio-Buttons from FXML
-    public  RadioButton yesRadioButton;
+    public RadioButton yesRadioButton;
     public RadioButton noRadioButton;
     public Label questionCounter;
 
@@ -72,8 +72,8 @@ public class QuestionSceneClientController {
 
     }
 
-    public void FrageNummerAnzeigen(String frage, int wert){
-        labelQuestion.setText( wert + ".) " + frage);
+    public void FrageNummerAnzeigen(String frage, int wert) {
+        labelQuestion.setText(wert + ".) " + frage);
     }
 
     public void radioYesClick(ActionEvent actionEvent) {
@@ -105,15 +105,12 @@ public class QuestionSceneClientController {
             yesRadioButton.setSelected(false);
             nextButton.setDisable(true);
 
-        }
-        else {
+        } else {
 
             // Get Chart Values
             ArrayList<Integer> scaleValues = Calculation.skala();
             // Get Answers
             ObservableList<String> answerValues = Calculation.answerList;
-
-            System.out.println(StartSceneController.pseudonym);
 
             // Generate PDF
             ResultToPdf resultToPdf = new ResultToPdf();

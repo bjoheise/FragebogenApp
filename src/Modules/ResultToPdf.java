@@ -19,7 +19,6 @@ import javafx.scene.*;
 import javafx.scene.chart.*;
 import javafx.scene.image.WritableImage;
 import javafx.scene.shape.Line;
-
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
@@ -30,13 +29,14 @@ public class ResultToPdf {
 
     public static final String PDF_DEST = "./target/egogram-export.pdf";
     public static final String TEMP_IMG_DEST = "./target/egogram.png";
+    public static final String CSS_SRC = "./src/Res/chart.css";
 
     /**
      * Generates a PDF with a Chart and Answers
      *
      * @param scaleValues  Scale-Values to fill the Chart
      * @param answerValues Answers
-     * @throws Exception Throws Exeption on Error
+     * @throws Exception Throws Exception on Error
      */
     public void manipulatePdf(ArrayList<Integer> scaleValues, ObservableList<String> answerValues, String pseudonym) throws Exception {
 
@@ -49,18 +49,23 @@ public class ResultToPdf {
         // Create Document
         Document doc = new Document(pdfDoc);
 
+        // Set PDF-Font
         PdfFont pdfFont = PdfFontFactory.createFont(StandardFonts.HELVETICA);
         pdfDoc.addFont(pdfFont);
 
+        // Create Paragraph with Pseudonym
         Paragraph p = new Paragraph("Pseudonym: " + pseudonym);
         Paragraph pEmpty = new Paragraph("\n");
+        // Set Font-Size of List
         p.setFontSize(12);
 
+        // Create List with Answers
         List list = new List(ListNumberingType.DECIMAL);
         for (String answerValue : answerValues) {
             list.add(answerValue);
         }
-        list.setFontSize(13);
+        // Set Font-Size of List
+        list.setFontSize(12);
 
         // Generate a PNG of the Egogram to put it into the pdf
         this.saveAsPng(scaleValues);
@@ -87,6 +92,7 @@ public class ResultToPdf {
 
     /**
      * Takes a Screenshot of a node without displaying it and saves it as png
+     *
      * @param scaleValues Scale-Values to fill the Chart
      * @throws IOException Error Handler
      */
@@ -106,6 +112,10 @@ public class ResultToPdf {
         ((Group) scene.getRoot()).getChildren().add(this.buildChart(scaleValues));
         ((Group) scene.getRoot()).getChildren().add(line30);
         ((Group) scene.getRoot()).getChildren().add(line70);
+
+        // @TODO: Add CSS to the StackedBarChart
+        scene.getStylesheets().add(CSS_SRC);
+        System.out.println(scene.getStylesheets().add(CSS_SRC));
 
         // Saving the scene as image
         WritableImage image = scene.snapshot(null);
@@ -220,12 +230,16 @@ public class ResultToPdf {
         // Chart Options
         barChart.setPrefSize(580, 400);
 
-        // Node n1 = barChart.lookup(".data0.chart-bar");
-        // n1.setStyle("-fx-bar-fill: red");
-        // Node n2 = barChart.lookup(".data1.chart-bar");
-        // n2.setStyle("-fx-bar-fill: blue");
-        // Node n3 = barChart.lookup(".data2.chart-bar");
-        // n3.setStyle("-fx-bar-fill: yellow");
+//        Node n1 = barChart.lookup(".data0.chart-bar");
+//        n1.setStyle("-fx-bar-fill: #FFCC80");
+//        Node n2 = barChart.lookup(".data1.chart-bar");
+//        n2.setStyle("-fx-bar-fill: #FFA726");
+//        Node n3 = barChart.lookup(".data2.chart-bar");
+//        n3.setStyle("-fx-bar-fill: #FF640A");
+//
+//        Node n4 = barChart.lookup(".data4.chart-bar");
+//        n1.setStyle("-fx-bar-fill: #FFCC80");
+//        System.out.println(n4);
 
         // if (series1.getYValue().intValue() > 8) {
         //     node.setStyle("-fx-bar-fill: -fx-exceeded;");
