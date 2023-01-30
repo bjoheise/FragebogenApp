@@ -114,8 +114,8 @@ public class ResultToPdf {
         ((Group) scene.getRoot()).getChildren().add(line70);
 
         // @TODO: Add CSS to the StackedBarChart
-        scene.getStylesheets().add(CSS_SRC);
-        System.out.println(scene.getStylesheets().add(CSS_SRC));
+//        scene.getStylesheets().add(CSS_SRC);
+//        System.out.println(scene.getStylesheets().add(CSS_SRC));
 
         // Saving the scene as image
         WritableImage image = scene.snapshot(null);
