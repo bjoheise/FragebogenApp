@@ -1,13 +1,14 @@
 .button
 {
     -fx-background-color : #FF640A;
-
 }
 
 .button:hover
 {
+
+
     -fx-background-color : #BA4E0D;
-    -fx-background-radius : 30 0 0 30;
+    -fx-background-radius : 10 10 10 10;
 }
 .text-field
 {
