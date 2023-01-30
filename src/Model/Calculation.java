@@ -28,7 +28,7 @@ public class Calculation {
     public static int scaleaki = 0;
     static Scanner scanner = new Scanner(System.in);
 
-    public static ObservableList<String> answerList= FXCollections.observableArrayList();
+    public static ObservableList<String> answerList = FXCollections.observableArrayList();
 
     public Calculation(int er, int nki, int aki) {
         this.er = er;
@@ -84,7 +84,9 @@ public class Calculation {
         this.aki = aki;
     }
 
-    /** ALGORTHYTHM TEIL 1+2+3 **/
+    /**
+     * ALGORTHYTHM TEIL 1+2+3
+     **/
 
     public static void algorhythm(ObservableList<Question> questionList, RadioButton yesRadioButton, RadioButton noRadioButton, int counter) {
 
@@ -513,9 +515,6 @@ public class Calculation {
 
     public static ObservableList<String> writeAnswers(ObservableList<Question> questionList, RadioButton yesRadioButton, RadioButton noRadioButton, int counter) throws SQLException {
 
-        // Get questions (readDatabase()
-        //DatabaseModel.readQuestions();
-
         // if yes = getQuestion + " " + Anwer=ja
         if (yesRadioButton.isSelected()) {
             String answer = (questionList.get(counter).getFrage() + " - ja");
@@ -529,7 +528,9 @@ public class Calculation {
             answerList.add(answer);
 
         }
+
         return answerList;
+
     }
 
 }
