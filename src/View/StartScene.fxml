@@ -13,13 +13,15 @@
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.StartSceneController">
     <children>
         <Button layoutX="188.0" layoutY="119.0" mnemonicParsing="false" onAction="#onButtonCoachClick" prefHeight="49.0" prefWidth="219.0" stylesheets="@../Res/hover.css" text="     Coach" textFill="WHITE">
+
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-        <Button layoutX="189.0" layoutY="195.0" mnemonicParsing="false" onAction="#onButtonClientClick" prefHeight="49.0" prefWidth="219.0" stylesheets="@../Res/hover.css" text="            Interview" textFill="WHITE">
+
+        <Button layoutX="189.0" layoutY="195.0" mnemonicParsing="false" onAction="#onButtonClientClick" prefHeight="49.0" prefWidth="219.0" stylesheets="@../Res/hover.css" text="Interview" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="Fragebogen.Controller.Client.QuestionSceneClientController">
+<AnchorPane prefHeight="335.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.Client.QuestionSceneClientController">
     <children>
-        <!--        <Label fx:id="labelQuestion" layoutX="154.0" layoutY="145.0" text="Soll es los gehen?" />-->
-        <VBox layoutX="154.0" layoutY="162.0" prefHeight="90.0" prefWidth="293.0">
+<!--        <Label fx:id="labelQuestion" layoutX="154.0" layoutY="145.0" text="Soll es los gehen?" />-->
+        <VBox layoutX="135.0" layoutY="124.0" prefHeight="99.0" prefWidth="315.0">
+
             <children>
                 <RadioButton fx:id="yesRadioButton" mnemonicParsing="false" onAction="#radioYesClick" text="Ja">
                     <padding>
