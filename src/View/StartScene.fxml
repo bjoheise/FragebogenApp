@@ -2,8 +2,8 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -12,16 +12,29 @@
             prefWidth="600" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.StartSceneController">
     <children>
-        <Label layoutX="150.0" layoutY="142.0" text="Pseudonym:"/>
-        <TextField fx:id="pseudonymInput" layoutX="150.0" layoutY="159.0" prefHeight="25.0" prefWidth="300.0"/>
-        <Button layoutX="150.0" layoutY="213.0" mnemonicParsing="false" onAction="#onButtonClientClick"
-                prefHeight="30.0" prefWidth="300.0" stylesheets="@../Res/hover.css" text="Weiter" textFill="WHITE">
-            <cursor>
-                <Cursor fx:constant="HAND"/>
-            </cursor>
-            <font>
-                <Font size="14.0"/>
-            </font>
-        </Button>
+        <Button layoutX="188.0" layoutY="119.0" mnemonicParsing="false" onAction="#onButtonCoachClick" prefHeight="49.0" prefWidth="219.0" stylesheets="@../Res/hover.css" text="     Coach" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+        <Button layoutX="189.0" layoutY="195.0" mnemonicParsing="false" onAction="#onButtonClientClick" prefHeight="49.0" prefWidth="219.0" stylesheets="@../Res/hover.css" text="            Interview" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <ImageView fitHeight="49.0" fitWidth="49.0" layoutX="230.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Res/Interview_Logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="56.0" layoutX="225.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: #FFFFFF;">
+         <image>
+            <Image url="@../Res/Coach_Logo.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
