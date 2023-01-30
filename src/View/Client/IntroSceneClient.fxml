@@ -6,16 +6,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.Client.IntroSceneClientController">
+<AnchorPane prefHeight="335.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.Client.IntroSceneClientController">
    <children>
-      <Text layoutX="150.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zu den folgenden Aussagen sollten Sie so spontan und offen wie möglich Stellung nehmen (das erste Gefühl ist meist das richtige).  " wrappingWidth="300.0" />
-      <Text layoutX="150.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bitte lassen Sie keine Fragen aus und entscheiden sich auch bei Grenzfällen in jedem Fall für Ja ODER Nein." wrappingWidth="300.0" />
-      <Label layoutX="150.0" layoutY="110.0" text="Anleitung">
+      <Text layoutX="143.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zu den folgenden Aussagen sollten Sie so spontan und offen wie möglich Stellung nehmen (das erste Gefühl ist meist das richtige).  " wrappingWidth="300.0" />
+      <Text layoutX="143.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bitte lassen Sie keine Fragen aus und entscheiden sich auch bei Grenzfällen in jedem Fall für Ja ODER Nein." wrappingWidth="300.0" />
+      <Label layoutX="143.0" layoutY="66.0" text="Anleitung">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="150.0" layoutY="260.0" mnemonicParsing="false" onAction="#onStartButtonClick" prefHeight="30.0" prefWidth="300.0" stylesheets="@../../Res/hover.css" text="Start" textFill="WHITE">
+      <Button layoutX="143.0" layoutY="224.0" mnemonicParsing="false" onAction="#onStartButtonClick" prefHeight="30.0" prefWidth="300.0" stylesheets="@../../Res/hover.css" text="Start" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font></Button>

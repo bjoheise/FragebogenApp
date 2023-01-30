@@ -1,8 +1,5 @@
 package Fragebogen;
 
-import Fragebogen.Model.Calculation;
-import Fragebogen.Model.Question;
-import Fragebogen.Model.DatabaseModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,7 +7,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
@@ -26,7 +22,6 @@ public class Egogram extends Application {
     public static void run(String[] args) {
         launch(args);
     }
-
 
     @Override
     public void start(Stage primaryStage) throws IOException, SQLException {
@@ -54,8 +49,6 @@ public class Egogram extends Application {
         // Display the Stage
         primaryStage.show();
 
-        //DatabaseModel.readQuestions();
-        //Calculation.algorhythm();
     }
 
     /**
@@ -107,4 +100,5 @@ public class Egogram extends Application {
         rootLayout.setCenter(pane);
 
     }
+
 }
