@@ -19,6 +19,7 @@ import javafx.scene.*;
 import javafx.scene.chart.*;
 import javafx.scene.image.WritableImage;
 import javafx.scene.shape.Line;
+
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
@@ -114,8 +115,8 @@ public class ResultToPdf {
         ((Group) scene.getRoot()).getChildren().add(line70);
 
         // @TODO: Add CSS to the StackedBarChart
-//        scene.getStylesheets().add(CSS_SRC);
-//        System.out.println(scene.getStylesheets().add(CSS_SRC));
+        // scene.getStylesheets().add(CSS_SRC);
+        // System.out.println(scene.getStylesheets().add(CSS_SRC));
 
         // Saving the scene as image
         WritableImage image = scene.snapshot(null);
@@ -138,7 +139,7 @@ public class ResultToPdf {
         // Defining the x-axis
         CategoryAxis xAxis = new CategoryAxis();
         xAxis.setLabel("");
-        xAxis.setCategories(FXCollections.<String>observableArrayList(Arrays.asList(
+        xAxis.setCategories(FXCollections.observableArrayList(Arrays.asList(
                         criticalAdultMe,
                         supportingAdultMe,
                         adultMe,
@@ -171,58 +172,58 @@ public class ResultToPdf {
         XYChart.Series<String, Number> series5 = new XYChart.Series<>();
 
         if (scaleValues.get(0) < 30) {
-            series1.getData().add(new XYChart.Data<String, Number>(criticalAdultMe, scaleValues.get(0)));
+            series1.getData().add(new XYChart.Data<>(criticalAdultMe, scaleValues.get(0)));
         } else if (scaleValues.get(0) > 30 && scaleValues.get(0) < 70) {
-            series1.getData().add(new XYChart.Data<String, Number>(criticalAdultMe, 30));
-            series1.getData().add(new XYChart.Data<String, Number>(criticalAdultMe, scaleValues.get(0) - 30));
+            series1.getData().add(new XYChart.Data<>(criticalAdultMe, 30));
+            series1.getData().add(new XYChart.Data<>(criticalAdultMe, scaleValues.get(0) - 30));
         } else {
-            series1.getData().add(new XYChart.Data<String, Number>(criticalAdultMe, 30));
-            series1.getData().add(new XYChart.Data<String, Number>(criticalAdultMe, 40));
-            series1.getData().add(new XYChart.Data<String, Number>(criticalAdultMe, scaleValues.get(0) - 70));
+            series1.getData().add(new XYChart.Data<>(criticalAdultMe, 30));
+            series1.getData().add(new XYChart.Data<>(criticalAdultMe, 40));
+            series1.getData().add(new XYChart.Data<>(criticalAdultMe, scaleValues.get(0) - 70));
         }
 
         if (scaleValues.get(1) < 30) {
-            series2.getData().add(new XYChart.Data<String, Number>(supportingAdultMe, scaleValues.get(1)));
+            series2.getData().add(new XYChart.Data<>(supportingAdultMe, scaleValues.get(1)));
         } else if (scaleValues.get(1) > 30 && scaleValues.get(1) < 70) {
-            series2.getData().add(new XYChart.Data<String, Number>(supportingAdultMe, 30));
-            series2.getData().add(new XYChart.Data<String, Number>(supportingAdultMe, scaleValues.get(1) - 30));
+            series2.getData().add(new XYChart.Data<>(supportingAdultMe, 30));
+            series2.getData().add(new XYChart.Data<>(supportingAdultMe, scaleValues.get(1) - 30));
         } else {
-            series2.getData().add(new XYChart.Data<String, Number>(supportingAdultMe, 30));
-            series2.getData().add(new XYChart.Data<String, Number>(supportingAdultMe, 40));
-            series2.getData().add(new XYChart.Data<String, Number>(supportingAdultMe, scaleValues.get(1) - 70));
+            series2.getData().add(new XYChart.Data<>(supportingAdultMe, 30));
+            series2.getData().add(new XYChart.Data<>(supportingAdultMe, 40));
+            series2.getData().add(new XYChart.Data<>(supportingAdultMe, scaleValues.get(1) - 70));
         }
 
         if (scaleValues.get(2) < 30) {
-            series3.getData().add(new XYChart.Data<String, Number>(adultMe, scaleValues.get(2)));
+            series3.getData().add(new XYChart.Data<>(adultMe, scaleValues.get(2)));
         } else if (scaleValues.get(2) > 30 && scaleValues.get(2) < 70) {
-            series3.getData().add(new XYChart.Data<String, Number>(adultMe, 30));
-            series3.getData().add(new XYChart.Data<String, Number>(adultMe, scaleValues.get(2) - 30));
+            series3.getData().add(new XYChart.Data<>(adultMe, 30));
+            series3.getData().add(new XYChart.Data<>(adultMe, scaleValues.get(2) - 30));
         } else {
-            series3.getData().add(new XYChart.Data<String, Number>(adultMe, 30));
-            series3.getData().add(new XYChart.Data<String, Number>(adultMe, 40));
-            series3.getData().add(new XYChart.Data<String, Number>(adultMe, scaleValues.get(2) - 70));
+            series3.getData().add(new XYChart.Data<>(adultMe, 30));
+            series3.getData().add(new XYChart.Data<>(adultMe, 40));
+            series3.getData().add(new XYChart.Data<>(adultMe, scaleValues.get(2) - 70));
         }
 
         if (scaleValues.get(3) < 30) {
-            series4.getData().add(new XYChart.Data<String, Number>(naturalChildMe, scaleValues.get(3)));
+            series4.getData().add(new XYChart.Data<>(naturalChildMe, scaleValues.get(3)));
         } else if (scaleValues.get(3) > 30 && scaleValues.get(3) < 70) {
-            series4.getData().add(new XYChart.Data<String, Number>(naturalChildMe, 30));
-            series4.getData().add(new XYChart.Data<String, Number>(naturalChildMe, scaleValues.get(3) - 30));
+            series4.getData().add(new XYChart.Data<>(naturalChildMe, 30));
+            series4.getData().add(new XYChart.Data<>(naturalChildMe, scaleValues.get(3) - 30));
         } else {
-            series4.getData().add(new XYChart.Data<String, Number>(naturalChildMe, 30));
-            series4.getData().add(new XYChart.Data<String, Number>(naturalChildMe, 40));
-            series4.getData().add(new XYChart.Data<String, Number>(naturalChildMe, scaleValues.get(3) - 70));
+            series4.getData().add(new XYChart.Data<>(naturalChildMe, 30));
+            series4.getData().add(new XYChart.Data<>(naturalChildMe, 40));
+            series4.getData().add(new XYChart.Data<>(naturalChildMe, scaleValues.get(3) - 70));
         }
 
         if (scaleValues.get(4) < 30) {
-            series5.getData().add(new XYChart.Data<String, Number>(adaptiveChildMe, scaleValues.get(4)));
+            series5.getData().add(new XYChart.Data<>(adaptiveChildMe, scaleValues.get(4)));
         } else if (scaleValues.get(4) > 30 && scaleValues.get(4) < 70) {
-            series5.getData().add(new XYChart.Data<String, Number>(adaptiveChildMe, 30));
-            series5.getData().add(new XYChart.Data<String, Number>(adaptiveChildMe, scaleValues.get(4) - 30));
+            series5.getData().add(new XYChart.Data<>(adaptiveChildMe, 30));
+            series5.getData().add(new XYChart.Data<>(adaptiveChildMe, scaleValues.get(4) - 30));
         } else {
-            series5.getData().add(new XYChart.Data<String, Number>(adaptiveChildMe, 30));
-            series5.getData().add(new XYChart.Data<String, Number>(adaptiveChildMe, 40));
-            series5.getData().add(new XYChart.Data<String, Number>(adaptiveChildMe, scaleValues.get(4) - 70));
+            series5.getData().add(new XYChart.Data<>(adaptiveChildMe, 30));
+            series5.getData().add(new XYChart.Data<>(adaptiveChildMe, 40));
+            series5.getData().add(new XYChart.Data<>(adaptiveChildMe, scaleValues.get(4) - 70));
         }
 
         // Generate the Chart

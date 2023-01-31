@@ -1,16 +1,10 @@
 package Fragebogen.Model;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-import Fragebogen.Controller.Client.QuestionSceneClientController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-
-import static Fragebogen.Model.DatabaseModel.id;
 
 public class Calculation {
 
@@ -26,70 +20,20 @@ public class Calculation {
     public static int scaleer = 0;
     public static int scalenki = 0;
     public static int scaleaki = 0;
-    static Scanner scanner = new Scanner(System.in);
 
     public static ObservableList<String> answerList = FXCollections.observableArrayList();
 
     public Calculation(int er, int nki, int aki) {
-        this.er = er;
-        this.nki = nki;
-        this.aki = aki;
-    }
-
-    public static int getSel() {
-        return sel;
-    }
-
-    public static void setSel(int sel) {
-        Calculation.sel = sel;
-    }
-
-    public static int getKel() {
-        return kel;
-    }
-
-    public static void setKel(int kel) {
-        Calculation.kel = kel;
-    }
-
-    public static int getBw() {
-        return bw;
-    }
-
-    public static void setBw(int bw) {
-        Calculation.bw = bw;
-    }
-
-    public int getEr() {
-        return er;
-    }
-
-    public void setEr(int er) {
-        this.er = er;
-    }
-
-    public int getNki() {
-        return nki;
-    }
-
-    public void setNki(int nki) {
-        this.nki = nki;
-    }
-
-    public int getAki() {
-        return aki;
-    }
-
-    public void setAki(int aki) {
-        this.aki = aki;
+        Calculation.er = er;
+        Calculation.nki = nki;
+        Calculation.aki = aki;
     }
 
     /**
      * ALGORTHYTHM TEIL 1+2+3
      **/
 
-    public static void algorhythm(ObservableList<Question> questionList, RadioButton yesRadioButton, RadioButton noRadioButton, int counter) {
-
+    public static void algorhythm(ObservableList<Question> questionList, RadioButton yesRadioButton, int counter) {
 
         if (counter > questionList.size()) {
             return;
@@ -108,6 +52,7 @@ public class Calculation {
                 System.out.println("bw:" + Calculation.bw + " kel:" + Calculation.kel);
                 Calculation.sel = Calculation.bw - Calculation.kel;
                 System.out.println("sel:" + Calculation.sel);
+
             }
         } else if (counter < 104) {
             if (yesRadioButton.isSelected()) {
@@ -132,7 +77,7 @@ public class Calculation {
     /**
      * Umwandlung der Rohwerte in Skalenwerte
      *
-     * @return
+     * @return Scale Values
      **/
     public static ArrayList<Integer> skala() {
 
@@ -513,23 +458,17 @@ public class Calculation {
 
     }
 
-    public static ObservableList<String> writeAnswers(ObservableList<Question> questionList, RadioButton yesRadioButton, RadioButton noRadioButton, int counter) throws SQLException {
+    public static void writeAnswers(ObservableList<Question> questionList, RadioButton yesRadioButton, int counter) {
 
-        // if yes = getQuestion + " " + Anwer=ja
         if (yesRadioButton.isSelected()) {
-            String answer = (questionList.get(counter).getFrage() + " - ja");
+            String answer = (questionList.get(counter).getQuestion() + " - ja");
             System.out.println(answer);
             answerList.add(answer);
-
-            // else getQuestion + " " + Anwer=nein
         } else {
-            String answer = (questionList.get(counter).getFrage() + " - nein");
+            String answer = (questionList.get(counter).getQuestion() + " - nein");
             System.out.println(answer);
             answerList.add(answer);
-
         }
-
-        return answerList;
 
     }
 

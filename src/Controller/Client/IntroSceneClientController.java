@@ -1,13 +1,17 @@
 package Fragebogen.Controller.Client;
 
 import Fragebogen.Egogram;
-import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
 public class IntroSceneClientController {
 
-    public void onStartButtonClick(ActionEvent actionEvent) throws IOException {
+    /**
+     * Loads the Questions-Scene
+     *
+     * @throws IOException If fxml not found
+     */
+    public void onStartButtonClick() throws IOException {
         Egogram.instance.loadScene("Client/QuestionSceneClient.fxml");
     }
 
