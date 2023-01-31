@@ -2,6 +2,7 @@ package Fragebogen.Controller.Client;
 
 import Fragebogen.Egogram;
 import javafx.event.ActionEvent;
+
 import java.io.IOException;
 
 public class IntroSceneClientController {

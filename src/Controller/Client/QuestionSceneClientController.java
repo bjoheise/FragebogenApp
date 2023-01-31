@@ -21,23 +21,6 @@ public class QuestionSceneClientController {
     public RadioButton yesRadioButton;
     public RadioButton noRadioButton;
     public Label questionCounter;
-
-    public RadioButton getYesRadioButton() {
-        return yesRadioButton;
-    }
-
-    public void setYesRadioButton(RadioButton yesRadioButton) {
-        this.yesRadioButton = yesRadioButton;
-    }
-
-    public RadioButton getNoRadioButton() {
-        return noRadioButton;
-    }
-
-    public void setNoRadioButton(RadioButton noRadioButton) {
-        this.noRadioButton = noRadioButton;
-    }
-
     public Text labelQuestion;
     public Button nextButton;
 
@@ -45,7 +28,11 @@ public class QuestionSceneClientController {
 
     public ObservableList<Question> questionList = FXCollections.observableArrayList();
 
-    // On Scene-Load
+    /**
+     * Runs when the Scene is loaded
+     *
+     * @throws SQLException If not able to read from DB
+     */
     public void initialize() throws SQLException {
 
         DatabaseModel.connect();
