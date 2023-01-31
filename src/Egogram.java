@@ -7,9 +7,9 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.SQLException;
 
 public class Egogram extends Application {
 
@@ -24,7 +24,7 @@ public class Egogram extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException, SQLException {
+    public void start(Stage primaryStage) throws IOException {
 
         // Set the Primary-Stage, the Window of the Application
         this.primaryStage = primaryStage;
@@ -35,6 +35,7 @@ public class Egogram extends Application {
         // Set the parameters for the Window
         InputStream iconStream = getClass().getResourceAsStream("Res/logo.png");
 
+        assert iconStream != null;
         Image image = new Image(iconStream);
 
         primaryStage.getIcons().add(image);
@@ -54,7 +55,7 @@ public class Egogram extends Application {
     /**
      * Initialize Root-Layout
      *
-     * @throws IOException
+     * @throws IOException If fxml not found
      */
     public void initRootLayout() throws IOException {
 
@@ -79,8 +80,8 @@ public class Egogram extends Application {
     /**
      * Loads a new Scene
      *
-     * @param sceneToLoad
-     * @throws IOException
+     * @param sceneToLoad Name of the Scene to load
+     * @throws IOException If fxml not found
      */
     public void loadScene(String sceneToLoad) throws IOException {
 

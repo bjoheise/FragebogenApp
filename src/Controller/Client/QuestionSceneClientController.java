@@ -8,8 +8,10 @@ import Fragebogen.Model.Question;
 import Fragebogen.Modules.ResultToPdf;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 
 import java.sql.SQLException;
@@ -23,7 +25,6 @@ public class QuestionSceneClientController {
     public Label questionCounter;
     public Text labelQuestion;
     public Button nextButton;
-
     public int counter = 0;
 
     public ObservableList<Question> questionList = FXCollections.observableArrayList();
@@ -37,7 +38,7 @@ public class QuestionSceneClientController {
 
         DatabaseModel.connect();
         questionList = DatabaseModel.readQuestions();
-        counter = 0;
+        counter = 140;
 
         // Instantiate new Toggle-Group
         ToggleGroup clientAnswer = new ToggleGroup();
@@ -47,8 +48,8 @@ public class QuestionSceneClientController {
         noRadioButton.setToggleGroup(clientAnswer);
         nextButton.setDisable(true);
 
-        String frage = questionList.get(0).getFrage();
-        FrageNummerAnzeigen(frage, questionList.get(counter).getId());
+        String question = questionList.get(0).getQuestion();
+        FrageNummerAnzeigen(question, questionList.get(counter).getId());
         noRadioButton.setSelected(false);
         yesRadioButton.setSelected(false);
         nextButton.setDisable(true);
@@ -57,24 +58,22 @@ public class QuestionSceneClientController {
 
     }
 
-    public void FrageNummerAnzeigen(String frage, int wert) {
-        labelQuestion.setText(wert + ".) " + frage);
+    public void FrageNummerAnzeigen(String question, int value) {
+        labelQuestion.setText(value + ".) " + question);
     }
 
-    public void radioYesClick(ActionEvent actionEvent) {
-        boolean isSelected = yesRadioButton.isSelected();
+    public void radioYesClick() {
         nextButton.setDisable(false);
     }
 
-    public void radioNoClick(ActionEvent actionEvent) {
-        boolean isSelected = noRadioButton.isSelected();
+    public void radioNoClick() {
         nextButton.setDisable(false);
     }
 
-    public void nextQuestion(ActionEvent actionEvent) throws Exception {
+    public void nextQuestion() throws Exception {
 
-        Calculation.algorhythm(questionList, yesRadioButton, noRadioButton, counter);
-        Calculation.writeAnswers(questionList, yesRadioButton, noRadioButton, counter);
+        Calculation.algorhythm(questionList, yesRadioButton, counter);
+        Calculation.writeAnswers(questionList, yesRadioButton, counter);
 
         counter++;
 
@@ -82,7 +81,7 @@ public class QuestionSceneClientController {
         if (counter < questionList.size()) {
 
             questionCounter.setText("Frage: " + questionList.get(counter).getId() + "/143");
-            String frage = questionList.get(counter).getFrage();
+            String frage = questionList.get(counter).getQuestion();
 
             FrageNummerAnzeigen(frage, questionList.get(counter).getId());
 
