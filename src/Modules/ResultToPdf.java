@@ -19,6 +19,7 @@ import javafx.scene.*;
 import javafx.scene.chart.*;
 import javafx.scene.image.WritableImage;
 import javafx.scene.shape.Line;
+import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
 import java.io.File;
@@ -41,7 +42,18 @@ public class ResultToPdf {
      */
     public void manipulatePdf(ArrayList<Integer> scaleValues, ObservableList<String> answerValues, String pseudonym) throws Exception {
 
-        File file = new File(PDF_DEST);
+
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF (*.pdf)", "*.pdf");
+
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        // Show save file dialog
+        File file = fileChooser.showSaveDialog(null);
+
+        System.out.println(file);
+
+//        File file = new File(PDF_DEST);
         file.getParentFile().mkdirs();
 
         // Create File
