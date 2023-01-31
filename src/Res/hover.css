@@ -1,20 +1,13 @@
-.button
-{
-    -fx-background-color : #FF640A;
+.button {
+    -fx-background-color: #FF640A;
 }
 
-.button:hover
-{
-
-
-
-    -fx-background-color : #BA4E0D;
-    -fx-background-radius : 10 10 10 10;
-
-}
-.text-field
-{
-    -fx-focus-color: -fx-control-inner-background ;
-    -fx-faint-focus-color: -fx-control-inner-background ;
+.button:hover {
+    -fx-background-color: #BA4E0D;
+    -fx-background-radius: 10 10 10 10;
 }
 
+.text-field {
+    -fx-focus-color: -fx-control-inner-background;
+    -fx-faint-focus-color: -fx-control-inner-background;
+}
