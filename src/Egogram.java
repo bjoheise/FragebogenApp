@@ -33,7 +33,7 @@ public class Egogram extends Application {
         instance = this;
 
         // Set the parameters for the Window
-        InputStream iconStream = getClass().getResourceAsStream("Res/logo.png");
+        InputStream iconStream = getClass().getResourceAsStream("Res/anja-logo-fix.png");
 
         assert iconStream != null;
         Image image = new Image(iconStream);
