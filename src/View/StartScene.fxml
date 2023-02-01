@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400" prefWidth="600" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.StartSceneController">
     <children>
-      <ImageView fitHeight="429.0" fitWidth="431.0" layoutX="68.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="362.0" fitWidth="381.0" layoutX="96.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Res/anja-logo-fix-low-opacity3.png" />
          </image>
