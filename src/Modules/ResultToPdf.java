@@ -19,6 +19,7 @@ import javafx.scene.*;
 import javafx.scene.chart.*;
 import javafx.scene.image.WritableImage;
 import javafx.scene.shape.Line;
+import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
 import java.io.File;
@@ -28,9 +29,19 @@ import java.util.Arrays;
 
 public class ResultToPdf {
 
-    public static final String PDF_DEST = "./target/egogram-export.pdf";
-    public static final String TEMP_IMG_DEST = "./target/egogram.png";
+    private String pdfDest;
+    private String pdfFile;
+
+    private static final String TEMP_IMG_DEST = System.getProperty("java.io.tmpdir");
+
+    // Create PNG File to temp dir
+    private final File pngFile = new File(TEMP_IMG_DEST);
+    private final File pngTemp = File.createTempFile("_egogram", ".png", pngFile);
+
     public static final String CSS_SRC = "./src/Res/chart.css";
+
+    public ResultToPdf() throws IOException {
+    }
 
     /**
      * Generates a PDF with a Chart and Answers
@@ -38,14 +49,24 @@ public class ResultToPdf {
      * @param scaleValues  Scale-Values to fill the Chart
      * @param answerValues Answers
      * @throws Exception Throws Exception on Error
+     * @TODO If no file is chosen
      */
     public void manipulatePdf(ArrayList<Integer> scaleValues, ObservableList<String> answerValues, String pseudonym) throws Exception {
 
-        File file = new File(PDF_DEST);
-        file.getParentFile().mkdirs();
+        FileChooser fileChooser = new FileChooser();
 
-        // Create File
-        PdfDocument pdfDoc = new PdfDocument(new PdfWriter(PDF_DEST));
+        // Set extension filter for text files
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        // Show save file dialog
+        File pdfDest = fileChooser.showSaveDialog(null);
+        // if (pdfDest != null) {
+        //     File pdfFile = new File(String.valueOf(pdfDest));
+        // }
+
+        // Create PDF File
+        PdfDocument pdfDoc = new PdfDocument(new PdfWriter(pdfDest));
 
         // Create Document
         Document doc = new Document(pdfDoc);
@@ -69,11 +90,9 @@ public class ResultToPdf {
         list.setFontSize(12);
 
         // Generate a PNG of the Egogram to put it into the pdf
-        this.saveAsPng(scaleValues);
-        ImageData data = ImageDataFactory.create(TEMP_IMG_DEST);
-        Image img = new Image(data);
+        Image img = new Image(this.saveAsPng(scaleValues));
 
-        // Add the elements
+        // Add all elements
         doc.add(p);
         doc.add(pEmpty);
         doc.add(img);
@@ -84,10 +103,11 @@ public class ResultToPdf {
         doc.close();
 
         // Delete the Temp Image File
-        File tempImage = new File(TEMP_IMG_DEST);
+        File tempImage = new File(String.valueOf(pngTemp));
         if (tempImage.delete()) {
             System.out.println(tempImage.getName() + " deleted.");
         }
+
 
     }
 
@@ -95,12 +115,11 @@ public class ResultToPdf {
      * Takes a Screenshot of a node without displaying it and saves it as png
      *
      * @param scaleValues Scale-Values to fill the Chart
+     * @return
      * @throws IOException Error Handler
      */
-    public void saveAsPng(ArrayList<Integer> scaleValues) throws IOException {
+    public ImageData saveAsPng(ArrayList<Integer> scaleValues) throws IOException {
 
-        // Create File
-        File file = new File(TEMP_IMG_DEST);
 
         // Create a line at 30%
         Line line70 = new Line(76.0f, 128.0f, 566.0f, 128.0f);
@@ -120,7 +139,11 @@ public class ResultToPdf {
 
         // Saving the scene as image
         WritableImage image = scene.snapshot(null);
-        ImageIO.write(SwingFXUtils.fromFXImage(image, null), "PNG", file);
+
+        // Write image to file
+        ImageIO.write(SwingFXUtils.fromFXImage(image, null), "PNG", pngTemp);
+
+        return ImageDataFactory.create(String.valueOf(pngTemp));
 
     }
 
