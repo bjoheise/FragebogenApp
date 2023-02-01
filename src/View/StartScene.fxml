@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400" prefWidth="600" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.StartSceneController">
     <children>
-      <ImageView fitHeight="234.0" fitWidth="197.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="234.0" fitWidth="197.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Res/anja-logo-fix.png" />
          </image>
@@ -34,10 +34,10 @@
       <ImageView fitHeight="46.0" fitWidth="49.0" layoutX="62.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="49.0" fitWidth="56.0" layoutX="213.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Res/Pseudo_Icon.png" />
+            <Image url="@../Res/Anonym_Icon.png" />
          </image>
       </ImageView>
-      <Label layoutX="265.0" layoutY="104.0" text="Pseudonym">
+      <Label layoutX="265.0" layoutY="104.0" text="Pseudonym" textFill="#ff640a">
           <font>
               <Font name="System Bold" size="14.0" />
           </font>
