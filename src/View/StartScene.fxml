@@ -18,16 +18,16 @@
          </image>
       </ImageView>
 
-        <Button layoutX="180.0" layoutY="195.0" mnemonicParsing="false" onAction="#onButtonClientClick" prefHeight="60.0" prefWidth="238.0" stylesheets="@../Res/hover.css" text="Interview" textFill="WHITE">
+        <Button layoutX="180.0" layoutY="195.0" mnemonicParsing="false" onAction="#onButtonClientClick" prefHeight="60.0" prefWidth="238.0" stylesheets="@../Res/hover.css" text="  Interview" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <ImageView fitHeight="49.0" fitWidth="49.0" layoutX="213.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="60.0" fitWidth="56.0" layoutX="210.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Res/Interview_Logo.png" />
+            <Image url="@../Res/Interview_Icon.png" />
          </image>
       </ImageView>
       <TextField fx:id="pseudonymInput" layoutX="189.0" layoutY="143.0" prefHeight="25.0" prefWidth="219.0" />
