@@ -9,34 +9,27 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="335.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.Client.IntroSceneClientController">
+<AnchorPane prefHeight="335.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.Client.IntroSceneClientController">
     <children>
-        <Text layoutX="143.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="Zu den folgenden Aussagen sollten Sie so spontan und offen wie möglich Stellung nehmen (das erste Gefühl ist meist das richtige).  "
-              wrappingWidth="300.0"/>
-        <Text layoutX="143.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="Bitte lassen Sie keine Fragen aus und entscheiden sich auch bei Grenzfällen in jedem Fall für Ja ODER Nein."
-              wrappingWidth="300.0"/>
+        <Text layoutX="143.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zu den folgenden Aussagen sollten Sie so spontan und offen wie möglich Stellung nehmen (das erste Gefühl ist meist das richtige).  " wrappingWidth="300.0" />
+        <Text layoutX="143.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bitte lassen Sie keine Fragen aus und entscheiden sich auch bei Grenzfällen in jedem Fall für Ja ODER Nein." wrappingWidth="300.0" />
         <Label layoutX="143.0" layoutY="66.0" text="Anleitung">
             <font>
-                <Font size="14.0"/>
+                <Font size="14.0" />
             </font>
         </Label>
-        <Button layoutX="143.0" layoutY="224.0" mnemonicParsing="false" onAction="#onStartButtonClick" prefHeight="32.0"
-                prefWidth="96.0" stylesheets="@../../Res/hover.css" text="          Start" textFill="WHITE">
+        <Button layoutX="236.0" layoutY="225.0" mnemonicParsing="false" onAction="#onStartButtonClick" prefHeight="32.0" prefWidth="78.0" stylesheets="@../../Res/hover.css" text="Start" textFill="WHITE">
             <font>
-                <Font name="System Bold" size="14.0"/>
+                <Font name="System Bold" size="14.0" />
             </font>
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <ImageView fitHeight="32.0" fitWidth="25.0" layoutX="157.0" layoutY="228.0" pickOnBounds="true"
-                   preserveRatio="true">
-            <image>
-                <Image url="@../../Res/Start_Icon.png"/>
-            </image>
-        </ImageView>
+      <ImageView fitHeight="229.0" fitWidth="235.0" layoutX="-34.0" layoutY="158.0" opacity="0.62" pickOnBounds="true" preserveRatio="true" rotate="-12.5">
+         <image>
+            <Image url="@../../Res/anja-logo-fix-low-opacity3.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

@@ -12,47 +12,45 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="335.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="Fragebogen.Controller.Client.QuestionSceneClientController">
+<AnchorPane prefHeight="335.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.Client.QuestionSceneClientController">
     <children>
         <!--        <Label fx:id="labelQuestion" layoutX="154.0" layoutY="145.0" text="Soll es los gehen?" />-->
-        <VBox layoutX="135.0" layoutY="124.0" prefHeight="99.0" prefWidth="317.0">
+        <VBox layoutX="184.0" layoutY="124.0" prefHeight="99.0" prefWidth="317.0">
 
             <children>
                 <RadioButton fx:id="yesRadioButton" mnemonicParsing="false" onAction="#radioYesClick" text="Ja">
                     <padding>
-                        <Insets bottom="10.0" top="20.0"/>
+                        <Insets bottom="10.0" top="20.0" />
                     </padding>
                 </RadioButton>
                 <RadioButton fx:id="noRadioButton" mnemonicParsing="false" onAction="#radioNoClick" text="Nein">
                     <padding>
-                        <Insets bottom="20.0" top="10.0"/>
+                        <Insets bottom="20.0" top="10.0" />
                     </padding>
                 </RadioButton>
             </children>
         </VBox>
-        <Button fx:id="nextButton" layoutX="367.0" layoutY="277.0" mnemonicParsing="false" onAction="#nextQuestion"
-                prefHeight="32.0" prefWidth="101.0" stylesheets="@../../Res/hover.css" text="Weiter"
-                textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="367.0">
+        <Button fx:id="nextButton" layoutX="367.0" layoutY="277.0" mnemonicParsing="false" onAction="#nextQuestion" prefHeight="32.0" prefWidth="145.0" stylesheets="@../../Res/hover.css" text="    Weitermachen" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="367.0">
             <font>
-                <Font name="System Bold" size="14.0"/>
+                <Font name="System Bold" size="14.0" />
             </font>
             <padding>
-                <Insets left="15.0"/>
+                <Insets left="15.0" />
             </padding>
             <cursor>
-                <Cursor fx:constant="HAND"/>
+                <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Text fx:id="labelQuestion" layoutX="154.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0"
-              textOrigin="BOTTOM" wrappingWidth="317.13671875"/>
-        <Label fx:id="questionCounter" layoutX="135.0" layoutY="284.0" prefHeight="17.0" prefWidth="107.0"
-               text="Label"/>
-        <ImageView fitHeight="23.0" fitWidth="25.0" layoutX="374.0" layoutY="282.0" pickOnBounds="true"
-                   preserveRatio="true">
+        <Text fx:id="labelQuestion" layoutX="154.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" textOrigin="BOTTOM" wrappingWidth="317.13671875" />
+        <Label fx:id="questionCounter" layoutX="185.0" layoutY="284.0" prefHeight="17.0" prefWidth="107.0" text="Label" />
+      <ImageView fitHeight="229.0" fitWidth="235.0" layoutX="-34.0" layoutY="158.0" opacity="0.62" pickOnBounds="true" preserveRatio="true" rotate="-12.5">
+         <image>
+            <Image url="@../../Res/anja-logo-fix-low-opacity3.png" />
+         </image>
+      </ImageView>
+        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="374.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../Res/Enter_Icon.png"/>
+                <Image url="@../../Res/continue_icon.png" />
             </image>
         </ImageView>
     </children>
