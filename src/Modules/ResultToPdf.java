@@ -53,20 +53,42 @@ public class ResultToPdf {
      */
     public void manipulatePdf(ArrayList<Integer> scaleValues, ObservableList<String> answerValues, String pseudonym) throws Exception {
 
+
+        System.out.println(System.getProperty("user.home"));
+
         FileChooser fileChooser = new FileChooser();
 
         // Set extension filter for text files
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
         fileChooser.getExtensionFilters().add(extFilter);
+        fileChooser.setInitialFileName(pseudonym + "-egogramm");
 
         // Show save file dialog
-        File pdfDest = fileChooser.showSaveDialog(null);
+        // File pdfDest = fileChooser.showSaveDialog(null);
         // if (pdfDest != null) {
         //     File pdfFile = new File(String.valueOf(pdfDest));
         // }
+        System.out.println(pdfDest);
+
+        do {
+
+            System.out.println(pdfDest);
+
+            File pdfDest = fileChooser.showSaveDialog(null);
+
+            // if (pdfDest != null) {
+            File pdfFile = new File(String.valueOf(pdfDest));
+            // } else {
+            //     File pdfDest = fileChooser.showSaveDialog(null);
+            // }
+
+            System.out.println("dest: " + pdfDest);
+
+        } while (pdfDest == null);
 
         // Create PDF File
         PdfDocument pdfDoc = new PdfDocument(new PdfWriter(pdfDest));
+
 
         // Create Document
         Document doc = new Document(pdfDoc);
