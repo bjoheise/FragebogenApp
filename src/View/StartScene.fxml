@@ -8,36 +8,33 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400" prefWidth="600" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.StartSceneController">
     <children>
-      <ImageView fitHeight="362.0" fitWidth="381.0" layoutX="96.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Res/anja-logo-fix-low-opacity3.png" />
-         </image>
-      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="194.0" layoutX="199.0" layoutY="75.0" stroke="#ff640a" strokeLineJoin="ROUND" strokeWidth="3.0" width="201.0" />
 
-        <Button layoutX="180.0" layoutY="195.0" mnemonicParsing="false" onAction="#onButtonClientClick" prefHeight="60.0" prefWidth="238.0" stylesheets="@../Res/hover.css" text="  Interview" textFill="WHITE">
+        <Button layoutX="215.0" layoutY="195.0" mnemonicParsing="false" onAction="#onButtonClientClick" prefHeight="56.0" prefWidth="165.0" stylesheets="@../Res/hover.css" text="           Interview" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <ImageView fitHeight="60.0" fitWidth="56.0" layoutX="210.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="46.0" fitWidth="49.0" layoutX="231.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Res/Interview_Icon.png" />
+            <Image url="@../Res/interview_icon_new.png" />
          </image>
       </ImageView>
-      <TextField fx:id="pseudonymInput" layoutX="189.0" layoutY="143.0" prefHeight="25.0" prefWidth="219.0" />
+      <TextField fx:id="pseudonymInput" layoutX="215.0" layoutY="138.0" prefHeight="20.0" prefWidth="165.0" />
       <ImageView fitHeight="46.0" fitWidth="49.0" layoutX="62.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="49.0" fitWidth="56.0" layoutX="213.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="49.0" fitWidth="56.0" layoutX="227.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Res/Anonym_Icon.png" />
          </image>
       </ImageView>
-      <Label layoutX="265.0" layoutY="104.0" text="Pseudonym" textFill="#ff640a">
+      <Label layoutX="283.0" layoutY="104.0" text="Pseudonym" textFill="#ff640a">
           <font>
               <Font name="System Bold" size="14.0" />
           </font>
