@@ -70,7 +70,7 @@ public class ResultToPdf {
         // }
         System.out.println(pdfDest);
 
-        do {
+//        do {
 
             System.out.println(pdfDest);
 
@@ -84,7 +84,7 @@ public class ResultToPdf {
 
             System.out.println("dest: " + pdfDest);
 
-        } while (pdfDest == null);
+//        } while (pdfDest == null);
 
         // Create PDF File
         PdfDocument pdfDoc = new PdfDocument(new PdfWriter(pdfDest));
