@@ -461,11 +461,11 @@ public class Calculation {
     public static void writeAnswers(ObservableList<Question> questionList, RadioButton yesRadioButton, int counter) {
 
         if (yesRadioButton.isSelected()) {
-            String answer = (questionList.get(counter).getQuestion() + " - ja");
+            String answer = ("Ja - " + questionList.get(counter).getQuestion());
             System.out.println(answer);
             answerList.add(answer);
         } else {
-            String answer = (questionList.get(counter).getQuestion() + " - nein");
+            String answer = ("Nein - " + questionList.get(counter).getQuestion());
             System.out.println(answer);
             answerList.add(answer);
         }
