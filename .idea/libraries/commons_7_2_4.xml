@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="commons-7.2.4">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/commons/7.2.4/commons-7.2.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

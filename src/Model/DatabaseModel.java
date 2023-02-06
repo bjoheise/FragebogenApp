@@ -16,15 +16,18 @@ public class DatabaseModel {
     public static void connect() {
 
         try {
+            Class.forName("org.sqlite.JDBC");
             // db parameters
-            String url = "jdbc:sqlite:src/DB/FragebogenDB.db";
+            //String url = "jdbc:sqlite/resources/database/FragebogenDB.db";
             // create a connection to the database
-            conn = DriverManager.getConnection(url);
-
+            //conn = DriverManager.getConnection(url);
+            conn = DriverManager.getConnection("jdbc:sqlite::resource:" + DatabaseModel.class.getResource("/database/FragebogenDB.db").toString());
             System.out.println("Connection to SQLite has been established.");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 
