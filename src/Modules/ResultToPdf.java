@@ -37,8 +37,6 @@ public class ResultToPdf {
     private final File pngFile = new File(TEMP_IMG_DEST);
     private final File pngTemp = File.createTempFile("_egogram", ".png", pngFile);
 
-    public static final String CSS_SRC = "./src/Res/chart.css";
-
     public ResultToPdf() throws IOException {
     }
 
