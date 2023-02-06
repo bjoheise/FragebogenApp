@@ -15,8 +15,14 @@
             <Font size="14.0"/>
         </font>
     </Text>
-    <Button layoutX="238.0" layoutY="189.0" mnemonicParsing="false" onAction="#buttonExitClick" prefHeight="30.0"
+    <Button layoutX="297.0" layoutY="188.0" mnemonicParsing="false" onAction="#buttonExitClick" prefHeight="30.0"
             prefWidth="110.0" style="-fx-background-color: #FF640A;" text="Beenden" textFill="WHITE">
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+    <Button layoutX="179.0" layoutY="188.0" mnemonicParsing="false" onAction="#buttonSavePdfClick" prefHeight="30.0"
+            prefWidth="110.0" style="-fx-background-color: #FF640A;" text="PDF Speichern" textFill="WHITE">
         <cursor>
             <Cursor fx:constant="HAND"/>
         </cursor>

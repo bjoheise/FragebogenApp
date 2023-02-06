@@ -29,9 +29,7 @@ import java.util.Arrays;
 
 public class ResultToPdf {
 
-    private String pdfDest;
-    private String pdfFile;
-
+    // Get Systems Temp-Dir
     private static final String TEMP_IMG_DEST = System.getProperty("java.io.tmpdir");
 
     // Create PNG File to temp dir
@@ -49,87 +47,62 @@ public class ResultToPdf {
      * @param scaleValues  Scale-Values to fill the Chart
      * @param answerValues Answers
      * @throws Exception Throws Exception on Error
-     * @TODO If no file is chosen
      */
     public void manipulatePdf(ArrayList<Integer> scaleValues, ObservableList<String> answerValues, String pseudonym) throws Exception {
 
-
-        System.out.println(System.getProperty("user.home"));
-
+        // Initialize File chooser
         FileChooser fileChooser = new FileChooser();
 
         // Set extension filter for text files
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
         fileChooser.getExtensionFilters().add(extFilter);
         fileChooser.setInitialFileName(pseudonym + "-egogramm");
+        File pdfDest = fileChooser.showSaveDialog(null);
 
-        // Show save file dialog
-        // File pdfDest = fileChooser.showSaveDialog(null);
-        // if (pdfDest != null) {
-        //     File pdfFile = new File(String.valueOf(pdfDest));
-        // }
-        System.out.println(pdfDest);
+        if (pdfDest != null) {
 
-//        do {
+            // Create PDF File
+            PdfDocument pdfDoc = new PdfDocument(new PdfWriter(pdfDest));
 
-            System.out.println(pdfDest);
+            // Create Document
+            Document doc = new Document(pdfDoc);
 
-            File pdfDest = fileChooser.showSaveDialog(null);
+            // Set PDF-Font
+            PdfFont pdfFont = PdfFontFactory.createFont(StandardFonts.HELVETICA);
+            pdfDoc.addFont(pdfFont);
 
-            // if (pdfDest != null) {
-            File pdfFile = new File(String.valueOf(pdfDest));
-            // } else {
-            //     File pdfDest = fileChooser.showSaveDialog(null);
-            // }
+            // Create Paragraph with Pseudonym
+            Paragraph p = new Paragraph("Pseudonym: " + pseudonym);
+            Paragraph pEmpty = new Paragraph("\n");
+            // Set Font-Size of List
+            p.setFontSize(12);
 
-            System.out.println("dest: " + pdfDest);
+            // Create List with Answers
+            List list = new List(ListNumberingType.DECIMAL);
+            for (String answerValue : answerValues) {
+                list.add(answerValue);
+            }
+            // Set Font-Size of List
+            list.setFontSize(12);
 
-//        } while (pdfDest == null);
+            // Generate a PNG of the Egogram to put it into the pdf
+            Image img = new Image(this.saveAsPng(scaleValues));
 
-        // Create PDF File
-        PdfDocument pdfDoc = new PdfDocument(new PdfWriter(pdfDest));
+            // Add all elements
+            doc.add(p);
+            doc.add(pEmpty);
+            doc.add(img);
+            doc.add(pEmpty);
+            doc.add(list);
 
+            // Close the PDF
+            doc.close();
 
-        // Create Document
-        Document doc = new Document(pdfDoc);
+            // Delete the Temp Image File
+            File tempImage = new File(String.valueOf(pngTemp));
+            tempImage.deleteOnExit();
 
-        // Set PDF-Font
-        PdfFont pdfFont = PdfFontFactory.createFont(StandardFonts.HELVETICA);
-        pdfDoc.addFont(pdfFont);
-
-        // Create Paragraph with Pseudonym
-        Paragraph p = new Paragraph("Pseudonym: " + pseudonym);
-        Paragraph pEmpty = new Paragraph("\n");
-        // Set Font-Size of List
-        p.setFontSize(12);
-
-        // Create List with Answers
-        List list = new List(ListNumberingType.DECIMAL);
-        for (String answerValue : answerValues) {
-            list.add(answerValue);
         }
-        // Set Font-Size of List
-        list.setFontSize(12);
-
-        // Generate a PNG of the Egogram to put it into the pdf
-        Image img = new Image(this.saveAsPng(scaleValues));
-
-        // Add all elements
-        doc.add(p);
-        doc.add(pEmpty);
-        doc.add(img);
-        doc.add(pEmpty);
-        doc.add(list);
-
-        // Close the PDF
-        doc.close();
-
-        // Delete the Temp Image File
-        File tempImage = new File(String.valueOf(pngTemp));
-        if (tempImage.delete()) {
-            System.out.println(tempImage.getName() + " deleted.");
-        }
-
 
     }
 
@@ -137,11 +110,10 @@ public class ResultToPdf {
      * Takes a Screenshot of a node without displaying it and saves it as png
      *
      * @param scaleValues Scale-Values to fill the Chart
-     * @return
+     * @return ImageData
      * @throws IOException Error Handler
      */
     public ImageData saveAsPng(ArrayList<Integer> scaleValues) throws IOException {
-
 
         // Create a line at 30%
         Line line70 = new Line(76.0f, 128.0f, 566.0f, 128.0f);
@@ -156,8 +128,8 @@ public class ResultToPdf {
         ((Group) scene.getRoot()).getChildren().add(line70);
 
         // @TODO: Add CSS to the StackedBarChart
-        // scene.getStylesheets().add(CSS_SRC);
-        // System.out.println(scene.getStylesheets().add(CSS_SRC));
+//         scene.getStylesheets().add(CSS_SRC);
+//         System.out.println(scene.getStylesheets().add(CSS_SRC));
 
         // Saving the scene as image
         WritableImage image = scene.snapshot(null);
@@ -215,7 +187,7 @@ public class ResultToPdf {
         XYChart.Series<String, Number> series3 = new XYChart.Series<>();
         XYChart.Series<String, Number> series4 = new XYChart.Series<>();
         XYChart.Series<String, Number> series5 = new XYChart.Series<>();
-
+        
         if (scaleValues.get(0) < 30) {
             series1.getData().add(new XYChart.Data<>(criticalAdultMe, scaleValues.get(0)));
         } else if (scaleValues.get(0) > 30 && scaleValues.get(0) < 70) {
@@ -273,6 +245,7 @@ public class ResultToPdf {
 
         // Generate the Chart
         barChart.getData().addAll(series1, series2, series3, series4, series5);
+
         // Chart Options
         barChart.setPrefSize(580, 400);
 
@@ -282,7 +255,9 @@ public class ResultToPdf {
 //        n2.setStyle("-fx-bar-fill: #FFA726");
 //        Node n3 = barChart.lookup(".data2.chart-bar");
 //        n3.setStyle("-fx-bar-fill: #FF640A");
-//
+//        Node n4 = barChart.lookup(".data4.chart-bar");
+//        n4.setStyle("-fx-bar-fill: #d4ffae");
+
 //        Node n4 = barChart.lookup(".data4.chart-bar");
 //        n1.setStyle("-fx-bar-fill: #FFCC80");
 //        System.out.println(n4);
