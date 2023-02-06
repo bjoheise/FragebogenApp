@@ -1,5 +1,6 @@
 package Fragebogen.Modules;
 
+import Fragebogen.Egogram;
 import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -127,9 +128,8 @@ public class ResultToPdf {
         ((Group) scene.getRoot()).getChildren().add(line30);
         ((Group) scene.getRoot()).getChildren().add(line70);
 
-        // @TODO: Add CSS to the StackedBarChart
-//         scene.getStylesheets().add(CSS_SRC);
-//         System.out.println(scene.getStylesheets().add(CSS_SRC));
+        // Add CSS-File
+        scene.getStylesheets().add(Egogram.class.getResource("/chart.css").toExternalForm());
 
         // Saving the scene as image
         WritableImage image = scene.snapshot(null);
@@ -248,27 +248,6 @@ public class ResultToPdf {
 
         // Chart Options
         barChart.setPrefSize(580, 400);
-
-//        Node n1 = barChart.lookup(".data0.chart-bar");
-//        n1.setStyle("-fx-bar-fill: #FFCC80");
-//        Node n2 = barChart.lookup(".data1.chart-bar");
-//        n2.setStyle("-fx-bar-fill: #FFA726");
-//        Node n3 = barChart.lookup(".data2.chart-bar");
-//        n3.setStyle("-fx-bar-fill: #FF640A");
-//        Node n4 = barChart.lookup(".data4.chart-bar");
-//        n4.setStyle("-fx-bar-fill: #d4ffae");
-
-//        Node n4 = barChart.lookup(".data4.chart-bar");
-//        n1.setStyle("-fx-bar-fill: #FFCC80");
-//        System.out.println(n4);
-
-        // if (series1.getYValue().intValue() > 8) {
-        //     node.setStyle("-fx-bar-fill: -fx-exceeded;");
-        // } else if (data.getYValue().intValue() > 5) {
-        //     node.setStyle("-fx-bar-fill: -fx-achieved;");
-        // } else {
-        //     node.setStyle("-fx-bar-fill: -fx-not-achieved;");
-        // }
 
         return barChart;
 
