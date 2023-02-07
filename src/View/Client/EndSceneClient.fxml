@@ -2,29 +2,37 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="335.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.Client.EndSceneClientController">
-    <Text layoutX="238.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0"
-          text="Vielen Dank, bitte wenden Sie sich an Ihren Coach" textAlignment="CENTER"
-          wrappingWidth="109.99999791383743">
+<AnchorPane prefHeight="335.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fragebogen.Controller.Client.EndSceneClientController">
+    <Text layoutX="238.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vielen Dank, bitte wenden Sie sich an Ihren Coach" textAlignment="CENTER" wrappingWidth="109.99999791383743">
         <font>
-            <Font size="14.0"/>
+            <Font size="14.0" />
         </font>
     </Text>
-    <Button layoutX="297.0" layoutY="188.0" mnemonicParsing="false" onAction="#buttonExitClick" prefHeight="30.0"
-            prefWidth="110.0" style="-fx-background-color: #FF640A;" text="Beenden" textFill="WHITE">
+    <Button layoutX="297.0" layoutY="188.0" mnemonicParsing="false" onAction="#buttonExitClick" prefHeight="30.0" prefWidth="110.0" stylesheets="@../../Res/hover.css" text="Beenden" textFill="WHITE">
         <cursor>
-            <Cursor fx:constant="HAND"/>
+            <Cursor fx:constant="HAND" />
         </cursor>
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
     </Button>
-    <Button layoutX="179.0" layoutY="188.0" mnemonicParsing="false" onAction="#buttonSavePdfClick" prefHeight="30.0"
-            prefWidth="110.0" style="-fx-background-color: #FF640A;" text="PDF Speichern" textFill="WHITE">
+    <Button layoutX="179.0" layoutY="188.0" mnemonicParsing="false" onAction="#buttonSavePdfClick" prefHeight="30.0" prefWidth="110.0" stylesheets="@../../Res/hover.css" text="PDF Speichern" textFill="WHITE">
         <cursor>
-            <Cursor fx:constant="HAND"/>
+            <Cursor fx:constant="HAND" />
         </cursor>
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font>
     </Button>
+   <ImageView fitHeight="229.0" fitWidth="235.0" layoutX="-32.0" layoutY="158.0" opacity="0.62" pickOnBounds="true" preserveRatio="true" rotate="-12.5">
+      <image>
+         <Image url="@../../Res/anja-logo-fix-low-opacity3.png" />
+      </image>
+   </ImageView>
 </AnchorPane>

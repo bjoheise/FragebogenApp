@@ -28,7 +28,7 @@
          </image>
       </ImageView>
       <TextField fx:id="pseudonymInput" layoutX="215.0" layoutY="138.0" prefHeight="20.0" prefWidth="165.0" />
-      <ImageView fitHeight="229.0" fitWidth="235.0" layoutX="-34.0" layoutY="158.0" opacity="0.62" pickOnBounds="true" preserveRatio="true" rotate="-12.5">
+      <ImageView fitHeight="229.0" fitWidth="235.0" layoutX="-34.0" layoutY="149.0" opacity="0.62" pickOnBounds="true" preserveRatio="true" rotate="-12.5">
          <image>
             <Image url="@../Res/anja-logo-fix-low-opacity3.png" />
          </image></ImageView>
