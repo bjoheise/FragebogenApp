@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class ResultToPdf {
 
@@ -123,11 +124,12 @@ public class ResultToPdf {
 
         // Add the Elements to the Scene: Chart and two Lines
         ((Group) scene.getRoot()).getChildren().add(this.buildChart(scaleValues));
+//        ((Group) scene.getRoot()).getChildren().add(this.testBarChart());
         ((Group) scene.getRoot()).getChildren().add(line30);
         ((Group) scene.getRoot()).getChildren().add(line70);
 
         // Add CSS-File
-        scene.getStylesheets().add(Egogram.class.getResource("/chart.css").toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(Egogram.class.getResource("/chart.css")).toExternalForm());
 
         // Saving the scene as image
         WritableImage image = scene.snapshot(null);
@@ -241,8 +243,11 @@ public class ResultToPdf {
             series5.getData().add(new XYChart.Data<>(adaptiveChildMe, scaleValues.get(4) - 70));
         }
 
-        // Generate the Chart
-        barChart.getData().addAll(series1, series2, series3, series4, series5);
+        barChart.getData().add(series1);
+        barChart.getData().add(series2);
+        barChart.getData().add(series3);
+        barChart.getData().add(series4);
+        barChart.getData().add(series5);
 
         // Chart Options
         barChart.setPrefSize(580, 400);
