@@ -1,5 +1,6 @@
 package Fragebogen.Modules;
 
+import Fragebogen.Egogram;
 import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -26,6 +27,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class ResultToPdf {
 
@@ -35,8 +37,6 @@ public class ResultToPdf {
     // Create PNG File to temp dir
     private final File pngFile = new File(TEMP_IMG_DEST);
     private final File pngTemp = File.createTempFile("_egogram", ".png", pngFile);
-
-    public static final String CSS_SRC = "./src/Res/chart.css";
 
     public ResultToPdf() throws IOException {
     }
@@ -124,12 +124,12 @@ public class ResultToPdf {
 
         // Add the Elements to the Scene: Chart and two Lines
         ((Group) scene.getRoot()).getChildren().add(this.buildChart(scaleValues));
+//        ((Group) scene.getRoot()).getChildren().add(this.testBarChart());
         ((Group) scene.getRoot()).getChildren().add(line30);
         ((Group) scene.getRoot()).getChildren().add(line70);
 
-        // @TODO: Add CSS to the StackedBarChart
-//         scene.getStylesheets().add(CSS_SRC);
-//         System.out.println(scene.getStylesheets().add(CSS_SRC));
+        // Add CSS-File
+        scene.getStylesheets().add(Objects.requireNonNull(Egogram.class.getResource("/chart.css")).toExternalForm());
 
         // Saving the scene as image
         WritableImage image = scene.snapshot(null);
@@ -243,32 +243,14 @@ public class ResultToPdf {
             series5.getData().add(new XYChart.Data<>(adaptiveChildMe, scaleValues.get(4) - 70));
         }
 
-        // Generate the Chart
-        barChart.getData().addAll(series1, series2, series3, series4, series5);
+        barChart.getData().add(series1);
+        barChart.getData().add(series2);
+        barChart.getData().add(series3);
+        barChart.getData().add(series4);
+        barChart.getData().add(series5);
 
         // Chart Options
         barChart.setPrefSize(580, 400);
-
-//        Node n1 = barChart.lookup(".data0.chart-bar");
-//        n1.setStyle("-fx-bar-fill: #FFCC80");
-//        Node n2 = barChart.lookup(".data1.chart-bar");
-//        n2.setStyle("-fx-bar-fill: #FFA726");
-//        Node n3 = barChart.lookup(".data2.chart-bar");
-//        n3.setStyle("-fx-bar-fill: #FF640A");
-//        Node n4 = barChart.lookup(".data4.chart-bar");
-//        n4.setStyle("-fx-bar-fill: #d4ffae");
-
-//        Node n4 = barChart.lookup(".data4.chart-bar");
-//        n1.setStyle("-fx-bar-fill: #FFCC80");
-//        System.out.println(n4);
-
-        // if (series1.getYValue().intValue() > 8) {
-        //     node.setStyle("-fx-bar-fill: -fx-exceeded;");
-        // } else if (data.getYValue().intValue() > 5) {
-        //     node.setStyle("-fx-bar-fill: -fx-achieved;");
-        // } else {
-        //     node.setStyle("-fx-bar-fill: -fx-not-achieved;");
-        // }
 
         return barChart;
 

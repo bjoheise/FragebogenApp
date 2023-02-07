@@ -42,8 +42,9 @@ public class EndSceneClientController {
         ArrayList<Integer> scaleValues = Calculation.skala();
         // Get Answers
         ObservableList<String> answerValues = Calculation.answerList;
-        // Generate PDF
+        // Instantiate Class
         ResultToPdf resultToPdf = new ResultToPdf();
+        // Generate PDF
         resultToPdf.manipulatePdf(scaleValues, answerValues, StartSceneController.pseudonym);
 
     }

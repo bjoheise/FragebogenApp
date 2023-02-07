@@ -1,0 +1,60 @@
+
+.series0.data0.chart-bar {
+    -fx-bar-fill: #ffc09c;
+}
+
+.series0.data1.chart-bar {
+    -fx-bar-fill: #ff914f;
+}
+
+.series0.data2.chart-bar {
+    -fx-bar-fill: #FF640A;
+}
+
+.series1.data0.chart-bar {
+    -fx-bar-fill: #a7d1ff;
+}
+
+.series1.data1.chart-bar {
+    -fx-bar-fill: #6eb5ff;
+}
+
+.series1.data2.chart-bar {
+    -fx-bar-fill: #0083ff;
+}
+
+.series2.data0.chart-bar {
+    -fx-bar-fill: #bca5ff;
+}
+
+.series2.data1.chart-bar {
+    -fx-bar-fill: #8961ff;
+}
+
+.series2.data2.chart-bar {
+    -fx-bar-fill: #5d25ff;
+}
+
+.series3.data0.chart-bar {
+    -fx-bar-fill: #ffef9a;
+}
+
+.series3.data1.chart-bar {
+    -fx-bar-fill: #ffff49;
+}
+
+.series3.data2.chart-bar {
+    -fx-bar-fill: #ffff00;
+}
+
+.series4.data0.chart-bar {
+    -fx-bar-fill: #baffea;
+}
+
+.series4.data1.chart-bar {
+    -fx-bar-fill: #66ffd2;
+}
+
+.series4.data2.chart-bar {
+    -fx-bar-fill: #00ffb6;
+}
