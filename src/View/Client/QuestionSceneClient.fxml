@@ -48,10 +48,13 @@
             <Image url="@../../Res/anja-logo-fix-low-opacity3.png" />
          </image>
       </ImageView>
-        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="374.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="374.0" layoutY="277.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../Res/continue_icon.png" />
             </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </ImageView>
     </children>
 </AnchorPane>

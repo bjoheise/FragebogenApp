@@ -12,15 +12,15 @@
 }
 
 .series1.data0.chart-bar {
-    -fx-bar-fill: #a7d1ff;
+    -fx-bar-fill: #ffc09c;
 }
 
 .series1.data1.chart-bar {
-    -fx-bar-fill: #6eb5ff;
+    -fx-bar-fill:  #ff914f;
 }
 
 .series1.data2.chart-bar {
-    -fx-bar-fill: #0083ff;
+    -fx-bar-fill: #FF640A;
 }
 
 .series2.data0.chart-bar {
@@ -36,25 +36,25 @@
 }
 
 .series3.data0.chart-bar {
-    -fx-bar-fill: #ffef9a;
+    -fx-bar-fill: #a7d1ff;
 }
 
 .series3.data1.chart-bar {
-    -fx-bar-fill: #ffff49;
+    -fx-bar-fill: #6eb5ff;
 }
 
 .series3.data2.chart-bar {
-    -fx-bar-fill: #ffff00;
+    -fx-bar-fill: #0083ff;
 }
 
 .series4.data0.chart-bar {
-    -fx-bar-fill: #baffea;
+    -fx-bar-fill: #a7d1ff;
 }
 
 .series4.data1.chart-bar {
-    -fx-bar-fill: #66ffd2;
+    -fx-bar-fill: #6eb5ff;
 }
 
 .series4.data2.chart-bar {
-    -fx-bar-fill: #00ffb6;
+    -fx-bar-fill: #0083ff;
 }

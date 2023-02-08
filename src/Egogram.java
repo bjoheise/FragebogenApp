@@ -1,5 +1,6 @@
 package Fragebogen;
 
+import Fragebogen.Controller.StartSceneController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

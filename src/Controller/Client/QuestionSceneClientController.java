@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import java.sql.SQLException;
 
@@ -91,4 +92,7 @@ public class QuestionSceneClientController {
 
     }
 
+    public void onMouseClicked(MouseEvent mouseEvent) throws Exception {
+        nextQuestion();
+    }
 }

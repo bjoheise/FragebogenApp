@@ -15,19 +15,22 @@
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="194.0" layoutX="199.0" layoutY="75.0" stroke="#ff640a" strokeLineJoin="ROUND" strokeWidth="3.0" width="201.0" />
 
-        <Button layoutX="215.0" layoutY="195.0" mnemonicParsing="false" onAction="#onButtonClientClick" prefHeight="56.0" prefWidth="165.0" stylesheets="@../Res/hover.css" text="           Interview" textFill="WHITE">
+        <Button fx:id="onButtonClientId" layoutX="215.0" layoutY="195.0" mnemonicParsing="false" onAction="#onButtonClientClick" prefHeight="56.0" prefWidth="165.0" stylesheets="@../Res/hover.css" text="           Interview" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <ImageView fitHeight="46.0" fitWidth="49.0" layoutX="231.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="46.0" fitWidth="49.0" layoutX="231.0" layoutY="200.0" onMouseClicked="#onMouseClickedInterview" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Res/interview_icon_new.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
-      <TextField fx:id="pseudonymInput" layoutX="215.0" layoutY="138.0" prefHeight="20.0" prefWidth="165.0" />
+      <TextField fx:id="pseudonymInput" layoutX="215.0" layoutY="138.0" onAction="#onTextfieldInput" prefHeight="20.0" prefWidth="165.0" />
       <ImageView fitHeight="229.0" fitWidth="235.0" layoutX="-34.0" layoutY="149.0" opacity="0.62" pickOnBounds="true" preserveRatio="true" rotate="-12.5">
          <image>
             <Image url="@../Res/anja-logo-fix-low-opacity3.png" />
