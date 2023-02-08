@@ -46,9 +46,8 @@ public class ResultToPdf {
      *
      * @param scaleValues  Scale-Values to fill the Chart
      * @param answerValues Answers
-     * @throws Exception Throws Exception on Error
      */
-    public void manipulatePdf(ArrayList<Integer> scaleValues, ObservableList<String> answerValues, String pseudonym) throws Exception {
+    public void manipulatePdf(ArrayList<Integer> scaleValues, ObservableList<String> answerValues, String pseudonym) {
 
         // Initialize File chooser
         FileChooser fileChooser = new FileChooser();
@@ -59,49 +58,55 @@ public class ResultToPdf {
         fileChooser.setInitialFileName(pseudonym + "-egogramm");
         File pdfDest = fileChooser.showSaveDialog(null);
 
-        if (pdfDest != null) {
+        try {
 
-            // Create PDF File
-            PdfDocument pdfDoc = new PdfDocument(new PdfWriter(pdfDest));
+            if (pdfDest != null) {
 
-            // Create Document
-            Document doc = new Document(pdfDoc);
+                // Create PDF File
+                PdfDocument pdfDoc = new PdfDocument(new PdfWriter(pdfDest));
 
-            // Set PDF-Font
-            PdfFont pdfFont = PdfFontFactory.createFont(StandardFonts.HELVETICA);
-            pdfDoc.addFont(pdfFont);
+                // Create Document
+                Document doc = new Document(pdfDoc);
 
-            // Create Paragraph with Pseudonym
-            Paragraph p = new Paragraph("Pseudonym: " + pseudonym);
-            Paragraph pEmpty = new Paragraph("\n");
-            // Set Font-Size of List
-            p.setFontSize(12);
+                // Set PDF-Font
+                PdfFont pdfFont = PdfFontFactory.createFont(StandardFonts.HELVETICA);
+                pdfDoc.addFont(pdfFont);
 
-            // Create List with Answers
-            List list = new List(ListNumberingType.DECIMAL);
-            for (String answerValue : answerValues) {
-                list.add(answerValue);
+                // Create Paragraph with Pseudonym
+                Paragraph p = new Paragraph("Pseudonym: " + pseudonym);
+                Paragraph pEmpty = new Paragraph("\n");
+                // Set Font-Size of List
+                p.setFontSize(12);
+
+                // Create List with Answers
+                List list = new List(ListNumberingType.DECIMAL);
+                for (String answerValue : answerValues) {
+                    list.add(answerValue);
+                }
+                // Set Font-Size of List
+                list.setFontSize(12);
+
+                // Generate a PNG of the Egogram to put it into the pdf
+                Image img = new Image(this.saveAsPng(scaleValues));
+
+                // Add all elements
+                doc.add(p);
+                doc.add(pEmpty);
+                doc.add(img);
+                doc.add(pEmpty);
+                doc.add(list);
+
+                // Close the PDF
+                doc.close();
+
+                // Delete the Temp Image File
+                File tempImage = new File(String.valueOf(pngTemp));
+                tempImage.deleteOnExit();
+
             }
-            // Set Font-Size of List
-            list.setFontSize(12);
 
-            // Generate a PNG of the Egogram to put it into the pdf
-            Image img = new Image(this.saveAsPng(scaleValues));
-
-            // Add all elements
-            doc.add(p);
-            doc.add(pEmpty);
-            doc.add(img);
-            doc.add(pEmpty);
-            doc.add(list);
-
-            // Close the PDF
-            doc.close();
-
-            // Delete the Temp Image File
-            File tempImage = new File(String.valueOf(pngTemp));
-            tempImage.deleteOnExit();
-
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
 
     }
@@ -187,7 +192,7 @@ public class ResultToPdf {
         XYChart.Series<String, Number> series3 = new XYChart.Series<>();
         XYChart.Series<String, Number> series4 = new XYChart.Series<>();
         XYChart.Series<String, Number> series5 = new XYChart.Series<>();
-        
+
         if (scaleValues.get(0) < 30) {
             series1.getData().add(new XYChart.Data<>(criticalAdultMe, scaleValues.get(0)));
         } else if (scaleValues.get(0) > 30 && scaleValues.get(0) < 70) {
