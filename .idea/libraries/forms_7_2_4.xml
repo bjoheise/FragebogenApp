@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="forms-7.2.4">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/forms/7.2.4/forms-7.2.4.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
