@@ -2,6 +2,10 @@
   <library name="commons-7.2.4">
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/commons/7.2.4/commons-7.2.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/layout/7.2.4/layout-7.2.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/kernel/7.2.4/kernel-7.2.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/io/7.2.4/io-7.2.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/forms/7.2.4/forms-7.2.4.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
