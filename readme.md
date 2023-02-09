@@ -1,13 +1,12 @@
 # Egogramm
 
-<!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
 ![GitHub repo size](https://img.shields.io/github/repo-size/bjoheise/FragebogenApp)
 ![GitHub contributors](https://img.shields.io/github/contributors/bjoheise/FragebogenApp)
 ![GitHub stars](https://img.shields.io/github/stars/bjoheise/FragebogenApp?style=social)
 
 Project name is a `Tool` that allows `Users` to do `generate an Egogramm and save it as PDF`. This Application is part
-of retraining to
-become an IT specialist in application development at [CBM Projektmanagement](https://cbm-projektmanagement.de/).
+of retraining to become an IT specialist in application development
+at [CBM Projektmanagement](https://cbm-projektmanagement.de/).
 
 **Do not take the results seriously!**
 
@@ -26,9 +25,8 @@ Thanks to the following people who have contributed to this project:
 * [@bloxxor](https://github.com/bloxxor)
 * [@t0mnas](https://github.com/t0mnas)
 
-## Contributing to <project_name>
+## Contributing to FragebogenApp
 
-<!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
 To contribute to FragebogenApp, follow these steps:
 
 1. Fork this repository.
