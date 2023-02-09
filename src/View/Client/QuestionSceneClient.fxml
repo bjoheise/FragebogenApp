@@ -28,7 +28,7 @@
                 </RadioButton>
          </children>
       </HBox>
-        <Button fx:id="nextButton" layoutX="220.0" layoutY="184.0" mnemonicParsing="false" onAction="#nextQuestion" prefHeight="32.0" prefWidth="145.0" stylesheets="@../../Res/hover.css" text="    Weitermachen" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="220.0">
+        <Button fx:id="nextButton" layoutX="220.0" layoutY="183.0" mnemonicParsing="false" onAction="#nextQuestion" prefHeight="32.0" prefWidth="145.0" stylesheets="@../../Res/hover.css" text="    Weitermachen" textAlignment="RIGHT" textFill="WHITE" AnchorPane.leftAnchor="220.0">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
@@ -39,14 +39,14 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Text fx:id="labelQuestion" layoutX="135.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" textOrigin="BOTTOM" wrappingWidth="315.0" />
+        <Text fx:id="labelQuestion" layoutX="135.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" textOrigin="BOTTOM" wrappingWidth="315.0" />
         <Label fx:id="questionCounter" layoutX="251.0" layoutY="235.0" prefHeight="17.0" prefWidth="107.0" text="Label" />
       <ImageView fitHeight="229.0" fitWidth="235.0" layoutX="-34.0" layoutY="158.0" opacity="0.62" pickOnBounds="true" preserveRatio="true" rotate="-12.5">
          <image>
             <Image url="@../../Res/anja-logo-fix-low-opacity3.png" />
          </image>
       </ImageView>
-        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="224.0" layoutY="184.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="224.0" layoutY="183.0" onMouseClicked="#onMouseClicked" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../Res/continue_icon.png" />
             </image>
