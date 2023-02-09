@@ -129,7 +129,6 @@ public class ResultToPdf {
 
         // Add the Elements to the Scene: Chart and two Lines
         ((Group) scene.getRoot()).getChildren().add(this.buildChart(scaleValues));
-//        ((Group) scene.getRoot()).getChildren().add(this.testBarChart());
         ((Group) scene.getRoot()).getChildren().add(line30);
         ((Group) scene.getRoot()).getChildren().add(line70);
 
