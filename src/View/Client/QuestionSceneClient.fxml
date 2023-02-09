@@ -39,7 +39,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Text fx:id="labelQuestion" layoutX="135.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" textOrigin="BOTTOM" wrappingWidth="315.0" />
+        <Text fx:id="labelQuestion" layoutX="135.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" textOrigin="BOTTOM" wrappingWidth="315.0" />
         <Label fx:id="questionCounter" layoutX="251.0" layoutY="235.0" prefHeight="17.0" prefWidth="107.0" text="Label" />
       <ImageView fitHeight="229.0" fitWidth="235.0" layoutX="-34.0" layoutY="158.0" opacity="0.62" pickOnBounds="true" preserveRatio="true" rotate="-12.5">
          <image>
