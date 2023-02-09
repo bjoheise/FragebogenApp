@@ -1,43 +1,61 @@
 package Fragebogen.Controller;
 
 import Fragebogen.Egogram;
-import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.*;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class StartSceneController {
 
     public TextField pseudonymInput;
-
     public static String pseudonym;
-    public static Button onButtonClientId;
+    public Button buttonClientId;
 
     /**
-     * Load Scene for Client
-     *
-     * @throws IOException If fxml not found
-     *
+     * @throws IOException If TextField is empty
      */
-
-    //HIER DIE METHODE UM DEN INTERVIEW BUTTON DISABLED ZU MACHEN
-    public void onTextfieldInput(ActionEvent actionEvent) {
-
-    }
-
-
     public void onButtonClientClick() throws IOException {
 
         // First, store the variable to static
         pseudonym = pseudonymInput.getText();
 
-        Egogram.instance.loadScene("Client/IntroSceneClient.fxml");
+        String pseudonymCheck = pseudonym.replaceAll("\\s+", "");
+
+        if (pseudonymCheck.chars().count() <= 5) {
+
+            Alert alert = new Alert(
+                    Alert.AlertType.WARNING,
+                    "Das Pseudonym muss mindestens 5 Zeichen enthalten (keine Leerzeichen).",
+                    ButtonType.OK
+            );
+
+            alert.showAndWait();
+
+        } else {
+
+            Alert alert = new Alert(
+                    Alert.AlertType.CONFIRMATION,
+                    "Gewähltes Pseudonym: " + pseudonym,
+                    ButtonType.CANCEL,
+                    ButtonType.OK
+            );
+
+            alert.showAndWait();
+
+            if (Objects.equals(alert.getResult().getText(), "OK")) {
+                Egogram.instance.loadScene("Client/IntroSceneClient.fxml");
+            }
+
+        }
+
     }
 
-
-    public void onMouseClickedInterview(MouseEvent mouseEvent) throws IOException {
+    /**
+     * @throws IOException If not clicked
+     */
+    public void onMouseClickedInterview() throws IOException {
         onButtonClientClick();
     }
+
 }
