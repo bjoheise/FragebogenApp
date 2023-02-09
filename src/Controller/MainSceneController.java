@@ -39,8 +39,9 @@ public class MainSceneController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
         alert.setTitle("FragebogenApp");
-        alert.setHeaderText("made by Flo,Thoma,Björn,Julez");
-        alert.setContentText("FragebogenApp für den Fragebogen Egogramm");
+        alert.setHeaderText("Die Antwort auf alles ist 42.");
+        alert.setContentText("made by Julez, Flo, Thomas & Björn");
+
         alert.setGraphic(null);
         alert.show();
 
