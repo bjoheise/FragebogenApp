@@ -2,6 +2,7 @@ package Fragebogen.Controller;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
@@ -35,13 +36,13 @@ public class MainSceneController {
 
     }
 
-    public void onInfoClick(ActionEvent actionEvent) {
+   public void onInfoClick(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
         alert.setTitle("FragebogenApp");
         alert.setHeaderText("Die Antwort auf alles ist 42.");
         alert.setContentText("made by Julez, Flo, Thomas & Björn");
-
+        alert.showAndWait();
         alert.setGraphic(null);
         alert.show();
 

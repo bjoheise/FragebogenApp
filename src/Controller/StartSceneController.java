@@ -22,14 +22,15 @@ public class StartSceneController {
 
         String pseudonymCheck = pseudonym.replaceAll("\\s+", "");
 
-        if (pseudonymCheck.chars().count() <= 5) {
+        if (pseudonymCheck.chars().count() < 5) {
 
             Alert alert = new Alert(
                     Alert.AlertType.WARNING,
-                    "Das Pseudonym muss mindestens 5 Zeichen enthalten (keine Leerzeichen).",
+                    "",
                     ButtonType.OK
-            );
 
+            );
+            alert.setHeaderText("Das Pseudonym muss mindestens 5 Zeichen enthalten (keine Leerzeichen).");
             alert.showAndWait();
 
         } else {
